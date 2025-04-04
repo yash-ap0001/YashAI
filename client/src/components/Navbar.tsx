@@ -49,7 +49,7 @@ const Navbar = () => {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <DigitalBrainLogo className="w-12 h-12" />
+            <DigitalBrainLogo className="h-10 w-auto" />
           </a>
           
           <div className="hidden lg:flex items-center space-x-8">

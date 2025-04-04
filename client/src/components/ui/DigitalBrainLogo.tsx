@@ -4,144 +4,116 @@ interface LogoProps {
   className?: string;
 }
 
-// Simple digital brain logo component
+// Stylish YashAI Logo Component
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
-      width="48" 
+      width="160" 
       height="48" 
-      viewBox="0 0 48 48" 
+      viewBox="0 0 180 48" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Brain Circuit Background */}
-      <circle cx="24" cy="24" r="19" fill="url(#brain-bg-gradient)" fillOpacity="0.2" />
-      
-      {/* Main Brain Shape */}
+      {/* Y */}
       <path 
-        d="M24 7C15.716 7 9 13.716 9 22C9 25.283 10.0293 28.3177 11.7635 30.7635C12.3754 31.6275 13.0678 32.4142 13.8301 33.1172C14.8989 34.1006 16.1313 34.9074 17.4863 35.4902C19.4837 36.3782 21.6903 36.8652 24 36.8652C26.3097 36.8652 28.5163 36.3782 30.5137 35.4902C31.8687 34.9074 33.1011 34.1006 34.1699 33.1172C34.9322 32.4142 35.6246 31.6275 36.2365 30.7635C37.9707 28.3177 39 25.283 39 22C39 13.716 32.284 7 24 7Z" 
-        stroke="url(#brain-outline-gradient)"
-        strokeWidth="1.5"
-        fill="none"
+        d="M14 8L22 20L30 8M22 20V40" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="4" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
       />
       
-      {/* Brain Circuit Lines */}
+      {/* a */}
       <path 
-        d="M16 20C19 17 29 17 32 20" 
-        stroke="url(#circuit-gradient)" 
-        strokeWidth="1.2" 
+        d="M48 25C45 22 38 22 35 25C32 28 32 34 35 37C38 40 45 40 48 37V25M48 31H35" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* s */}
+      <path 
+        d="M55 27C55 24 62 22 66 25C70 28 63 31 59 31C55 31 52 34 55 37C58 40 65 40 68 37" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* h */}
+      <path 
+        d="M75 10V40M75 25C78 22 85 22 88 25V40M75 25C78 22 85 22 88 25" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* A */}
+      <path 
+        d="M100 40L108 10L116 40M103 30H113" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* I */}
+      <path 
+        d="M123 10V40" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+
+      {/* Digital circuit decoration for dot over the i */}
+      <circle cx="123" cy="8" r="3" fill="url(#gold-fill-gradient)" />
+
+      {/* Digital circuit decorations */}
+      <path 
+        d="M30 20C35 20 40 20 45 20" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="1.5" 
         strokeLinecap="round"
+        strokeDasharray="1 3" 
       />
+      
+      <circle cx="46" cy="19" r="1.5" fill="url(#gold-fill-gradient)" />
+      
       <path 
-        d="M16 28C19 31 29 31 32 28" 
-        stroke="url(#circuit-gradient)" 
-        strokeWidth="1.2" 
+        d="M92 25C95 25 98 25 101 25" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="1.5" 
         strokeLinecap="round"
+        strokeDasharray="1 3" 
       />
       
-      {/* Left Hemisphere Lines */}
+      <circle cx="100" cy="25" r="1.5" fill="url(#gold-fill-gradient)" />
+      
       <path 
-        d="M19 15C17 18 17 30 19 33" 
-        stroke="url(#left-gradient)" 
-        strokeWidth="1.2" 
+        d="M118 30C120 30 122 30 124 30" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="1.5" 
         strokeLinecap="round"
-        strokeDasharray="1 2"
+        strokeDasharray="1 3" 
       />
       
-      {/* Right Hemisphere Lines */}
-      <path 
-        d="M29 15C31 18 31 30 29 33" 
-        stroke="url(#right-gradient)" 
-        strokeWidth="1.2" 
-        strokeLinecap="round"
-        strokeDasharray="1 2"
-      />
+      <circle cx="118" cy="30" r="1.5" fill="url(#gold-fill-gradient)" />
       
-      {/* Middle Connection */}
-      <path 
-        d="M24 15V33" 
-        stroke="url(#middle-gradient)" 
-        strokeWidth="1" 
-        strokeLinecap="round"
-        strokeDasharray="1 3"
-      />
-      
-      {/* Horizontal Connections */}
-      <path 
-        d="M15 24H33" 
-        stroke="url(#horizontal-gradient)" 
-        strokeWidth="1" 
-        strokeLinecap="round"
-        strokeDasharray="1 3"
-      />
-      
-      {/* Digital Nodes - Larger central nodes */}
-      <circle cx="24" cy="24" r="2.5" fill="url(#center-node-gradient)" />
-      
-      {/* Digital Nodes - Connection points */}
-      <circle cx="19" cy="15" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="19" cy="33" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="29" cy="15" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="29" cy="33" r="1.5" fill="url(#node-gradient)" />
-      
-      {/* Digital Nodes - Edge nodes */}
-      <circle cx="15" cy="24" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="33" cy="24" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="24" cy="15" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="24" cy="33" r="1.5" fill="url(#node-gradient)" />
-      
-      {/* Digital Nodes - Internal network nodes */}
-      <circle cx="21" cy="21" r="1" fill="url(#node-gradient)" />
-      <circle cx="27" cy="21" r="1" fill="url(#node-gradient)" />
-      <circle cx="21" cy="27" r="1" fill="url(#node-gradient)" />
-      <circle cx="27" cy="27" r="1" fill="url(#node-gradient)" />
-      
-      {/* Gradients */}
+      {/* Gold Gradients */}
       <defs>
-        <radialGradient id="brain-bg-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) rotate(90) scale(24)">
-          <stop stopColor="#60A5FA" />
-          <stop offset="1" stopColor="#2DD4BF" />
-        </radialGradient>
-        
-        <linearGradient id="brain-outline-gradient" x1="9" y1="22" x2="39" y2="22" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3B82F6" />
-          <stop offset="1" stopColor="#2DD4BF" />
+        <linearGradient id="gold-gradient" x1="10" y1="24" x2="140" y2="24" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FFC107" />
+          <stop offset="0.5" stopColor="#FFD700" />
+          <stop offset="1" stopColor="#F59E0B" />
         </linearGradient>
         
-        <linearGradient id="circuit-gradient" x1="16" y1="24" x2="32" y2="24" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3B82F6" />
-          <stop offset="1" stopColor="#2DD4BF" />
-        </linearGradient>
-        
-        <linearGradient id="left-gradient" x1="17" y1="24" x2="19" y2="24" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3B82F6" />
-          <stop offset="0.5" stopColor="#38BDF8" />
-        </linearGradient>
-        
-        <linearGradient id="right-gradient" x1="29" y1="24" x2="31" y2="24" gradientUnits="userSpaceOnUse">
-          <stop offset="0.5" stopColor="#38BDF8" />
-          <stop offset="1" stopColor="#2DD4BF" />
-        </linearGradient>
-        
-        <linearGradient id="middle-gradient" x1="24" y1="15" x2="24" y2="33" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3B82F6" />
-          <stop offset="1" stopColor="#2DD4BF" />
-        </linearGradient>
-        
-        <linearGradient id="horizontal-gradient" x1="15" y1="24" x2="33" y2="24" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3B82F6" />
-          <stop offset="1" stopColor="#2DD4BF" />
-        </linearGradient>
-        
-        <radialGradient id="node-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) rotate(90) scale(20)">
-          <stop stopColor="#60A5FA" />
-          <stop offset="1" stopColor="#2DD4BF" />
-        </radialGradient>
-        
-        <radialGradient id="center-node-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) rotate(90) scale(4)">
-          <stop stopColor="#93C5FD" />
-          <stop offset="1" stopColor="#2DD4BF" />
+        <radialGradient id="gold-fill-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(90 24) rotate(90) scale(24)">
+          <stop stopColor="#FBBF24" />
+          <stop offset="1" stopColor="#D97706" />
         </radialGradient>
       </defs>
     </svg>
