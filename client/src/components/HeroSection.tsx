@@ -116,11 +116,21 @@ const HeroSection = () => {
                   ease: "easeInOut"
                 }}
               >
-                <img 
-                  src="https://images.unsplash.com/photo-1655720833734-6a1ad0ab8d17?q=80&w=800&auto=format&fit=crop" 
-                  alt="AI neural network visualization" 
-                  className="rounded-xl shadow-2xl max-w-full h-auto object-cover"
-                />
+                <div className="rounded-xl shadow-2xl overflow-hidden">
+                  <video 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="w-full h-auto object-cover"
+                  >
+                    <source 
+                      src="https://assets.mixkit.co/videos/preview/mixkit-spinning-globe-of-the-earth-in-a-dark-space-7972-large.mp4" 
+                      type="video/mp4" 
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </motion.div>
               
               <motion.div 
@@ -174,7 +184,7 @@ const HeroSection = () => {
           }}
         >
           <a 
-            href="#clients" 
+            href="#services" 
             aria-label="Scroll down"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}

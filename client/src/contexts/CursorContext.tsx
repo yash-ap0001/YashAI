@@ -8,14 +8,18 @@ type CursorContextType = {
   isVisible: boolean;
 };
 
-const CursorContext = createContext<CursorContextType | null>(null);
+// Initialize with default values
+const defaultContextValue: CursorContextType = {
+  isHovering: false,
+  setIsHovering: () => {},
+  cursorPosition: { x: -100, y: -100 },
+  isVisible: false
+};
+
+const CursorContext = createContext<CursorContextType>(defaultContextValue);
 
 export const useCursor = () => {
-  const context = useContext(CursorContext);
-  if (!context) {
-    throw new Error('useCursor must be used within a CursorProvider');
-  }
-  return context;
+  return useContext(CursorContext);
 };
 
 type CursorProviderProps = {
