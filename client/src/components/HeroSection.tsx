@@ -51,16 +51,22 @@ const HeroSection = () => {
       ref={sectionRef}
       className="min-h-screen relative flex items-center overflow-hidden bg-[#0F172A] pt-20"
     >
-      {/* Static globe image background that matches the reference */}
+      {/* Full screen video of blue digital globe */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <div className="absolute inset-0 bg-[#0A1428] z-0"></div>
-        <div className="absolute bottom-0 left-0 right-0 z-1">
-          <img 
-            src="https://raw.githubusercontent.com/gioboa/gioboa.github.io/c7b69a0ebdd81b471a5572cca00e1d02c911a848/banner.jpg" 
-            alt="Digital Earth Globe" 
-            className="w-full"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute bottom-0 w-full h-full object-cover z-1 opacity-80"
+        >
+          <source
+            src="https://static.videezy.com/system/resources/previews/000/051/482/original/20190826_Digital_Earth_loop_02.mp4"
+            type="video/mp4"
           />
-        </div>
+          Your browser does not support the video tag.
+        </video>
       </div>
       
       <div className="container mx-auto px-6 py-16 relative z-10">
