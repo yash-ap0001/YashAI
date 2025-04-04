@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Using Google Fonts instead of local fonts */
+/* Space Grotesk and Inter fonts are loaded from Google Fonts in index.html */
+
 @layer base {
   :root {
     --background: 222 47% 11%;
@@ -52,7 +55,7 @@
 
 @layer components {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-500 via-purple-500 to-blue-600;
   }
   
   .glass {

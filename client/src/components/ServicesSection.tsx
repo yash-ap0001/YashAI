@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import GlassCard from '@/components/ui/GlassCard';
 import { services, processSteps } from '@/constants/services';
 import { useCursor } from '@/contexts/CursorContext';
+import ServiceHighlight from '@/components/ServiceHighlight';
 
 const ServicesSection = () => {
   const { setIsHovering } = useCursor();
@@ -15,6 +16,16 @@ const ServicesSection = () => {
       }
     }
   };
+
+  // Find featured services for highlighting
+  const modernizationService = services.find(service => service.name === "Modernization");
+  const strategyService = services.find(service => service.name === "Strategy");
+  const cloudService = services.find(service => service.name === "Cloud");
+  
+  // Get the list of services that aren't featured
+  const regularServices = services.filter(service => 
+    !["Modernization", "Strategy", "Cloud"].includes(service.name)
+  );
 
   return (
     <section id="services" className="py-24 bg-dark-900 relative">
@@ -37,48 +48,61 @@ const ServicesSection = () => {
           </p>
         </motion.div>
         
+        {/* Featured Service Highlights */}
+        {strategyService && (
+          <ServiceHighlight service={strategyService} />
+        )}
+        
+        {modernizationService && (
+          <ServiceHighlight service={modernizationService} reverse={true} />
+        )}
+        
+        {cloudService && (
+          <ServiceHighlight service={cloudService} />
+        )}
+        
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {services.map((service, index) => (
-            <GlassCard 
-              key={index}
-              className="p-6 transition-all duration-500 hover:shadow-xl hover:shadow-primary-900/20"
-              delay={index}
-              withHover
-            >
-              <div className="text-amber-500 text-3xl mb-4">
-                <i className={`fas ${service.icon}`}></i>
-              </div>
-              <h3 className="font-space text-xl font-bold mb-3">{service.name}</h3>
-              <ul className="space-y-4">
-                {service.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start">
-                    <div className="mr-3 mt-1 text-teal-500"><i className="fas fa-check-circle"></i></div>
-                    <div>
-                      <h4 className="font-medium mb-1">{item.title}</h4>
-                      <p className="text-gray-400 text-sm">{item.description}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6">
-                <motion.a 
-                  href="#" 
-                  className="text-amber-500 hover:text-amber-400 flex items-center text-sm font-medium"
-                  whileHover={{ x: 5 }}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  Learn more <i className="fas fa-arrow-right ml-2"></i>
-                </motion.a>
-              </div>
-            </GlassCard>
-          ))}
+          {regularServices.map((service, index) => (
+              <GlassCard 
+                key={index}
+                className="p-6 transition-all duration-500 hover:shadow-xl hover:shadow-primary-900/20"
+                delay={index}
+                withHover
+              >
+                <div className="text-amber-500 text-3xl mb-4">
+                  <i className={`fas ${service.icon}`}></i>
+                </div>
+                <h3 className="font-space text-xl font-bold mb-3">{service.name}</h3>
+                <ul className="space-y-4">
+                  {service.items.map((item, itemIndex) => (
+                    <li key={itemIndex} className="flex items-start">
+                      <div className="mr-3 mt-1 text-teal-500"><i className="fas fa-check-circle"></i></div>
+                      <div>
+                        <h4 className="font-medium mb-1">{item.title}</h4>
+                        <p className="text-gray-400 text-sm">{item.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6">
+                  <motion.a 
+                    href="#" 
+                    className="text-amber-500 hover:text-amber-400 flex items-center text-sm font-medium"
+                    whileHover={{ x: 5 }}
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                  >
+                    Learn more <i className="fas fa-arrow-right ml-2"></i>
+                  </motion.a>
+                </div>
+              </GlassCard>
+            ))}
         </motion.div>
         
         {/* Process Visualization */}

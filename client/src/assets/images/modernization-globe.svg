@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E1F4E" />
+    </linearGradient>
+    <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0.6" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient)" />
+  
+  <!-- Glow effect -->
+  <circle cx="400" cy="300" r="220" fill="url(#glow)" />
+  
+  <!-- Globe base -->
+  <circle cx="400" cy="300" r="150" fill="url(#globeGradient)" stroke="#38BDF8" stroke-width="1" opacity="0.8" />
+  
+  <!-- Grid lines - longitude -->
+  <ellipse cx="400" cy="300" rx="150" ry="25" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  <ellipse cx="400" cy="300" rx="150" ry="50" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  <ellipse cx="400" cy="300" rx="150" ry="75" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  <ellipse cx="400" cy="300" rx="150" ry="100" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  <ellipse cx="400" cy="300" rx="150" ry="125" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  
+  <!-- Grid lines - latitude -->
+  <line x1="250" y1="300" x2="550" y2="300" stroke="#38BDF8" stroke-width="0.5" opacity="0.4" />
+  <path d="M 250 275 Q 400 225 550 275" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  <path d="M 250 325 Q 400 375 550 325" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  <path d="M 260 250 Q 400 175 540 250" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  <path d="M 260 350 Q 400 425 540 350" stroke="#38BDF8" stroke-width="0.5" fill="none" opacity="0.4" />
+  
+  <!-- Connection Points -->
+  <circle cx="300" cy="250" r="4" fill="#38BDF8" />
+  <circle cx="480" cy="320" r="4" fill="#38BDF8" />
+  <circle cx="350" cy="370" r="4" fill="#38BDF8" />
+  <circle cx="420" cy="240" r="4" fill="#38BDF8" />
+  <circle cx="380" cy="310" r="4" fill="#38BDF8" />
+  
+  <!-- Connection Lines -->
+  <line x1="300" y1="250" x2="380" y2="310" stroke="#38BDF8" stroke-width="1" />
+  <line x1="480" y1="320" x2="380" y2="310" stroke="#38BDF8" stroke-width="1" />
+  <line x1="350" y1="370" x2="380" y2="310" stroke="#38BDF8" stroke-width="1" />
+  <line x1="420" y1="240" x2="380" y2="310" stroke="#38BDF8" stroke-width="1" />
+  
+  <!-- Data Nodes -->
+  <g transform="translate(300, 250)">
+    <circle r="8" fill="#4F46E5" />
+    <circle r="12" fill="none" stroke="#4F46E5" stroke-width="1">
+      <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <g transform="translate(480, 320)">
+    <circle r="8" fill="#4F46E5" />
+    <circle r="12" fill="none" stroke="#4F46E5" stroke-width="1">
+      <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <g transform="translate(350, 370)">
+    <circle r="8" fill="#4F46E5" />
+    <circle r="12" fill="none" stroke="#4F46E5" stroke-width="1">
+      <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <g transform="translate(420, 240)">
+    <circle r="8" fill="#4F46E5" />
+    <circle r="12" fill="none" stroke="#4F46E5" stroke-width="1">
+      <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <g transform="translate(380, 310)">
+    <circle r="10" fill="#F59E0B" />
+    <circle r="15" fill="none" stroke="#F59E0B" stroke-width="1">
+      <animate attributeName="r" values="15;25;15" dur="3s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Floating Particles -->
+  <g opacity="0.6">
+    <circle cx="360" cy="200" r="2" fill="#38BDF8">
+      <animate attributeName="cy" values="200;190;200" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="450" cy="260" r="2" fill="#38BDF8">
+      <animate attributeName="cx" values="450;460;450" dur="5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="340" cy="330" r="2" fill="#38BDF8">
+      <animate attributeName="cy" values="330;340;330" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="500" cy="350" r="2" fill="#38BDF8">
+      <animate attributeName="cx" values="500;490;500" dur="4.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="390" cy="390" r="2" fill="#38BDF8">
+      <animate attributeName="cy" values="390;380;390" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+</svg>

@@ -7,6 +7,7 @@ export type Service = {
   name: string;
   icon: string;
   items: ServiceItem[];
+  backgroundImage?: string;
 };
 
 export const services: Service[] = [
@@ -22,7 +23,8 @@ export const services: Service[] = [
         title: "AI-Celerate",
         description: "Accelerate business transformation through targeted AI solution deployment."
       }
-    ]
+    ],
+    backgroundImage: '/src/assets/images/strategy-diagram.svg'
   },
   {
     name: "Data",
@@ -78,7 +80,8 @@ export const services: Service[] = [
         title: "Modernization as a Service",
         description: "Continuous modernization services to keep your technology stack current."
       }
-    ]
+    ],
+    backgroundImage: '/src/assets/images/modernization-globe.svg'
   },
   {
     name: "Cloud",
@@ -92,7 +95,8 @@ export const services: Service[] = [
         title: "Cloud Managed Services",
         description: "Comprehensive management and optimization of your cloud environment."
       }
-    ]
+    ],
+    backgroundImage: '/src/assets/images/cloud-services.svg'
   }
 ];
 
