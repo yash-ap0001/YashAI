@@ -4,13 +4,13 @@ interface LogoProps {
   className?: string;
 }
 
-// Digital Brain with YashAI text Logo Component
+// Digital Brain with normal YashAI text Logo Component
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
-      width="160" 
+      width="150" 
       height="48" 
-      viewBox="0 0 180 48" 
+      viewBox="0 0 150 48" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -97,75 +97,14 @@ const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
       <circle cx="21" cy="27" r="1" fill="url(#gold-node-gradient)" />
       <circle cx="27" cy="27" r="1" fill="url(#gold-node-gradient)" />
       
-      {/* YashAI Text */}
-      {/* Y */}
-      <path 
-        d="M58 16L66 28L74 16M66 28V40" 
-        stroke="url(#gold-gradient)" 
-        strokeWidth="3" 
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-      />
-      
-      {/* a */}
-      <path 
-        d="M83 28C80 25 73 25 70 28C67 31 67 37 70 40C73 43 80 43 83 40V28M83 34H70" 
-        stroke="url(#gold-gradient)" 
-        strokeWidth="2.5" 
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-      />
-      
-      {/* s */}
-      <path 
-        d="M90 30C90 27 97 25 101 28C105 31 98 34 94 34C90 34 87 37 90 40C93 43 100 43 103 40" 
-        stroke="url(#gold-gradient)" 
-        strokeWidth="2.5" 
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-      />
-      
-      {/* h */}
-      <path 
-        d="M110 16V40M110 28C113 25 120 25 123 28V40M110 28C113 25 120 25 123 28" 
-        stroke="url(#gold-gradient)" 
-        strokeWidth="2.5" 
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-      />
-      
-      {/* A */}
-      <path 
-        d="M135 40L143 16L151 40M138 34H148" 
-        stroke="url(#gold-gradient)" 
-        strokeWidth="2.5" 
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-      />
-      
-      {/* I */}
-      <path 
-        d="M158 16V40" 
-        stroke="url(#gold-gradient)" 
-        strokeWidth="2.5" 
-        strokeLinecap="round" 
-        strokeLinejoin="round"
-      />
-
-      {/* Digital circuit decoration for dot over the i */}
-      <circle cx="158" cy="14" r="2" fill="url(#gold-fill-gradient)" />
-
-      {/* Connection between brain and text */}
-      <path 
-        d="M42 24H55" 
-        stroke="url(#gold-gradient)" 
-        strokeWidth="1" 
-        strokeLinecap="round"
-        strokeDasharray="1 3" 
-      />
-      
-      <circle cx="42" cy="24" r="1.5" fill="url(#gold-fill-gradient)" />
-      <circle cx="55" cy="24" r="1.5" fill="url(#gold-fill-gradient)" />
+      {/* Regular YashAI Text */}
+      <text x="50" y="32" 
+        fill="url(#gold-gradient)" 
+        fontFamily="Arial, Helvetica, sans-serif" 
+        fontWeight="bold" 
+        fontSize="20">
+        YashAI
+      </text>
       
       {/* Gradients */}
       <defs>
@@ -214,7 +153,7 @@ const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
           <stop offset="1" stopColor="#F59E0B" />
         </radialGradient>
         
-        <linearGradient id="gold-gradient" x1="58" y1="24" x2="166" y2="24" gradientUnits="userSpaceOnUse">
+        <linearGradient id="gold-gradient" x1="50" y1="24" x2="120" y2="24" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC107" />
           <stop offset="0.5" stopColor="#FFD700" />
           <stop offset="1" stopColor="#F59E0B" />
