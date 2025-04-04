@@ -34,12 +34,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center mb-6">
-              <div className="mr-3">
-                <DigitalBrainLogo className="w-9 h-9" />
-              </div>
-              <div>
-                <span className="font-space font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">YashAI</span>
-              </div>
+              <DigitalBrainLogo className="w-11 h-11" />
             </div>
             <p className="text-gray-400 mb-6">
               Transforming businesses through innovative AI solutions and digital modernization strategies.

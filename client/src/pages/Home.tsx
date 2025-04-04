@@ -14,12 +14,12 @@ const Home = () => {
 
   useEffect(() => {
     // Set document title
-    document.title = 'YashAI Solutions | AI Software and Solutions';
+    document.title = 'YashAI | Intelligent Software Solutions';
     
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'YashAI Solutions provides cutting-edge AI software and solutions for enterprise clients seeking innovation and digital transformation.');
+      metaDescription.setAttribute('content', 'YashAI provides cutting-edge artificial intelligence software and solutions for enterprise clients seeking innovation and digital transformation.');
     }
   }, []);
 

@@ -49,12 +49,7 @@ const Navbar = () => {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <div className="mr-3">
-              <DigitalBrainLogo className="w-10 h-10" />
-            </div>
-            <div>
-              <span className="font-space font-bold text-xl lg:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">YashAI</span>
-            </div>
+            <DigitalBrainLogo className="w-12 h-12" />
           </a>
           
           <div className="hidden lg:flex items-center space-x-8">

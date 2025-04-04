@@ -4,6 +4,7 @@ interface LogoProps {
   className?: string;
 }
 
+// Simple digital brain logo component
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
@@ -15,59 +16,131 @@ const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
       className={className}
     >
       {/* Brain Circuit Background */}
-      <g className="brain-circuits">
-        <path d="M24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C34.4934 43 43 34.4934 43 24C43 13.5066 34.4934 5 24 5Z" stroke="url(#circuit-gradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="1 3"/>
-        
-        <path d="M16 18C17.5 16.5 20 15 24 15C28 15 30.5 16.5 32 18" stroke="url(#circuit-gradient)" strokeWidth="1" strokeLinecap="round"/>
-        <path d="M32 30C30.5 31.5 28 33 24 33C20 33 17.5 31.5 16 30" stroke="url(#circuit-gradient)" strokeWidth="1" strokeLinecap="round"/>
-        
-        <circle cx="14" cy="24" r="1.5" fill="url(#node-gradient)" />
-        <circle cx="34" cy="24" r="1.5" fill="url(#node-gradient)" />
-        <circle cx="24" cy="14" r="1.5" fill="url(#node-gradient)" />
-        <circle cx="24" cy="34" r="1.5" fill="url(#node-gradient)" />
-        
-        <path d="M14 24H34" stroke="url(#circuit-gradient)" strokeWidth="1" strokeLinecap="round" strokeDasharray="1 2"/>
-        <path d="M24 14V34" stroke="url(#circuit-gradient)" strokeWidth="1" strokeLinecap="round" strokeDasharray="1 2"/>
-      </g>
+      <circle cx="24" cy="24" r="19" fill="url(#brain-bg-gradient)" fillOpacity="0.2" />
       
-      {/* Stylized Y for YashAI */}
-      <path d="M14 13L20 22L26 13" stroke="url(#y-gradient)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M20 22V33" stroke="url(#y-gradient)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Main Brain Shape */}
+      <path 
+        d="M24 7C15.716 7 9 13.716 9 22C9 25.283 10.0293 28.3177 11.7635 30.7635C12.3754 31.6275 13.0678 32.4142 13.8301 33.1172C14.8989 34.1006 16.1313 34.9074 17.4863 35.4902C19.4837 36.3782 21.6903 36.8652 24 36.8652C26.3097 36.8652 28.5163 36.3782 30.5137 35.4902C31.8687 34.9074 33.1011 34.1006 34.1699 33.1172C34.9322 32.4142 35.6246 31.6275 36.2365 30.7635C37.9707 28.3177 39 25.283 39 22C39 13.716 32.284 7 24 7Z" 
+        stroke="url(#brain-outline-gradient)"
+        strokeWidth="1.5"
+        fill="none"
+      />
       
-      {/* AI Text */}
-      <path d="M28 25L30 18H32L34 25" stroke="url(#ai-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M29 23H33" stroke="url(#ai-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M36 18V25" stroke="url(#ai-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M36 18V25" stroke="url(#ai-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M36 22H38" stroke="url(#ai-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Brain Circuit Lines */}
+      <path 
+        d="M16 20C19 17 29 17 32 20" 
+        stroke="url(#circuit-gradient)" 
+        strokeWidth="1.2" 
+        strokeLinecap="round"
+      />
+      <path 
+        d="M16 28C19 31 29 31 32 28" 
+        stroke="url(#circuit-gradient)" 
+        strokeWidth="1.2" 
+        strokeLinecap="round"
+      />
       
-      {/* Digital Nodes */}
-      <circle cx="20" cy="22" r="2" fill="url(#node-gradient)" />
-      <circle cx="26" cy="13" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="14" cy="13" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="20" cy="33" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="36" cy="22" r="1.5" fill="url(#node-gradient)" />
-      <circle cx="31" cy="23" r="1.5" fill="url(#node-gradient)" />
+      {/* Left Hemisphere Lines */}
+      <path 
+        d="M19 15C17 18 17 30 19 33" 
+        stroke="url(#left-gradient)" 
+        strokeWidth="1.2" 
+        strokeLinecap="round"
+        strokeDasharray="1 2"
+      />
+      
+      {/* Right Hemisphere Lines */}
+      <path 
+        d="M29 15C31 18 31 30 29 33" 
+        stroke="url(#right-gradient)" 
+        strokeWidth="1.2" 
+        strokeLinecap="round"
+        strokeDasharray="1 2"
+      />
+      
+      {/* Middle Connection */}
+      <path 
+        d="M24 15V33" 
+        stroke="url(#middle-gradient)" 
+        strokeWidth="1" 
+        strokeLinecap="round"
+        strokeDasharray="1 3"
+      />
+      
+      {/* Horizontal Connections */}
+      <path 
+        d="M15 24H33" 
+        stroke="url(#horizontal-gradient)" 
+        strokeWidth="1" 
+        strokeLinecap="round"
+        strokeDasharray="1 3"
+      />
+      
+      {/* Digital Nodes - Larger central nodes */}
+      <circle cx="24" cy="24" r="2.5" fill="url(#center-node-gradient)" />
+      
+      {/* Digital Nodes - Connection points */}
+      <circle cx="19" cy="15" r="1.5" fill="url(#node-gradient)" />
+      <circle cx="19" cy="33" r="1.5" fill="url(#node-gradient)" />
+      <circle cx="29" cy="15" r="1.5" fill="url(#node-gradient)" />
+      <circle cx="29" cy="33" r="1.5" fill="url(#node-gradient)" />
+      
+      {/* Digital Nodes - Edge nodes */}
+      <circle cx="15" cy="24" r="1.5" fill="url(#node-gradient)" />
+      <circle cx="33" cy="24" r="1.5" fill="url(#node-gradient)" />
+      <circle cx="24" cy="15" r="1.5" fill="url(#node-gradient)" />
+      <circle cx="24" cy="33" r="1.5" fill="url(#node-gradient)" />
+      
+      {/* Digital Nodes - Internal network nodes */}
+      <circle cx="21" cy="21" r="1" fill="url(#node-gradient)" />
+      <circle cx="27" cy="21" r="1" fill="url(#node-gradient)" />
+      <circle cx="21" cy="27" r="1" fill="url(#node-gradient)" />
+      <circle cx="27" cy="27" r="1" fill="url(#node-gradient)" />
       
       {/* Gradients */}
       <defs>
-        <linearGradient id="circuit-gradient" x1="5" y1="24" x2="43" y2="24" gradientUnits="userSpaceOnUse">
+        <radialGradient id="brain-bg-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) rotate(90) scale(24)">
+          <stop stopColor="#60A5FA" />
+          <stop offset="1" stopColor="#2DD4BF" />
+        </radialGradient>
+        
+        <linearGradient id="brain-outline-gradient" x1="9" y1="22" x2="39" y2="22" gradientUnits="userSpaceOnUse">
           <stop stopColor="#3B82F6" />
           <stop offset="1" stopColor="#2DD4BF" />
         </linearGradient>
         
-        <linearGradient id="y-gradient" x1="14" y1="23" x2="26" y2="23" gradientUnits="userSpaceOnUse">
+        <linearGradient id="circuit-gradient" x1="16" y1="24" x2="32" y2="24" gradientUnits="userSpaceOnUse">
           <stop stopColor="#3B82F6" />
           <stop offset="1" stopColor="#2DD4BF" />
         </linearGradient>
         
-        <linearGradient id="ai-gradient" x1="28" y1="21.5" x2="38" y2="21.5" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#F59E0B" />
-          <stop offset="1" stopColor="#EC4899" />
+        <linearGradient id="left-gradient" x1="17" y1="24" x2="19" y2="24" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#3B82F6" />
+          <stop offset="0.5" stopColor="#38BDF8" />
+        </linearGradient>
+        
+        <linearGradient id="right-gradient" x1="29" y1="24" x2="31" y2="24" gradientUnits="userSpaceOnUse">
+          <stop offset="0.5" stopColor="#38BDF8" />
+          <stop offset="1" stopColor="#2DD4BF" />
+        </linearGradient>
+        
+        <linearGradient id="middle-gradient" x1="24" y1="15" x2="24" y2="33" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#3B82F6" />
+          <stop offset="1" stopColor="#2DD4BF" />
+        </linearGradient>
+        
+        <linearGradient id="horizontal-gradient" x1="15" y1="24" x2="33" y2="24" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#3B82F6" />
+          <stop offset="1" stopColor="#2DD4BF" />
         </linearGradient>
         
         <radialGradient id="node-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) rotate(90) scale(20)">
           <stop stopColor="#60A5FA" />
+          <stop offset="1" stopColor="#2DD4BF" />
+        </radialGradient>
+        
+        <radialGradient id="center-node-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) rotate(90) scale(4)">
+          <stop stopColor="#93C5FD" />
           <stop offset="1" stopColor="#2DD4BF" />
         </radialGradient>
       </defs>

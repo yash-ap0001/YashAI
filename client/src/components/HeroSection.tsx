@@ -86,7 +86,7 @@ const HeroSection = () => {
               <span className="text-gradient ml-2">Intelligent AI</span> Solutions
             </h1>
             <p className="text-lg text-gray-300 mb-8 max-w-lg">
-              YashAI Solutions delivers cutting-edge artificial intelligence and machine learning technologies to drive innovation and efficiency for enterprise organizations.
+              YashAI delivers cutting-edge artificial intelligence and machine learning technologies to drive innovation and efficiency for enterprise organizations.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <motion.a 
