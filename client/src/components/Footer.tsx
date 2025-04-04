@@ -1,4 +1,5 @@
 import { useCursor } from '@/contexts/CursorContext';
+import DigitalBrainLogo from '@/components/ui/DigitalBrainLogo';
 
 type FooterLinkProps = {
   href: string;
@@ -33,12 +34,11 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center mb-6">
-              <div className="mr-2 text-amber-600 text-3xl">
-                <i className="fas fa-brain"></i>
+              <div className="mr-3">
+                <DigitalBrainLogo className="w-9 h-9" />
               </div>
               <div>
-                <span className="font-space font-bold text-xl">YashAI</span>
-                <span className="text-teal-500 font-space font-medium text-lg">Solutions</span>
+                <span className="font-space font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">YashAI</span>
               </div>
             </div>
             <p className="text-gray-400 mb-6">
@@ -115,7 +115,7 @@ const FooterSection = () => {
         
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} YashAI Solutions. All rights reserved.
+            &copy; {currentYear} YashAI. All rights reserved.
           </p>
           <div className="flex space-x-6">
             {['Privacy Policy', 'Terms of Service', 'Cookies Policy'].map((text, index) => (

@@ -3,6 +3,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { navigationLinks } from '@/constants/navigationLinks';
 import { cn } from '@/lib/utils';
 import { useCursor } from '@/contexts/CursorContext';
+import DigitalBrainLogo from '@/components/ui/DigitalBrainLogo';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,12 +49,11 @@ const Navbar = () => {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <div className="mr-2 text-amber-600 text-4xl">
-              <i className="fas fa-brain"></i>
+            <div className="mr-3">
+              <DigitalBrainLogo className="w-10 h-10" />
             </div>
             <div>
-              <span className="font-space font-bold text-xl lg:text-2xl">YashAI</span>
-              <span className="text-teal-500 font-space font-medium text-lg lg:text-xl">Solutions</span>
+              <span className="font-space font-bold text-xl lg:text-2xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">YashAI</span>
             </div>
           </a>
           
