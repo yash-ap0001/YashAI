@@ -49,24 +49,15 @@ const HeroSection = () => {
     <section 
       id="home" 
       ref={sectionRef}
-      className="min-h-screen relative flex items-center overflow-hidden bg-hero-pattern pt-20"
+      className="min-h-screen relative flex items-center overflow-hidden bg-[#0F172A] pt-20"
     >
-      {/* Full screen video background with overlay */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
-        <video 
-          className="object-cover w-full h-full"
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-        >
-          <source 
-            src="https://cdn.cuberto.com/cb/projects/0001/header.mp4" 
-            type="video/mp4" 
-          />
-          Your browser does not support the video tag.
-        </video>
+      {/* Background with large globe element at bottom */}
+      <div className="absolute bottom-0 right-0 w-full h-[70%] overflow-hidden">
+        <img 
+          src="https://storage.googleapis.com/msgsndr/UyloUwxMBzNexj0K7pcZ/media/6464a5e2b76bf86a7ffd5ee9.png" 
+          alt="Digital Globe" 
+          className="object-cover absolute bottom-0 w-full"
+        />
       </div>
       
       <div className="container mx-auto px-6 py-16 relative z-10">
@@ -138,7 +129,7 @@ const HeroSection = () => {
                     className="w-full h-auto object-cover"
                   >
                     <source 
-                      src="https://assets.mixkit.co/videos/preview/mixkit-digital-earth-rotating-loop-3d-rendering-19322-large.mp4" 
+                      src="https://assets.mixkit.co/videos/preview/mixkit-digital-technology-earth-rotating-loop-1390-large.mp4" 
                       type="video/mp4" 
                     />
                     Your browser does not support the video tag.
