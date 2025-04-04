@@ -4,101 +4,99 @@ interface LogoProps {
   className?: string;
 }
 
-// Brain Lightbulb Logo Component inspired by the reference image
+// Brain Logo Component inspired by the reference image - dual-sided brain only
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
       width="170" 
-      height="60" 
-      viewBox="0 0 170 60" 
+      height="55" 
+      viewBox="0 0 170 55" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Brain Lightbulb Symbol */}
-      <g transform="translate(20, 2) scale(0.85)">
-        {/* Lightbulb Base */}
+      {/* Brain Symbol */}
+      <g transform="translate(25, 3) scale(0.9)">
+        {/* Brain Outline */}
         <path 
-          d="M60 42C60 42 53 42 53 46C53 50 53 54 60 54C67 54 67 50 67 46C67 42 60 42 60 42Z" 
-          fill="#141452" 
-        />
-        
-        {/* Lightbulb Connector Lines */}
-        <rect x="53" y="46" width="14" height="2" fill="#141452" />
-        <rect x="55" y="50" width="10" height="2" fill="#141452" />
-        
-        {/* Lightbulb Outline */}
-        <path 
-          d="M40 20C40 8.954 48.954 0 60 0C71.046 0 80 8.954 80 20C80 25.5 77.5 29 75 33C72.5 37 70 39 70 42H50C50 39 47.5 37 45 33C42.5 29 40 25.5 40 20Z" 
+          d="M40 10C40 6 47 2 60 2C73 2 80 6 80 10C80 14 76 18 76 24C76 30 80 34 80 38C80 42 73 46 60 46C47 46 40 42 40 38C40 34 44 30 44 24C44 18 40 14 40 10Z" 
           fill="none" 
           stroke="#141452" 
-          strokeWidth="2"
+          strokeWidth="1.8"
         />
         
         {/* Center Dividing Line */}
         <path 
-          d="M60 0V42" 
+          d="M60 2V46" 
           stroke="#141452" 
-          strokeWidth="2" 
+          strokeWidth="1.5" 
           strokeDasharray="2 2"
         />
         
         {/* Right Brain Side - Organic */}
         <path 
-          d="M61 5C70 5 75 14 75 20C75 26 70 30 70 34C70 38 67 40 63 40C61 40 61 36 61 5Z" 
+          d="M61 6C68 7 76 12 76 18C76 24 72 28 71 32C70 37 67 41 64 42C62 43 61 43 61 6Z" 
           fill="none" 
           stroke="#141452" 
           strokeWidth="1.5"
         />
         
         <path 
-          d="M70 15C67 17 64 19 62 19" 
+          d="M72 13C69 15 66 17 63 17" 
           stroke="#141452" 
-          strokeWidth="1.5" 
+          strokeWidth="1.2" 
           fill="none"
         />
         
         <path 
-          d="M70 24C67 26 64 28 62 28" 
+          d="M72 23C69 25 66 27 63 27" 
           stroke="#141452" 
-          strokeWidth="1.5" 
+          strokeWidth="1.2" 
           fill="none"
         />
         
         <path 
-          d="M67 34C65 35 63 36 62 36" 
+          d="M68 33C65 35 63 36 62 36" 
           stroke="#141452" 
-          strokeWidth="1.5" 
+          strokeWidth="1.2" 
+          fill="none"
+        />
+
+        <path 
+          d="M65 39C64 40 63 41 62 41" 
+          stroke="#141452" 
+          strokeWidth="1.2" 
           fill="none"
         />
         
         {/* Left Brain Side - Digital Network */}
-        <circle cx="45" cy="10" r="2.5" fill="url(#orange-gradient)" />
-        <circle cx="52" cy="8" r="2" fill="url(#orange-gradient)" />
-        <circle cx="47" cy="17" r="3" fill="url(#orange-gradient)" />
-        <circle cx="55" cy="15" r="1.8" fill="url(#orange-gradient)" />
-        <circle cx="50" cy="24" r="2.3" fill="url(#orange-gradient)" />
-        <circle cx="57" cy="22" r="1.5" fill="url(#orange-gradient)" />
-        <circle cx="45" cy="30" r="2.7" fill="url(#orange-gradient)" />
-        <circle cx="53" cy="32" r="1.7" fill="url(#orange-gradient)" />
-        <circle cx="49" cy="38" r="2" fill="url(#orange-gradient)" />
+        <circle cx="44" cy="10" r="2.2" fill="url(#orange-gradient)" />
+        <circle cx="51" cy="8" r="1.8" fill="url(#orange-gradient)" />
+        <circle cx="47" cy="16" r="2.5" fill="url(#orange-gradient)" />
+        <circle cx="55" cy="14" r="1.6" fill="url(#orange-gradient)" />
+        <circle cx="50" cy="22" r="2.0" fill="url(#orange-gradient)" />
+        <circle cx="57" cy="20" r="1.4" fill="url(#orange-gradient)" />
+        <circle cx="45" cy="28" r="2.3" fill="url(#orange-gradient)" />
+        <circle cx="53" cy="30" r="1.5" fill="url(#orange-gradient)" />
+        <circle cx="48" cy="36" r="2.0" fill="url(#orange-gradient)" />
+        <circle cx="54" cy="40" r="1.6" fill="url(#orange-gradient)" />
         
         {/* Network Connections */}
         <path 
-          d="M45 10L52 8M52 8L47 17M47 17L55 15M55 15L50 24M50 24L57 22M57 22L45 30M45 30L53 32M53 32L49 38" 
+          d="M44 10L51 8M51 8L47 16M47 16L55 14M55 14L50 22M50 22L57 20M57 20L45 28M45 28L53 30M53 30L48 36M48 36L54 40" 
           stroke="url(#orange-line-gradient)" 
-          strokeWidth="1" 
+          strokeWidth="0.8" 
         />
       </g>
       
       {/* YashAI Text */}
       <text 
         x="85" 
-        y="50" 
+        y="46" 
         textAnchor="middle" 
         fontFamily="Arial, sans-serif" 
         fontWeight="bold" 
-        fontSize="16" 
+        fontSize="18" 
         fill="#141452"
       >
         YashAI
