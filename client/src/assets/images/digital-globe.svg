@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2E65" />
+      <stop offset="50%" stop-color="#104584" />
+      <stop offset="100%" stop-color="#1A65B8" />
+    </linearGradient>
+    <radialGradient id="globeRadial" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#1E90FF" stop-opacity="0.8" />
+      <stop offset="80%" stop-color="#0A2E65" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#051D45" stop-opacity="1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Base Globe -->
+  <circle cx="400" cy="400" r="380" fill="url(#globeRadial)" />
+  
+  <!-- Grid lines - vertical meridians -->
+  <g opacity="0.3" stroke="#4B9BFF" stroke-width="1">
+    <ellipse cx="400" cy="400" rx="380" ry="380" fill="none" />
+    <ellipse cx="400" cy="400" rx="380" ry="280" fill="none" />
+    <ellipse cx="400" cy="400" rx="380" ry="180" fill="none" />
+    <ellipse cx="400" cy="400" rx="380" ry="80" fill="none" />
+    
+    <!-- Grid lines - horizontal parallels -->
+    <line x1="20" y1="400" x2="780" y2="400" />
+    <line x1="400" y1="20" x2="400" y2="780" />
+    <line x1="120" y1="120" x2="680" y2="680" />
+    <line x1="120" y1="680" x2="680" y2="120" />
+  </g>
+  
+  <!-- Connection points and data nodes -->
+  <g>
+    <!-- Main data clusters -->
+    <circle cx="250" cy="300" r="8" fill="#4FC3F7" opacity="0.8">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="550" cy="340" r="6" fill="#4FC3F7" opacity="0.7">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="480" cy="220" r="5" fill="#4FC3F7" opacity="0.6">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="320" cy="500" r="7" fill="#4FC3F7" opacity="0.8">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="520" r="5" fill="#4FC3F7" opacity="0.7">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4.2s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Connection lines -->
+    <line x1="250" y1="300" x2="480" y2="220" stroke="#4FC3F7" stroke-width="1" opacity="0.4">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3s" repeatCount="indefinite" />
+    </line>
+    <line x1="550" y1="340" x2="480" y2="220" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+      <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4s" repeatCount="indefinite" />
+    </line>
+    <line x1="320" y1="500" x2="250" y2="300" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+      <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3.5s" repeatCount="indefinite" />
+    </line>
+    <line x1="600" y1="520" x2="550" y2="340" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+      <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4.2s" repeatCount="indefinite" />
+    </line>
+    <line x1="320" y1="500" x2="600" y2="520" stroke="#4FC3F7" stroke-width="1" opacity="0.2">
+      <animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.8s" repeatCount="indefinite" />
+    </line>
+  </g>
+  
+  <!-- Extra data points -->
+  <g opacity="0.7">
+    <!-- Smaller connection points scattered around -->
+    <circle cx="200" cy="400" r="2" fill="#64B5F6">
+      <animate attributeName="r" values="1;3;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="300" cy="200" r="1.5" fill="#64B5F6">
+      <animate attributeName="r" values="1;2;1" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="500" cy="400" r="2" fill="#64B5F6">
+      <animate attributeName="r" values="1;3;1" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="600" r="1.5" fill="#64B5F6">
+      <animate attributeName="r" values="1;2;1" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="300" r="2" fill="#64B5F6">
+      <animate attributeName="r" values="1;3;1" dur="4s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Scanning effect -->
+  <circle cx="400" cy="400" r="380" fill="none" stroke="#00BCD4" stroke-width="5" opacity="0">
+    <animate attributeName="r" values="0;380" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.4;0" dur="3s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Digital circuit elements -->
+  <g opacity="0.6">
+    <path d="M250,300 C280,320 300,280 330,300" stroke="#29B6F6" stroke-width="1" fill="none">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" />
+    </path>
+    <path d="M480,220 C500,250 520,200 550,340" stroke="#29B6F6" stroke-width="1" fill="none">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" />
+    </path>
+    <path d="M320,500 C350,480 380,520 400,460" stroke="#29B6F6" stroke-width="1" fill="none">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" />
+    </path>
+  </g>
+</svg>

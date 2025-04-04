@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/ui/GlassCard';
 import { useCursor } from '@/contexts/CursorContext';
-// Import the globe image
-import globeImage from '@/assets/images/modernization-globe.png';
+// Import the custom digital globe SVG
+import digitalGlobe from '@/assets/images/digital-globe.svg';
 
 const HeroSection = () => {
   const { setIsHovering } = useCursor();
@@ -53,14 +53,14 @@ const HeroSection = () => {
       ref={sectionRef}
       className="min-h-screen relative flex items-center overflow-hidden bg-[#0F172A] pt-20"
     >
-      {/* Full screen blue digital globe background */}
+      {/* Full screen blue digital globe background with custom SVG */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <div className="absolute inset-0 bg-[#0A1428] z-0"></div>
-        <div className="absolute inset-0 z-1 opacity-90 animate-pulse">
+        <div className="absolute inset-0 z-1 flex items-center justify-center">
           <img 
-            src={globeImage} 
-            alt="Digital Earth Globe" 
-            className="w-full h-full object-cover opacity-70"
+            src={digitalGlobe} 
+            alt="Digital Earth Globe Network" 
+            className="w-full h-full object-contain"
           />
         </div>
       </div>
