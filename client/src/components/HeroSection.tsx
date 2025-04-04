@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import ParticleCanvas from '@/components/ui/ParticleCanvas';
 import GlassCard from '@/components/ui/GlassCard';
 import { useCursor } from '@/contexts/CursorContext';
 
@@ -52,8 +51,22 @@ const HeroSection = () => {
       ref={sectionRef}
       className="min-h-screen relative flex items-center overflow-hidden bg-hero-pattern pt-20"
     >
-      <div className="absolute inset-0 z-0">
-        <ParticleCanvas />
+      {/* Full screen video background with overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
+        <video 
+          className="object-cover w-full h-full"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source 
+            src="https://cdn.cuberto.com/cb/projects/0001/header.mp4" 
+            type="video/mp4" 
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
       
       <div className="container mx-auto px-6 py-16 relative z-10">
@@ -125,7 +138,7 @@ const HeroSection = () => {
                     className="w-full h-auto object-cover"
                   >
                     <source 
-                      src="https://assets.mixkit.co/videos/preview/mixkit-spinning-globe-of-the-earth-in-a-dark-space-7972-large.mp4" 
+                      src="https://assets.mixkit.co/videos/preview/mixkit-digital-earth-rotating-loop-3d-rendering-19322-large.mp4" 
                       type="video/mp4" 
                     />
                     Your browser does not support the video tag.
