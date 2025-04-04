@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/ui/GlassCard';
 import { useCursor } from '@/contexts/CursorContext';
+// Import the video directly
+import backgroundVideo from '@/assets/videos/fresche-homepage-90.mp4';
 
 const HeroSection = () => {
   const { setIsHovering } = useCursor();
@@ -56,18 +58,13 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[#0A1428] z-0"></div>
         <div className="absolute inset-0 z-1">
           <video 
+            src={backgroundVideo}
             autoPlay 
             loop 
             muted 
             playsInline
             className="w-full h-full object-cover"
-          >
-            <source 
-              src="/videos/fresche-homepage-90.mp4" 
-              type="video/mp4" 
-            />
-            Your browser does not support the video tag.
-          </video>
+          ></video>
         </div>
       </div>
       
