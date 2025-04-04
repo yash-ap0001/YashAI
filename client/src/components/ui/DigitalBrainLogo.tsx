@@ -4,81 +4,100 @@ interface LogoProps {
   className?: string;
 }
 
-// Text Logo with Organic Brain Component
+// Digital Circuit Brain Logo Component (based on the reference image)
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
-      width="180" 
-      height="45" 
-      viewBox="0 0 180 45" 
+      width="210" 
+      height="60" 
+      viewBox="0 0 210 60" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Organic Brain Logo */}
-      <g transform="translate(5, 2) scale(0.9)">
-        {/* Brain Outline */}
+      {/* Digital Circuit Brain Symbol */}
+      <g transform="translate(15, 5)">
+        {/* Brain Outline Shape */}
         <path 
-          d="M20 20C20 13 25 8 32 8C39 8 44 13 44 20C44 23 42 26 42 28C42 30 44 32 44 35C44 38 39 42 32 42C25 42 20 38 20 35C20 32 22 30 22 28C22 26 20 23 20 20Z" 
-          stroke="#0070f3" 
-          strokeWidth="1.5" 
-          fill="none"
-        />
-        
-        {/* Brain Detail Lines */}
-        <path 
-          d="M28 15C28 12 35 12 35 15C35 18 28 18 28 15Z" 
-          stroke="#0070f3" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        <path 
-          d="M35 20C35 17 42 17 42 20C42 23 35 23 35 20Z" 
-          stroke="#0070f3" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        <path 
-          d="M35 30C35 27 42 27 42 30C42 33 35 33 35 30Z" 
-          stroke="#0070f3" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        <path 
-          d="M28 35C28 32 35 32 35 35C35 38 28 38 28 35Z" 
-          stroke="#0070f3" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        <path 
-          d="M22 30C22 27 29 27 29 30C29 33 22 33 22 30Z" 
-          stroke="#0070f3" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        <path 
-          d="M22 20C22 17 29 17 29 20C29 23 22 23 22 20Z" 
+          d="M32 5C18 5 10 13 8 18C6 23 6 28 8 33C10 38 18 45 32 45C46 45 54 38 56 33C58 28 58 23 56 18C54 13 46 5 32 5Z" 
           stroke="#0070f3" 
           strokeWidth="1.2" 
           fill="none"
         />
         
-        {/* Center Fold */}
-        <path 
-          d="M32 8V42" 
-          stroke="#0070f3" 
-          strokeWidth="1" 
-          strokeDasharray="2 2"
-        />
+        {/* Digital Circuits - Top Left */}
+        <path d="M15 13H8V8" stroke="#0082fc" strokeWidth="1" />
+        <path d="M20 18H13V10" stroke="#0082fc" strokeWidth="1" />
+        <path d="M15 22H5V15" stroke="#0082fc" strokeWidth="1" />
+        <circle cx="8" cy="8" r="1.2" fill="#38bdf8" />
+        <circle cx="13" cy="10" r="1.2" fill="#38bdf8" />
+        <circle cx="15" cy="13" r="1.2" fill="#38bdf8" />
+        <circle cx="5" cy="15" r="1.2" fill="#38bdf8" />
+        <circle cx="20" cy="18" r="1.2" fill="#38bdf8" />
+        <circle cx="15" cy="22" r="1.2" fill="#38bdf8" />
+        
+        {/* Digital Circuits - Bottom Left */}
+        <path d="M15 35H5V42" stroke="#0082fc" strokeWidth="1" />
+        <path d="M20 30H10V38" stroke="#0082fc" strokeWidth="1" />
+        <path d="M18 25H12V32" stroke="#0082fc" strokeWidth="1" />
+        <circle cx="5" cy="42" r="1.2" fill="#38bdf8" />
+        <circle cx="10" cy="38" r="1.2" fill="#38bdf8" />
+        <circle cx="12" cy="32" r="1.2" fill="#38bdf8" />
+        <circle cx="15" cy="35" r="1.2" fill="#38bdf8" />
+        <circle cx="18" cy="25" r="1.2" fill="#38bdf8" />
+        <circle cx="20" cy="30" r="1.2" fill="#38bdf8" />
+        
+        {/* Digital Circuits - Top Right */}
+        <path d="M49 13H56V8" stroke="#0082fc" strokeWidth="1" />
+        <path d="M44 18H51V10" stroke="#0082fc" strokeWidth="1" />
+        <path d="M49 22H59V15" stroke="#0082fc" strokeWidth="1" />
+        <circle cx="56" cy="8" r="1.2" fill="#38bdf8" />
+        <circle cx="51" cy="10" r="1.2" fill="#38bdf8" />
+        <circle cx="49" cy="13" r="1.2" fill="#38bdf8" />
+        <circle cx="59" cy="15" r="1.2" fill="#38bdf8" />
+        <circle cx="44" cy="18" r="1.2" fill="#38bdf8" />
+        <circle cx="49" cy="22" r="1.2" fill="#38bdf8" />
+        
+        {/* Digital Circuits - Bottom Right */}
+        <path d="M49 35H59V42" stroke="#0082fc" strokeWidth="1" />
+        <path d="M44 30H54V38" stroke="#0082fc" strokeWidth="1" />
+        <path d="M46 25H52V32" stroke="#0082fc" strokeWidth="1" />
+        <circle cx="59" cy="42" r="1.2" fill="#38bdf8" />
+        <circle cx="54" cy="38" r="1.2" fill="#38bdf8" />
+        <circle cx="52" cy="32" r="1.2" fill="#38bdf8" />
+        <circle cx="49" cy="35" r="1.2" fill="#38bdf8" />
+        <circle cx="46" cy="25" r="1.2" fill="#38bdf8" />
+        <circle cx="44" cy="30" r="1.2" fill="#38bdf8" />
+        
+        {/* More Circuit Connections */}
+        <path d="M22 10H42" stroke="#0082fc" strokeWidth="1" strokeDasharray="1 2" />
+        <path d="M22 40H42" stroke="#0082fc" strokeWidth="1" strokeDasharray="1 2" />
+        <path d="M15 25H25" stroke="#0082fc" strokeWidth="1" strokeDasharray="1 2" />
+        <path d="M39 25H49" stroke="#0082fc" strokeWidth="1" strokeDasharray="1 2" />
+        
+        {/* Center "YA" Text */}
+        <text 
+          x="32" 
+          y="33" 
+          textAnchor="middle" 
+          dominantBaseline="middle"
+          fontFamily="Arial, sans-serif" 
+          fontWeight="bold" 
+          fontSize="18" 
+          fill="white"
+          letterSpacing="0"
+        >
+          YA
+        </text>
       </g>
       
-      {/* Text Logo */}
+      {/* Main Company Name */}
       <text 
-        x="65" 
-        y="29" 
+        x="130" 
+        y="34" 
         fontFamily="Arial, sans-serif" 
         fontWeight="bold" 
-        fontSize="24" 
+        fontSize="22" 
         fill="#0070f3"
         letterSpacing="0.5"
       >
