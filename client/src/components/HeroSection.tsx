@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/ui/GlassCard';
 import { useCursor } from '@/contexts/CursorContext';
-// Import the custom digital half-globe SVG
-import digitalGlobe from '@/assets/images/half-globe-bottom.svg';
 
 const HeroSection = () => {
   const { setIsHovering } = useCursor();
@@ -53,15 +51,23 @@ const HeroSection = () => {
       ref={sectionRef}
       className="min-h-screen relative flex items-center overflow-hidden bg-[#0F172A] pt-20"
     >
-      {/* Digital earth arc at bottom like reference image */}
+      {/* Digital earth video background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <div className="absolute inset-0 bg-[#0A1428] z-0"></div>
-        <div className="absolute bottom-[-200px] left-0 right-0 z-1 flex justify-center">
-          <img 
-            src={digitalGlobe} 
-            alt="Digital Earth Globe" 
-            className="w-full min-w-[1200px] h-auto object-contain"
-          />
+        <div className="absolute inset-0 z-1">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source 
+              src="/videos/fresche-homepage-90.mp4" 
+              type="video/mp4" 
+            />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
       
