@@ -4,122 +4,118 @@ interface LogoProps {
   className?: string;
 }
 
-// Modern Brain Symbol Logo
+// Brain Lightbulb Logo Component inspired by the reference image
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
       width="170" 
-      height="48" 
-      viewBox="0 0 170 48" 
+      height="60" 
+      viewBox="0 0 170 60" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Brain Symbol */}
-      <g transform="translate(0, 0)">
-        {/* Brain Outline */}
+      {/* Brain Lightbulb Symbol */}
+      <g transform="translate(20, 2) scale(0.85)">
+        {/* Lightbulb Base */}
         <path 
-          d="M27 6C27 6 32 10 32 14C32 18 28 19 28 22C28 25 32 27 32 30C32 33 28 38 21 38C14 38 10 33 10 30C10 27 14 25 14 22C14 19 10 18 10 14C10 10 15 6 15 6" 
-          stroke="url(#brain-gold-gradient)" 
-          strokeWidth="2.5" 
-          strokeLinecap="round"
+          d="M60 42C60 42 53 42 53 46C53 50 53 54 60 54C67 54 67 50 67 46C67 42 60 42 60 42Z" 
+          fill="#141452" 
+        />
+        
+        {/* Lightbulb Connector Lines */}
+        <rect x="53" y="46" width="14" height="2" fill="#141452" />
+        <rect x="55" y="50" width="10" height="2" fill="#141452" />
+        
+        {/* Lightbulb Outline */}
+        <path 
+          d="M40 20C40 8.954 48.954 0 60 0C71.046 0 80 8.954 80 20C80 25.5 77.5 29 75 33C72.5 37 70 39 70 42H50C50 39 47.5 37 45 33C42.5 29 40 25.5 40 20Z" 
+          fill="none" 
+          stroke="#141452" 
+          strokeWidth="2"
+        />
+        
+        {/* Center Dividing Line */}
+        <path 
+          d="M60 0V42" 
+          stroke="#141452" 
+          strokeWidth="2" 
+          strokeDasharray="2 2"
+        />
+        
+        {/* Right Brain Side - Organic */}
+        <path 
+          d="M61 5C70 5 75 14 75 20C75 26 70 30 70 34C70 38 67 40 63 40C61 40 61 36 61 5Z" 
+          fill="none" 
+          stroke="#141452" 
+          strokeWidth="1.5"
+        />
+        
+        <path 
+          d="M70 15C67 17 64 19 62 19" 
+          stroke="#141452" 
+          strokeWidth="1.5" 
           fill="none"
         />
         
-        {/* Center Line */}
         <path 
-          d="M21 6V38" 
-          stroke="url(#brain-gold-gradient)" 
-          strokeWidth="2" 
-          strokeLinecap="round"
-          strokeDasharray="1 3"
+          d="M70 24C67 26 64 28 62 28" 
+          stroke="#141452" 
+          strokeWidth="1.5" 
+          fill="none"
         />
         
-        {/* Left Brain Fold */}
         <path 
-          d="M14 14C18 14 18 22 14 22" 
-          stroke="url(#brain-gold-gradient)" 
-          strokeWidth="2" 
-          strokeLinecap="round"
+          d="M67 34C65 35 63 36 62 36" 
+          stroke="#141452" 
+          strokeWidth="1.5" 
+          fill="none"
         />
         
-        {/* Right Brain Fold */}
-        <path 
-          d="M28 14C24 14 24 22 28 22" 
-          stroke="url(#brain-gold-gradient)" 
-          strokeWidth="2" 
-          strokeLinecap="round"
-        />
+        {/* Left Brain Side - Digital Network */}
+        <circle cx="45" cy="10" r="2.5" fill="url(#orange-gradient)" />
+        <circle cx="52" cy="8" r="2" fill="url(#orange-gradient)" />
+        <circle cx="47" cy="17" r="3" fill="url(#orange-gradient)" />
+        <circle cx="55" cy="15" r="1.8" fill="url(#orange-gradient)" />
+        <circle cx="50" cy="24" r="2.3" fill="url(#orange-gradient)" />
+        <circle cx="57" cy="22" r="1.5" fill="url(#orange-gradient)" />
+        <circle cx="45" cy="30" r="2.7" fill="url(#orange-gradient)" />
+        <circle cx="53" cy="32" r="1.7" fill="url(#orange-gradient)" />
+        <circle cx="49" cy="38" r="2" fill="url(#orange-gradient)" />
         
-        {/* Bottom Left Brain Fold */}
+        {/* Network Connections */}
         <path 
-          d="M14 30C18 30 18 22 14 22" 
-          stroke="url(#brain-gold-gradient)" 
-          strokeWidth="2" 
-          strokeLinecap="round"
-        />
-        
-        {/* Bottom Right Brain Fold */}
-        <path 
-          d="M28 30C24 30 24 22 28 22" 
-          stroke="url(#brain-gold-gradient)" 
-          strokeWidth="2" 
-          strokeLinecap="round"
-        />
-        
-        {/* Connector Dots */}
-        <circle cx="14" cy="14" r="2" fill="url(#node-gold-gradient)" />
-        <circle cx="28" cy="14" r="2" fill="url(#node-gold-gradient)" />
-        <circle cx="14" cy="22" r="2" fill="url(#node-gold-gradient)" />
-        <circle cx="28" cy="22" r="2" fill="url(#node-gold-gradient)" />
-        <circle cx="14" cy="30" r="2" fill="url(#node-gold-gradient)" />
-        <circle cx="28" cy="30" r="2" fill="url(#node-gold-gradient)" />
-        <circle cx="21" cy="22" r="3" fill="url(#center-gold-gradient)" />
-        
-        {/* Neural connections */}
-        <path 
-          d="M14 14L21 22M28 14L21 22M14 30L21 22M28 30L21 22" 
-          stroke="url(#brain-gold-gradient)" 
+          d="M45 10L52 8M52 8L47 17M47 17L55 15M55 15L50 24M50 24L57 22M57 22L45 30M45 30L53 32M53 32L49 38" 
+          stroke="url(#orange-line-gradient)" 
           strokeWidth="1" 
-          strokeLinecap="round"
-          strokeDasharray="1 2"
         />
       </g>
       
       {/* YashAI Text */}
       <text 
-        x="48" 
-        y="28" 
+        x="85" 
+        y="50" 
+        textAnchor="middle" 
         fontFamily="Arial, sans-serif" 
         fontWeight="bold" 
-        fontSize="22" 
-        fill="url(#text-gold-gradient)"
+        fontSize="16" 
+        fill="#141452"
       >
         YashAI
       </text>
       
       {/* Gradients */}
       <defs>
-        <linearGradient id="brain-gold-gradient" x1="10" y1="22" x2="32" y2="22" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FFC107" />
-          <stop offset="0.5" stopColor="#FFD700" />
-          <stop offset="1" stopColor="#F59E0B" />
+        <linearGradient id="orange-gradient" x1="45" y1="8" x2="57" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#FFC107" />
+          <stop offset="0.5" stopColor="#FF9800" />
+          <stop offset="1" stopColor="#FF5722" />
         </linearGradient>
         
-        <radialGradient id="node-gold-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(21 22) rotate(90) scale(10)">
-          <stop stopColor="#FFC107" />
-          <stop offset="1" stopColor="#F59E0B" />
-        </radialGradient>
-        
-        <radialGradient id="center-gold-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(21 22) rotate(90) scale(4)">
-          <stop stopColor="#FFD700" />
-          <stop offset="1" stopColor="#F59E0B" />
-        </radialGradient>
-        
-        <linearGradient id="text-gold-gradient" x1="48" y1="28" x2="140" y2="28" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FFC107" />
-          <stop offset="0.5" stopColor="#FFD700" />
-          <stop offset="1" stopColor="#F59E0B" />
+        <linearGradient id="orange-line-gradient" x1="45" y1="8" x2="57" y2="38" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#FFC107" />
+          <stop offset="0.5" stopColor="#FF9800" />
+          <stop offset="1" stopColor="#FF5722" />
         </linearGradient>
       </defs>
     </svg>
