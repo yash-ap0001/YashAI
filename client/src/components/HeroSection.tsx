@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/ui/GlassCard';
 import { useCursor } from '@/contexts/CursorContext';
+// Import the globe image
+import globeImage from '@/assets/images/modernization-globe.png';
 
 const HeroSection = () => {
   const { setIsHovering } = useCursor();
@@ -51,22 +53,16 @@ const HeroSection = () => {
       ref={sectionRef}
       className="min-h-screen relative flex items-center overflow-hidden bg-[#0F172A] pt-20"
     >
-      {/* Full screen video of blue digital globe */}
+      {/* Full screen blue digital globe background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <div className="absolute inset-0 bg-[#0A1428] z-0"></div>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute bottom-0 w-full h-full object-cover z-1 opacity-80"
-        >
-          <source
-            src="https://static.videezy.com/system/resources/previews/000/051/482/original/20190826_Digital_Earth_loop_02.mp4"
-            type="video/mp4"
+        <div className="absolute inset-0 z-1 opacity-90 animate-pulse">
+          <img 
+            src={globeImage} 
+            alt="Digital Earth Globe" 
+            className="w-full h-full object-cover opacity-70"
           />
-          Your browser does not support the video tag.
-        </video>
+        </div>
       </div>
       
       <div className="container mx-auto px-6 py-16 relative z-10">
