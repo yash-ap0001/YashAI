@@ -4,13 +4,13 @@ interface LogoProps {
   className?: string;
 }
 
-// Digital Brain with normal YashAI text Logo Component
+// Digital Brain with stylish YashAI text Logo Component
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
-      width="150" 
+      width="160" 
       height="48" 
-      viewBox="0 0 150 48" 
+      viewBox="0 0 180 48" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
@@ -97,10 +97,22 @@ const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
       <circle cx="21" cy="27" r="1" fill="url(#gold-node-gradient)" />
       <circle cx="27" cy="27" r="1" fill="url(#gold-node-gradient)" />
       
-      {/* Regular YashAI Text */}
-      <text x="50" y="32" 
+      {/* Connection between brain and text */}
+      <path 
+        d="M42 24H55" 
+        stroke="url(#gold-gradient)" 
+        strokeWidth="1" 
+        strokeLinecap="round"
+        strokeDasharray="1 3" 
+      />
+      
+      <circle cx="42" cy="24" r="1.5" fill="url(#gold-fill-gradient)" />
+      <circle cx="55" cy="24" r="1.5" fill="url(#gold-fill-gradient)" />
+      
+      {/* YashAI Text - Regular Font */}
+      <text x="60" y="30" 
         fill="url(#gold-gradient)" 
-        fontFamily="Arial, Helvetica, sans-serif" 
+        fontFamily="Arial, sans-serif" 
         fontWeight="bold" 
         fontSize="20">
         YashAI
@@ -153,7 +165,7 @@ const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
           <stop offset="1" stopColor="#F59E0B" />
         </radialGradient>
         
-        <linearGradient id="gold-gradient" x1="50" y1="24" x2="120" y2="24" gradientUnits="userSpaceOnUse">
+        <linearGradient id="gold-gradient" x1="50" y1="24" x2="150" y2="24" gradientUnits="userSpaceOnUse">
           <stop stopColor="#FFC107" />
           <stop offset="0.5" stopColor="#FFD700" />
           <stop offset="1" stopColor="#F59E0B" />
