@@ -51,13 +51,21 @@ const HeroSection = () => {
       ref={sectionRef}
       className="min-h-screen relative flex items-center overflow-hidden bg-[#0F172A] pt-20"
     >
-      {/* Background with large globe element at bottom */}
-      <div className="absolute bottom-0 right-0 w-full h-[70%] overflow-hidden">
-        <img 
-          src="https://storage.googleapis.com/msgsndr/UyloUwxMBzNexj0K7pcZ/media/6464a5e2b76bf86a7ffd5ee9.png" 
-          alt="Digital Globe" 
-          className="object-cover absolute bottom-0 w-full"
-        />
+      {/* Full-width globe animation background */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute bottom-0 min-w-full min-h-full object-cover opacity-70"
+        >
+          <source 
+            src="https://cdn.pixabay.com/vimeo/689249790/Digital%20Earth%20-%20117546.mp4?width=1280&hash=52048e8b6d4c9e3a1e5b34b3db86704b5bdb3bab" 
+            type="video/mp4" 
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
       
       <div className="container mx-auto px-6 py-16 relative z-10">
