@@ -4,117 +4,117 @@ interface LogoProps {
   className?: string;
 }
 
-// Brain Logo Component inspired by the reference image - dual-sided brain only
+// Stylish YashAI Text-Only Logo Component
 const DigitalBrainLogo: React.FC<LogoProps> = ({ className = "" }) => {
   return (
     <svg 
-      width="170" 
-      height="55" 
-      viewBox="0 0 170 55" 
+      width="160" 
+      height="48" 
+      viewBox="0 0 160 48" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Brain Symbol */}
-      <g transform="translate(25, 3) scale(0.9)">
-        {/* Brain Outline */}
-        <path 
-          d="M40 10C40 6 47 2 60 2C73 2 80 6 80 10C80 14 76 18 76 24C76 30 80 34 80 38C80 42 73 46 60 46C47 46 40 42 40 38C40 34 44 30 44 24C44 18 40 14 40 10Z" 
-          fill="none" 
-          stroke="#141452" 
-          strokeWidth="1.8"
-        />
-        
-        {/* Center Dividing Line */}
-        <path 
-          d="M60 2V46" 
-          stroke="#141452" 
-          strokeWidth="1.5" 
-          strokeDasharray="2 2"
-        />
-        
-        {/* Right Brain Side - Organic */}
-        <path 
-          d="M61 6C68 7 76 12 76 18C76 24 72 28 71 32C70 37 67 41 64 42C62 43 61 43 61 6Z" 
-          fill="none" 
-          stroke="#141452" 
-          strokeWidth="1.5"
-        />
-        
-        <path 
-          d="M72 13C69 15 66 17 63 17" 
-          stroke="#141452" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        
-        <path 
-          d="M72 23C69 25 66 27 63 27" 
-          stroke="#141452" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        
-        <path 
-          d="M68 33C65 35 63 36 62 36" 
-          stroke="#141452" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
+      {/* Y */}
+      <path 
+        d="M14 8L22 20L30 8M22 20V40" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="4" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* a */}
+      <path 
+        d="M48 25C45 22 38 22 35 25C32 28 32 34 35 37C38 40 45 40 48 37V25M48 31H35" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* s */}
+      <path 
+        d="M55 27C55 24 62 22 66 25C70 28 63 31 59 31C55 31 52 34 55 37C58 40 65 40 68 37" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* h */}
+      <path 
+        d="M75 10V40M75 25C78 22 85 22 88 25V40M75 25C78 22 85 22 88 25" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* A */}
+      <path 
+        d="M100 40L108 10L116 40M103 30H113" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
+      
+      {/* I */}
+      <path 
+        d="M123 10V40" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="3.5" 
+        strokeLinecap="round" 
+        strokeLinejoin="round"
+      />
 
-        <path 
-          d="M65 39C64 40 63 41 62 41" 
-          stroke="#141452" 
-          strokeWidth="1.2" 
-          fill="none"
-        />
-        
-        {/* Left Brain Side - Digital Network */}
-        <circle cx="44" cy="10" r="2.2" fill="url(#orange-gradient)" />
-        <circle cx="51" cy="8" r="1.8" fill="url(#orange-gradient)" />
-        <circle cx="47" cy="16" r="2.5" fill="url(#orange-gradient)" />
-        <circle cx="55" cy="14" r="1.6" fill="url(#orange-gradient)" />
-        <circle cx="50" cy="22" r="2.0" fill="url(#orange-gradient)" />
-        <circle cx="57" cy="20" r="1.4" fill="url(#orange-gradient)" />
-        <circle cx="45" cy="28" r="2.3" fill="url(#orange-gradient)" />
-        <circle cx="53" cy="30" r="1.5" fill="url(#orange-gradient)" />
-        <circle cx="48" cy="36" r="2.0" fill="url(#orange-gradient)" />
-        <circle cx="54" cy="40" r="1.6" fill="url(#orange-gradient)" />
-        
-        {/* Network Connections */}
-        <path 
-          d="M44 10L51 8M51 8L47 16M47 16L55 14M55 14L50 22M50 22L57 20M57 20L45 28M45 28L53 30M53 30L48 36M48 36L54 40" 
-          stroke="url(#orange-line-gradient)" 
-          strokeWidth="0.8" 
-        />
-      </g>
+      {/* Digital circuit decoration for dot over the i */}
+      <circle cx="123" cy="8" r="3" fill="url(#blue-fill-gradient)" />
+
+      {/* Digital circuit decorations */}
+      <path 
+        d="M30 20C35 20 40 20 45 20" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="1.5" 
+        strokeLinecap="round"
+        strokeDasharray="1 3" 
+      />
       
-      {/* YashAI Text */}
-      <text 
-        x="85" 
-        y="46" 
-        textAnchor="middle" 
-        fontFamily="Arial, sans-serif" 
-        fontWeight="bold" 
-        fontSize="18" 
-        fill="#141452"
-      >
-        YashAI
-      </text>
+      <circle cx="46" cy="19" r="1.5" fill="url(#blue-fill-gradient)" />
       
-      {/* Gradients */}
+      <path 
+        d="M92 25C95 25 98 25 101 25" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="1.5" 
+        strokeLinecap="round"
+        strokeDasharray="1 3" 
+      />
+      
+      <circle cx="100" cy="25" r="1.5" fill="url(#blue-fill-gradient)" />
+      
+      <path 
+        d="M118 30C120 30 122 30 124 30" 
+        stroke="url(#blue-gradient)" 
+        strokeWidth="1.5" 
+        strokeLinecap="round"
+        strokeDasharray="1 3" 
+      />
+      
+      <circle cx="118" cy="30" r="1.5" fill="url(#blue-fill-gradient)" />
+      
+      {/* Blue Gradients */}
       <defs>
-        <linearGradient id="orange-gradient" x1="45" y1="8" x2="57" y2="38" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#FFC107" />
-          <stop offset="0.5" stopColor="#FF9800" />
-          <stop offset="1" stopColor="#FF5722" />
+        <linearGradient id="blue-gradient" x1="10" y1="24" x2="140" y2="24" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#0EA5E9" />
+          <stop offset="0.5" stopColor="#3B82F6" />
+          <stop offset="1" stopColor="#2563EB" />
         </linearGradient>
         
-        <linearGradient id="orange-line-gradient" x1="45" y1="8" x2="57" y2="38" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#FFC107" />
-          <stop offset="0.5" stopColor="#FF9800" />
-          <stop offset="1" stopColor="#FF5722" />
-        </linearGradient>
+        <radialGradient id="blue-fill-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(90 24) rotate(90) scale(24)">
+          <stop stopColor="#38BDF8" />
+          <stop offset="1" stopColor="#1D4ED8" />
+        </radialGradient>
       </defs>
     </svg>
   );
