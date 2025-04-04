@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2E65" />
+      <stop offset="50%" stop-color="#104584" />
+      <stop offset="100%" stop-color="#1A65B8" />
+    </linearGradient>
+    <radialGradient id="globeRadial" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#1E90FF" stop-opacity="0.6" />
+      <stop offset="80%" stop-color="#0A2E65" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#051D45" stop-opacity="1" />
+    </radialGradient>
+    <clipPath id="halfGlobeClip">
+      <rect x="400" y="0" width="400" height="800" />
+    </clipPath>
+  </defs>
+  
+  <!-- Base Globe - Half cut with clip path -->
+  <g clip-path="url(#halfGlobeClip)">
+    <circle cx="400" cy="400" r="380" fill="url(#globeRadial)" />
+    
+    <!-- Grid pattern - horizontal lines -->
+    <g stroke="#4B9BFF" stroke-width="1" opacity="0.3">
+      <path d="M 20,400 Q 400,480 780,400" fill="none" />
+      <path d="M 20,350 Q 400,430 780,350" fill="none" />
+      <path d="M 20,300 Q 400,380 780,300" fill="none" />
+      <path d="M 20,250 Q 400,330 780,250" fill="none" />
+      <path d="M 20,200 Q 400,280 780,200" fill="none" />
+      <path d="M 20,150 Q 400,230 780,150" fill="none" />
+      <path d="M 20,450 Q 400,530 780,450" fill="none" />
+      <path d="M 20,500 Q 400,580 780,500" fill="none" />
+      <path d="M 20,550 Q 400,630 780,550" fill="none" />
+      <path d="M 20,600 Q 400,680 780,600" fill="none" />
+      <path d="M 20,650 Q 400,730 780,650" fill="none" />
+    </g>
+    
+    <!-- Grid pattern - vertical lines -->
+    <g stroke="#4B9BFF" stroke-width="1" opacity="0.2">
+      <line x1="400" y1="20" x2="400" y2="780" />
+      <line x1="450" y1="20" x2="450" y2="780" />
+      <line x1="500" y1="20" x2="500" y2="780" />
+      <line x1="550" y1="20" x2="550" y2="780" />
+      <line x1="600" y1="20" x2="600" y2="780" />
+      <line x1="650" y1="20" x2="650" y2="780" />
+      <line x1="700" y1="20" x2="700" y2="780" />
+      <line x1="750" y1="20" x2="750" y2="780" />
+    </g>
+    
+    <!-- Digital elements -->
+    <g>
+      <!-- Binary code pattern background -->
+      <g fill="#29B6F6" opacity="0.15" font-family="monospace" font-size="8">
+        <text x="410" y="100">10101010101010101010</text>
+        <text x="420" y="110">01010101010101010101</text>
+        <text x="430" y="120">10101010101010101010</text>
+        <text x="440" y="130">01010101010101010101</text>
+        <text x="450" y="140">10101010101010101010</text>
+        <text x="460" y="150">01010101010101010101</text>
+        <text x="470" y="160">10101010101010101010</text>
+        <text x="480" y="170">01010101010101010101</text>
+        <text x="490" y="180">10101010101010101010</text>
+        <text x="500" y="190">01010101010101010101</text>
+        
+        <text x="520" y="300">10101010101010101010</text>
+        <text x="530" y="310">01010101010101010101</text>
+        <text x="540" y="320">10101010101010101010</text>
+        <text x="550" y="330">01010101010101010101</text>
+        <text x="560" y="340">10101010101010101010</text>
+        <text x="570" y="350">01010101010101010101</text>
+        
+        <text x="530" y="500">10101010101010101010</text>
+        <text x="540" y="510">01010101010101010101</text>
+        <text x="550" y="520">10101010101010101010</text>
+        <text x="560" y="530">01010101010101010101</text>
+        <text x="570" y="540">10101010101010101010</text>
+        <text x="580" y="550">01010101010101010101</text>
+      </g>
+      
+      <!-- Connection points and data nodes -->
+      <g>
+        <!-- Main data clusters -->
+        <circle cx="550" cy="340" r="6" fill="#4FC3F7" opacity="0.7">
+          <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="480" cy="220" r="5" fill="#4FC3F7" opacity="0.6">
+          <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="650" cy="500" r="7" fill="#4FC3F7" opacity="0.8">
+          <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="570" cy="580" r="5" fill="#4FC3F7" opacity="0.7">
+          <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4.2s" repeatCount="indefinite" />
+        </circle>
+        
+        <!-- Connection lines -->
+        <line x1="550" y1="340" x2="480" y2="220" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4s" repeatCount="indefinite" />
+        </line>
+        <line x1="650" y1="500" x2="550" y2="340" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3.5s" repeatCount="indefinite" />
+        </line>
+        <line x1="570" y1="580" x2="650" y2="500" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4.2s" repeatCount="indefinite" />
+        </line>
+        <line x1="480" y1="220" x2="570" y2="580" stroke="#4FC3F7" stroke-width="1" opacity="0.2">
+          <animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.8s" repeatCount="indefinite" />
+        </line>
+      </g>
+      
+      <!-- Extra data points -->
+      <g opacity="0.7">
+        <!-- Smaller connection points scattered around -->
+        <circle cx="520" cy="400" r="2" fill="#64B5F6">
+          <animate attributeName="r" values="1;3;1" dur="2s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="500" cy="200" r="1.5" fill="#64B5F6">
+          <animate attributeName="r" values="1;2;1" dur="3s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="600" cy="400" r="2" fill="#64B5F6">
+          <animate attributeName="r" values="1;3;1" dur="2.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="650" cy="600" r="1.5" fill="#64B5F6">
+          <animate attributeName="r" values="1;2;1" dur="3.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="700" cy="300" r="2" fill="#64B5F6">
+          <animate attributeName="r" values="1;3;1" dur="4s" repeatCount="indefinite" />
+        </circle>
+      </g>
+      
+      <!-- Scanning effect from edge of half globe -->
+      <rect x="400" y="0" width="5" height="800" fill="#00BCD4" opacity="0.3">
+        <animate attributeName="x" values="400;780;400" dur="8s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.6;0.1;0.6" dur="8s" repeatCount="indefinite" />
+      </rect>
+      
+      <!-- Digital circuit elements -->
+      <g opacity="0.6">
+        <path d="M480,220 C500,250 520,200 550,340" stroke="#29B6F6" stroke-width="1" fill="none">
+          <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" />
+        </path>
+        <path d="M650,500 C670,480 690,520 700,460" stroke="#29B6F6" stroke-width="1" fill="none">
+          <animate attributeName="opacity" values="0.2;0.6;0.2" dur="5s" repeatCount="indefinite" />
+        </path>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Edge highlight of the half globe -->
+  <path d="M 400,20 C 400,20 400,780 400,780" stroke="#4FC3F7" stroke-width="2" opacity="0.8" fill="none" />
+  
+  <!-- Left side with tech elements -->
+  <g opacity="0.2">
+    <!-- Circuit board pattern background -->
+    <g stroke="#29B6F6" stroke-width="1" fill="none">
+      <line x1="50" y1="100" x2="350" y2="100" />
+      <line x1="50" y1="200" x2="350" y2="200" />
+      <line x1="50" y1="300" x2="350" y2="300" />
+      <line x1="50" y1="400" x2="350" y2="400" />
+      <line x1="50" y1="500" x2="350" y2="500" />
+      <line x1="50" y1="600" x2="350" y2="600" />
+      <line x1="50" y1="700" x2="350" y2="700" />
+      
+      <line x1="100" y1="50" x2="100" y2="750" />
+      <line x1="200" y1="50" x2="200" y2="750" />
+      <line x1="300" y1="50" x2="300" y2="750" />
+    </g>
+    
+    <!-- Tech circuits -->
+    <g stroke="#4FC3F7" stroke-width="1" fill="none">
+      <path d="M 100,100 L 100,300 L 200,300 L 200,400 L 300,400 L 300,600" />
+      <path d="M 50,200 L 300,200 L 300,500 L 100,500 L 100,700" />
+      <circle cx="100" cy="100" r="10" />
+      <circle cx="300" cy="200" r="8" />
+      <circle cx="200" cy="400" r="12" />
+      <circle cx="100" cy="500" r="8" />
+      <circle cx="300" cy="600" r="10" />
+      <circle cx="100" cy="700" r="8" />
+      
+      <!-- Animated particles moving along paths -->
+      <circle r="3" fill="#29B6F6">
+        <animateMotion path="M 100,100 L 100,300 L 200,300 L 200,400 L 300,400 L 300,600" dur="10s" repeatCount="indefinite" />
+      </circle>
+      <circle r="2" fill="#29B6F6">
+        <animateMotion path="M 50,200 L 300,200 L 300,500 L 100,500 L 100,700" dur="8s" repeatCount="indefinite" />
+      </circle>
+    </g>
+  </g>
+</svg>

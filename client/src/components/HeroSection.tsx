@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '@/components/ui/GlassCard';
 import { useCursor } from '@/contexts/CursorContext';
-// Import the custom digital globe SVG
-import digitalGlobe from '@/assets/images/digital-globe.svg';
+// Import the custom digital half-globe SVG
+import digitalGlobe from '@/assets/images/half-globe-bottom.svg';
 
 const HeroSection = () => {
   const { setIsHovering } = useCursor();
@@ -53,14 +53,14 @@ const HeroSection = () => {
       ref={sectionRef}
       className="min-h-screen relative flex items-center overflow-hidden bg-[#0F172A] pt-20"
     >
-      {/* Full screen blue digital globe background with custom SVG */}
+      {/* Digital earth arc at bottom like reference image */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <div className="absolute inset-0 bg-[#0A1428] z-0"></div>
-        <div className="absolute inset-0 z-1 flex items-center justify-center">
+        <div className="absolute bottom-[-200px] left-0 right-0 z-1 flex justify-center">
           <img 
             src={digitalGlobe} 
-            alt="Digital Earth Globe Network" 
-            className="w-full h-full object-contain"
+            alt="Digital Earth Globe" 
+            className="w-full min-w-[1200px] h-auto object-contain"
           />
         </div>
       </div>
@@ -117,29 +117,51 @@ const HeroSection = () => {
           >
             <div className="relative">
               <motion.div 
-                className="hero-image animate-float"
-                animate={{ y: [0, -10, 0] }}
+                className="hero-image"
+                animate={{ 
+                  y: [0, -10, 0],
+                  scale: [1, 1.03, 1]
+                }}
                 transition={{ 
                   repeat: Infinity, 
                   duration: 6,
                   ease: "easeInOut"
                 }}
               >
-                <div className="rounded-xl shadow-2xl overflow-hidden">
-                  <video 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
-                    className="w-full h-auto object-cover"
-                  >
-                    <source 
-                      src="https://assets.mixkit.co/videos/preview/mixkit-digital-technology-earth-rotating-loop-1390-large.mp4" 
-                      type="video/mp4" 
-                    />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
+                <GlassCard className="p-4 shadow-2xl w-full" animate={false}>
+                  <div className="flex flex-col space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <div className="bg-blue-500 rounded-full w-3 h-3 animate-pulse"></div>
+                        <p className="text-sm font-medium text-white">Advanced AI Analytics</p>
+                      </div>
+                      <div className="text-xs text-blue-300">Live</div>
+                    </div>
+                    
+                    <div className="bg-gray-800/50 rounded-lg p-4">
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-teal-400">98%</div>
+                          <div className="text-xs text-gray-400">Accuracy</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-blue-400">5ms</div>
+                          <div className="text-xs text-gray-400">Response</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-purple-400">24/7</div>
+                          <div className="text-xs text-gray-400">Monitoring</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="w-full bg-gray-700/30 h-1 rounded-full overflow-hidden">
+                      <div className="bg-gradient-to-r from-blue-500 to-teal-500 h-full rounded-full" style={{ width: '78%' }}>
+                        <div className="absolute right-0 top-0 h-full w-2 bg-white/20 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                </GlassCard>
               </motion.div>
               
               <motion.div 
@@ -173,7 +195,7 @@ const HeroSection = () => {
                 <GlassCard className="p-4 shadow-lg" animate={false}>
                   <div className="flex items-center">
                     <div className="text-amber-500 mr-2">
-                      <i className="fas fa-lightbulb"></i>
+                      <i className="fas fa-chart-line"></i>
                     </div>
                     <p className="text-sm font-medium text-white">Intelligent Decision Support</p>
                   </div>

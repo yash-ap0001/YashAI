@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000px" height="500px" viewBox="0 0 1000 500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="globeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A2E65" />
+      <stop offset="50%" stop-color="#104584" />
+      <stop offset="100%" stop-color="#1A65B8" />
+    </linearGradient>
+    <radialGradient id="globeRadial" cx="50%" cy="100%" r="80%" fx="50%" fy="100%">
+      <stop offset="0%" stop-color="#1E90FF" stop-opacity="0.7" />
+      <stop offset="80%" stop-color="#0A2E65" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#051D45" stop-opacity="0.9" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Base Globe - Half circle at bottom -->
+  <g>
+    <ellipse cx="500" cy="800" rx="600" ry="600" fill="url(#globeRadial)" />
+    
+    <!-- Grid pattern - horizontal lines on globe -->
+    <g stroke="#4B9BFF" stroke-width="1" opacity="0.3">
+      <path d="M 50,600 Q 500,550 950,600" fill="none" />
+      <path d="M 100,650 Q 500,600 900,650" fill="none" />
+      <path d="M 150,700 Q 500,650 850,700" fill="none" />
+      <path d="M 200,750 Q 500,700 800,750" fill="none" />
+      <path d="M 250,800 Q 500,750 750,800" fill="none" />
+    </g>
+    
+    <!-- Grid pattern - vertical lines on globe -->
+    <g stroke="#4B9BFF" stroke-width="1" opacity="0.2">
+      <path d="M 300,500 L 300,900" fill="none" />
+      <path d="M 400,450 L 400,950" fill="none" />
+      <path d="M 500,400 L 500,1000" fill="none" />
+      <path d="M 600,450 L 600,950" fill="none" />
+      <path d="M 700,500 L 700,900" fill="none" />
+    </g>
+    
+    <!-- Digital elements -->
+    <g>
+      <!-- Binary code pattern background -->
+      <g fill="#29B6F6" opacity="0.15" font-family="monospace" font-size="8">
+        <text x="410" y="540">101010101010101</text>
+        <text x="430" y="560">010101010101010</text>
+        <text x="450" y="580">101010101010101</text>
+        <text x="470" y="600">010101010101010</text>
+        <text x="490" y="620">101010101010101</text>
+        
+        <text x="520" y="540">101010101010101</text>
+        <text x="540" y="560">010101010101010</text>
+        <text x="560" y="580">101010101010101</text>
+        <text x="580" y="600">010101010101010</text>
+        <text x="600" y="620">101010101010101</text>
+      </g>
+      
+      <!-- Connection points and data nodes -->
+      <g>
+        <!-- Main data clusters -->
+        <circle cx="350" cy="600" r="6" fill="#4FC3F7" opacity="0.7">
+          <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="480" cy="580" r="5" fill="#4FC3F7" opacity="0.6">
+          <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="650" cy="620" r="7" fill="#4FC3F7" opacity="0.8">
+          <animate attributeName="opacity" values="0.6;1;0.6" dur="3.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="570" cy="700" r="5" fill="#4FC3F7" opacity="0.7">
+          <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4.2s" repeatCount="indefinite" />
+        </circle>
+        
+        <!-- Connection lines -->
+        <line x1="350" y1="600" x2="480" y2="580" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4s" repeatCount="indefinite" />
+        </line>
+        <line x1="650" y1="620" x2="480" y2="580" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3.5s" repeatCount="indefinite" />
+        </line>
+        <line x1="570" y1="700" x2="650" y2="620" stroke="#4FC3F7" stroke-width="1" opacity="0.3">
+          <animate attributeName="opacity" values="0.1;0.5;0.1" dur="4.2s" repeatCount="indefinite" />
+        </line>
+        <line x1="350" y1="600" x2="570" y2="700" stroke="#4FC3F7" stroke-width="1" opacity="0.2">
+          <animate attributeName="opacity" values="0.1;0.4;0.1" dur="3.8s" repeatCount="indefinite" />
+        </line>
+      </g>
+      
+      <!-- Extra data points -->
+      <g opacity="0.7">
+        <!-- Smaller connection points scattered around -->
+        <circle cx="420" cy="650" r="2" fill="#64B5F6">
+          <animate attributeName="r" values="1;3;1" dur="2s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="500" cy="550" r="1.5" fill="#64B5F6">
+          <animate attributeName="r" values="1;2;1" dur="3s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="600" cy="580" r="2" fill="#64B5F6">
+          <animate attributeName="r" values="1;3;1" dur="2.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="650" cy="670" r="1.5" fill="#64B5F6">
+          <animate attributeName="r" values="1;2;1" dur="3.5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="400" cy="700" r="2" fill="#64B5F6">
+          <animate attributeName="r" values="1;3;1" dur="4s" repeatCount="indefinite" />
+        </circle>
+      </g>
+      
+      <!-- Scanning effect -->
+      <ellipse cx="500" cy="600" rx="200" ry="30" fill="#00BCD4" opacity="0.1">
+        <animate attributeName="ry" values="30;45;30" dur="6s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.1;0.2;0.1" dur="6s" repeatCount="indefinite" />
+      </ellipse>
+      
+      <!-- Digital glow effect at horizon -->
+      <path d="M 100,500 Q 500,450 900,500" stroke="#4FC3F7" stroke-width="2" opacity="0.8" fill="none">
+        <animate attributeName="opacity" values="0.5;0.9;0.5" dur="8s" repeatCount="indefinite" />
+      </path>
+    </g>
+  </g>
+</svg>
