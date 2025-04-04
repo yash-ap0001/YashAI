@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import CustomCursor from "@/components/ui/CustomCursor";
 import ProgressBar from "@/components/ui/ProgressBar";
 import { useEffect } from "react";
+import { CursorProvider } from "@/contexts/CursorContext";
 
 function AppRoutes() {
   return (
@@ -35,12 +36,14 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <CustomCursor />
-      <ProgressBar />
-      <Router>
-        <AppRoutes />
-      </Router>
-      <Toaster />
+      <CursorProvider>
+        <CustomCursor />
+        <ProgressBar />
+        <Router>
+          <AppRoutes />
+        </Router>
+        <Toaster />
+      </CursorProvider>
     </QueryClientProvider>
   );
 }
