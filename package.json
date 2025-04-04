@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch server/index.ts",
     "build:client": "vite build",
-    "build:server": "tsc -p tsconfig.node.json",
+    "build:server": "tsc -p tsconfig.node.json && tsc-alias -p tsconfig.node.json",
     "build": "npm run build:client && npm run build:server",
     "start": "node dist/server/index.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -30,6 +30,7 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "tsc-alias": "^1.8.13",
     "tsx": "^4.7.0",
     "typescript": "^5.2.2"
   }
