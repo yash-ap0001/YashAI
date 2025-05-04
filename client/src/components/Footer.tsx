@@ -40,9 +40,9 @@ const FooterSection = () => {
               Transforming businesses through innovative AI solutions and digital modernization strategies.
             </p>
             <div className="flex flex-col space-y-2 mb-4">
-              <a href="mailto:info@yashai.ai" className="text-gray-400 hover:text-white text-sm transition-colors">info@yashai.ai</a>
+              <a href="mailto:info@yashaibot.com" className="text-gray-400 hover:text-white text-sm transition-colors">info@yashaibot.com</a>
               <a href="tel:+919347706474" className="text-gray-400 hover:text-white text-sm transition-colors">+91 93477 06474</a>
-              <a href="https://www.yashai.ai" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">www.yashai.ai</a>
+              <a href="https://www.yashaibot.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">www.yashaibot.com</a>
             </div>
             <div className="flex space-x-4">
               {['linkedin-in', 'twitter', 'facebook-f', 'instagram'].map((icon, index) => (

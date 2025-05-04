@@ -124,7 +124,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-white mb-1">Email</h4>
                   <p className="text-gray-400">
-                    <a href="mailto:info@yashai.ai" className="hover:underline">info@yashai.ai</a>
+                    <a href="mailto:info@yashaibot.com" className="hover:underline">info@yashaibot.com</a>
                   </p>
                 </div>
               </div>
@@ -147,7 +147,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-white mb-1">Website</h4>
                   <p className="text-gray-400">
-                    <a href="https://www.yashai.ai" target="_blank" rel="noopener noreferrer" className="hover:underline">www.yashai.ai</a>
+                    <a href="https://www.yashaibot.com" target="_blank" rel="noopener noreferrer" className="hover:underline">www.yashaibot.com</a>
                   </p>
                 </div>
               </div>
