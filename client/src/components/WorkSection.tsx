@@ -109,7 +109,7 @@ const WorkSection = () => {
           <div className="text-center mb-16">
             <h3 className="font-space text-2xl lg:text-3xl font-bold mb-4">Client Testimonials</h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              What our clients say about working with YashAI Solutions
+              What our clients say about working with YashAI Technologies
             </p>
           </div>
           

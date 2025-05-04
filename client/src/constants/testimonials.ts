@@ -9,7 +9,7 @@ export type Testimonial = {
 
 export const testimonials: Testimonial[] = [
   {
-    quote: "YashAI Solutions transformed our legacy systems with AI capabilities we didn't think were possible. The results exceeded our expectations, delivering significant ROI within the first quarter of implementation.",
+    quote: "YashAI Technologies transformed our legacy systems with AI capabilities we didn't think were possible. The results exceeded our expectations, delivering significant ROI within the first quarter of implementation.",
     author: {
       name: "Michael Richardson",
       title: "CTO, Global Financial Group",

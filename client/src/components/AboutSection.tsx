@@ -13,8 +13,8 @@ const AboutSection = () => {
   ];
 
   const timelineItems = [
-    { year: "2015", title: "Company Founded", description: "YashAI Solutions was established with a focus on delivering custom AI solutions for enterprise clients." },
-    { year: "2017", title: "First Major Partnership", description: "Secured our first major enterprise client and launched our IBM i modernization services." },
+    { year: "2015", title: "Company Founded", description: "YashAI Technologies was established with a focus on delivering custom AI solutions for enterprise clients." },
+    { year: "2017", title: "First Major Partnership", description: "Secured our first major enterprise client and launched our enterprise AI services." },
     { year: "2019", title: "Expanded Service Offerings", description: "Launched our comprehensive cloud services and AI-powered data analytics solutions." },
     { year: "2022", title: "Global Expansion", description: "Opened offices in North America and Europe, expanding our client base to over 50 enterprise organizations." },
     { year: "Present", title: "Industry Leadership", description: "Recognized as a leader in AI solutions, continuing to innovate and expand our service offerings." }
@@ -81,7 +81,7 @@ const AboutSection = () => {
               Pioneering the Future of <span className="text-gradient">AI Innovation</span>
             </h2>
             <p className="text-gray-300 mb-6">
-              YashAI Solutions was founded with a singular vision: to democratize access to cutting-edge artificial intelligence technologies and help organizations harness their transformative power.
+              YashAI Technologies was founded with a singular vision: to democratize access to cutting-edge artificial intelligence technologies and help organizations harness their transformative power.
             </p>
             <p className="text-gray-300 mb-6">
               Our team of AI specialists, data scientists, and software engineers brings decades of combined experience in developing and implementing AI solutions across diverse industries.

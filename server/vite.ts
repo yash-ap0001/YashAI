@@ -4,6 +4,10 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import { nanoid } from "nanoid";
 import { Server } from "http";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export async function setupVite(app: express.Application, server: Server) {
   const vite = await createViteServer({
@@ -48,12 +52,9 @@ export function serveStatic(app: express.Application) {
   
   if (!fs.existsSync(distPath)) {
     throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`
+      `Static files not found at ${distPath}. Please run 'npm run build' first.`
     );
   }
 
   app.use(express.static(distPath));
-  app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
-  });
 }

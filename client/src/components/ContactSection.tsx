@@ -124,7 +124,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-white mb-1">Email</h4>
                   <p className="text-gray-400">
-                    info@yashaisolutions.com
+                    <a href="mailto:info@yashai.ai" className="hover:underline">info@yashai.ai</a>
                   </p>
                 </div>
               </div>
@@ -136,7 +136,18 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-medium text-white mb-1">Phone</h4>
                   <p className="text-gray-400">
-                    +91 98765 43210
+                    <a href="tel:+919347706474" className="hover:underline">+91 93477 06474</a>
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="text-amber-500 text-xl mt-1 mr-4">
+                  <i className="fas fa-globe"></i>
+                </div>
+                <div>
+                  <h4 className="font-medium text-white mb-1">Website</h4>
+                  <p className="text-gray-400">
+                    <a href="https://www.yashai.ai" target="_blank" rel="noopener noreferrer" className="hover:underline">www.yashai.ai</a>
                   </p>
                 </div>
               </div>

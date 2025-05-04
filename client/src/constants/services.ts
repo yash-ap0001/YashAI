@@ -31,10 +31,6 @@ export const services: Service[] = [
     icon: "fa-database",
     items: [
       {
-        title: "Database Modernization",
-        description: "Transform legacy databases into modern, scalable data architectures optimized for AI workloads."
-      },
-      {
         title: "Data Integration",
         description: "Seamlessly connect disparate data sources to create unified data pipelines for AI systems."
       }
@@ -67,21 +63,6 @@ export const services: Service[] = [
         description: "Seamlessly integrate AI capabilities into your existing software ecosystem."
       }
     ]
-  },
-  {
-    name: "Modernization",
-    icon: "fa-rocket",
-    items: [
-      {
-        title: "IBM i Modernization",
-        description: "AI-accelerated transformation of legacy IBM i applications and infrastructure."
-      },
-      {
-        title: "Modernization as a Service",
-        description: "Continuous modernization services to keep your technology stack current."
-      }
-    ],
-    backgroundImage: '/src/assets/images/modernization-globe.svg'
   },
   {
     name: "Cloud",

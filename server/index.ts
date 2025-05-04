@@ -1,6 +1,12 @@
 import express from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic } from "./vite";
+import path from "path";
+import { fileURLToPath } from 'url';
+import { createServer } from 'http';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -15,9 +21,9 @@ app.use((req, res, next) => {
   let capturedJsonResponse: any;
 
   const originalResJson = res.json;
-  res.json = function(bodyJson: any, ...args: any[]) {
+  res.json = function(bodyJson: any) {
     capturedJsonResponse = bodyJson;
-    return originalResJson.apply(res, [bodyJson, ...args]);
+    return originalResJson.call(res, bodyJson);
   };
 
   res.on("finish", () => {
@@ -45,17 +51,23 @@ app.use((err: any, _req: express.Request, res: express.Response, _next: express.
   throw err;
 });
 
-(async () => {
-  const server = await registerRoutes(app);
+// Register API routes
+registerRoutes(app);
 
-  if (process.env.NODE_ENV === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
+// Create HTTP server
+const server = createServer(app);
 
-  const port = process.env.PORT || 5000;
-  server.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
-})();
+// Setup Vite in development
+if (process.env.NODE_ENV === 'development') {
+  setupVite(app, server);
+} else {
+  // Serve static files in production
+  serveStatic(app);
+}
+
+// Start the server
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'production'}`);
+});
