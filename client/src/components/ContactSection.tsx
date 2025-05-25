@@ -30,6 +30,14 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [id]: value }));
   };
 
+  const getMailtoLink = () => {
+    const subject = encodeURIComponent('Contact from Website');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nService: ${formData.service}\nMessage: ${formData.message}`
+    );
+    return `mailto:yash@yashaitech.com?subject=${subject}&body=${body}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -55,10 +63,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // In a real implementation, this would send data to a server
-      // For now, we'll simulate a successful submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
       toast({
         title: "Message sent!",
         description: "Thank you for contacting us. We'll be in touch soon.",
@@ -177,8 +181,8 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <GlassCard className="p-8 rounded-xl">
-              <h3 className="font-space text-2xl font-bold mb-6">Send Us a Message</h3>
-              <form onSubmit={handleSubmit}>
+              <h3 className="font-space text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
+              <form onSubmit={e => { e.preventDefault(); window.location.href = getMailtoLink(); }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-300 mb-2">Full Name</label>
@@ -268,21 +272,8 @@ const ContactSection = () => {
                   className="w-full bg-gradient-to-r from-amber-600 to-amber-800 text-white py-3 rounded-lg hover:from-amber-500 hover:to-amber-700 transition-all duration-300 transform hover:scale-105 flex justify-center items-center"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  disabled={isSubmitting}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
                 >
-                  {isSubmitting ? (
-                    <div className="flex items-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Sending...
-                    </div>
-                  ) : (
-                    "Send Message"
-                  )}
+                  Send Message
                 </motion.button>
               </form>
             </GlassCard>

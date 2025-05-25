@@ -1,5 +1,14 @@
 import { useCursor } from '@/contexts/CursorContext';
 import DigitalBrainLogo from '@/components/ui/DigitalBrainLogo';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { motion } from 'framer-motion';
+
+// Email validation function
+const isValidEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
 
 type FooterLinkProps = {
   href: string;
@@ -25,9 +34,17 @@ const FooterLink = ({ href, children }: FooterLinkProps) => {
 
 const FooterSection = () => {
   const { setIsHovering } = useCursor();
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
   
   const currentYear = new Date().getFullYear();
-  
+
+  const getMailtoLink = () => {
+    const subject = encodeURIComponent('Newsletter Subscription');
+    const body = encodeURIComponent(`Please subscribe me to your newsletter. My email is: ${email}`);
+    return `mailto:yash@yashaitech.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <footer className="bg-dark-900 py-16 border-t border-gray-800">
       <div className="container mx-auto px-6">
@@ -88,23 +105,23 @@ const FooterSection = () => {
             <p className="text-gray-400 mb-4">
               Subscribe to our newsletter for the latest updates on AI innovation.
             </p>
-            <form className="mb-4">
-              <div className="flex">
-                <input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="bg-dark-700 border border-gray-700 rounded-l-lg px-4 py-2 focus:outline-none focus:border-amber-500 text-white flex-grow"
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
+            <form onSubmit={e => { e.preventDefault(); window.location.href = getMailtoLink(); }}>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-amber-500"
                 />
-                <button 
-                  type="submit" 
-                  className="bg-amber-600 text-white px-4 py-2 rounded-r-lg hover:bg-amber-500 transition-colors"
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
+                <motion.button
+                  type="submit"
+                  className="px-6 py-2 bg-gradient-to-r from-amber-600 to-amber-800 text-white rounded-lg hover:from-amber-500 hover:to-amber-700 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <i className="fas fa-paper-plane"></i>
-                </button>
+                  Subscribe
+                </motion.button>
               </div>
             </form>
             <p className="text-gray-500 text-sm">
