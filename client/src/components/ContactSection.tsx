@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useCursor } from '@/contexts/CursorContext';
+import { CONTACT } from '@/constants/contact';
 
 const ContactSection = () => {
   const { setIsHovering } = useCursor();
@@ -39,24 +40,42 @@ const ContactSection = () => {
             
             <div className="flex items-start">
               <div className="text-amber-500 text-xl mt-1 mr-4">
-                <i className="fas fa-envelope"></i>
+                <i className="fas fa-user"></i>
               </div>
               <div>
-                <h4 className="font-medium text-white mb-1">Email</h4>
+                <h4 className="font-medium text-white mb-1">Contact</h4>
                 <p className="text-gray-400">
-                  <a href="mailto:yash@yashaitech.com" className="hover:underline">yash@yashaitech.com</a>
+                  <a
+                    href={CONTACT.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                  >
+                    {CONTACT.name}
+                  </a>
                 </p>
               </div>
             </div>
             
             <div className="flex items-start">
               <div className="text-amber-500 text-xl mt-1 mr-4">
-                <i className="fas fa-phone-alt"></i>
+                <i className="fab fa-whatsapp"></i>
               </div>
               <div>
-                <h4 className="font-medium text-white mb-1">Phone</h4>
+                <h4 className="font-medium text-white mb-1">Email</h4>
                 <p className="text-gray-400">
-                  <a href="tel:+919347706474" className="hover:underline">+91 93477 06474</a>
+                  <a
+                    href={CONTACT.whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                  >
+                    {CONTACT.email}
+                  </a>
                 </p>
               </div>
             </div>

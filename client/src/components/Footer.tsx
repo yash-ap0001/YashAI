@@ -3,6 +3,7 @@ import DigitalBrainLogo from '@/components/ui/DigitalBrainLogo';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
+import { CONTACT } from '@/constants/contact';
 
 // Email validation function
 const isValidEmail = (email: string) => {
@@ -42,7 +43,7 @@ const FooterSection = () => {
   const getMailtoLink = () => {
     const subject = encodeURIComponent('Newsletter Subscription');
     const body = encodeURIComponent(`Please subscribe me to your newsletter. My email is: ${email}`);
-    return `mailto:yash@yashaitech.com?subject=${subject}&body=${body}`;
+    return `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -57,8 +58,8 @@ const FooterSection = () => {
               Transforming businesses through innovative AI solutions and digital modernization strategies.
             </p>
             <div className="flex flex-col space-y-2 mb-4">
-              <a href="mailto:yash@yashaitech.com" className="text-gray-400 hover:text-white text-sm transition-colors">yash@yashaitech.com</a>
-              <a href="tel:+919347706474" className="text-gray-400 hover:text-white text-sm transition-colors">+91 93477 06474</a>
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">{CONTACT.name}</a>
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">{CONTACT.email}</a>
               <a href="https://www.yashaitech.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">www.yashaitech.com</a>
             </div>
             <div className="flex space-x-4">

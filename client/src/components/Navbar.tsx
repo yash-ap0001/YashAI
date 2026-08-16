@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { navigationLinks } from '@/constants/navigationLinks';
+import { CONTACT } from '@/constants/contact';
 import { cn } from '@/lib/utils';
 import { useCursor } from '@/contexts/CursorContext';
 
@@ -82,6 +83,20 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <a
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 pl-4 border-l border-white/15"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              <i className="fab fa-whatsapp text-2xl text-green-400"></i>
+              <span className="flex flex-col leading-tight">
+                <span className="text-sm font-semibold text-white">{CONTACT.name}</span>
+                <span className="text-xs text-amber-400">{CONTACT.email}</span>
+              </span>
+            </a>
           </div>
           
           <button 
@@ -109,6 +124,18 @@ const Navbar = () => {
         style={{ overflow: 'hidden' }}
       >
         <div className="flex flex-col space-y-4">
+          <a
+            href={CONTACT.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 py-2 text-gray-300 hover:text-amber-500 transition-colors"
+          >
+            <i className="fab fa-whatsapp text-xl text-green-400"></i>
+            <span className="flex flex-col leading-tight">
+              <span className="text-sm font-semibold text-white">{CONTACT.name}</span>
+              <span className="text-xs text-amber-400">{CONTACT.email}</span>
+            </span>
+          </a>
           {navigationLinks.map((link, index) => (
             <a
               key={index}
