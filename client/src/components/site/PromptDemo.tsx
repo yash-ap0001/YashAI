@@ -7,29 +7,29 @@ type Script = { chip: string; prompt: string; module: string; reply: string };
 // Scripted examples of what each module is being built to do. Not a live model.
 const scripts: Script[] = [
   {
-    chip: 'Answer a customer in Telugu',
-    prompt: 'Customer on WhatsApp: "Naa order inka raaledu, eppudu vasthundi?"',
+    chip: 'Resolve a customer request',
+    prompt: 'Customer chat: "My order arrived damaged. Can I get a replacement?"',
     module: 'Yash Agents',
     reply:
-      'Mee order #4471 ippudu Hyderabad hub lo undi, repu saayantram 6 lopu delivery avuthundi. Tracking link WhatsApp lo pampanu. Inkemaina help kaavala?',
+      "I'm sorry about that. I've found order #4471 and created a free replacement, and a courier will collect the damaged item tomorrow between 10 am and 1 pm. You'll get a confirmation email in a moment.",
   },
   {
-    chip: 'Make a training video',
-    prompt: 'Turn our 12-page POSH policy into a 3-minute training video in Hindi and English.',
-    module: 'Yash Studio',
+    chip: 'Handle a multilingual call',
+    prompt: 'Caller switches from English to Spanish: "Hi, I need to change my booking… para el sábado, por favor."',
+    module: 'Yash Voice',
     reply:
-      'Draft ready: 7 scenes, 3 min 05 s. Hindi and English voice-overs, captions in both, your brand colours applied. Two scenes are flagged for HR review before publishing.',
+      'Transcribed and understood in both languages. Booking moved to Saturday 11:00. Replying in Spanish: "Listo, su cita es el sábado a las 11:00. ¿Algo más?"',
   },
   {
-    chip: 'Search our policies',
-    prompt: 'What is the travel allowance for a field sales rep visiting a tier-2 city?',
+    chip: 'Search company policies',
+    prompt: 'What is the travel allowance for a sales rep visiting a client overnight?',
     module: 'Yash Knowledge',
     reply:
-      '₹2,500 per day for stay and ₹600 for food in tier-2 cities, with receipts above ₹500 [1]. Managers can approve up to 20% extra for peak season [2].\n\n[1] Travel-Policy-2026.pdf, p.4   [2] Sales-SOP.docx, §3.2',
+      'Up to $180 per night for hotels and $60 per day for meals, with receipts above $25 [1]. Managers can approve up to 20% extra in high-cost cities [2].\n\n[1] Travel-Policy-2026.pdf, p.4   [2] Sales-SOP.docx, §3.2',
   },
   {
     chip: 'Deploy on our own servers',
-    prompt: 'Can we run this inside our data centre? Our data cannot leave the building.',
+    prompt: 'Can this run inside our data centre? Our data cannot leave the building.',
     module: 'Yash Sovereign',
     reply:
       'Yes, that is what Yash Sovereign is designed for: open-weight models deployed on your own GPUs, fully offline, with audit logs. It is on our roadmap. Talk to us to join the design-partner programme.',

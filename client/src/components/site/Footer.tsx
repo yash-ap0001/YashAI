@@ -8,7 +8,7 @@ const Footer = () => (
       <div className="lg:col-span-2 max-w-sm">
         <Logo className="h-11 w-auto mb-4" />
         <p className="text-soft text-sm leading-relaxed">
-          The enterprise AI platform for India: agents, voice, video and knowledge, deployed on your terms.
+          Enterprise AI in every language: agents, voice and knowledge, deployed on your terms.
         </p>
       </div>
 

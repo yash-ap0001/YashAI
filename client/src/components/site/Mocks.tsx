@@ -1,5 +1,5 @@
 import {
-  Bot, AudioWaveform, Clapperboard, Search, Server, LayoutGrid,
+  Bot, AudioWaveform, Search, Server, LayoutGrid,
   PhoneCall, MessageCircle, Globe, CheckCircle2, ArrowUpRight, FileText, CornerDownRight,
 } from 'lucide-react';
 
@@ -14,18 +14,17 @@ const Chrome = ({ title, tag = 'Sample data' }: { title: string; tag?: string })
 );
 
 const bars = [
-  { lang: 'Telugu', v: 82 },
-  { lang: 'Hindi', v: 64 },
-  { lang: 'English', v: 71 },
-  { lang: 'Tamil', v: 38 },
-  { lang: 'Kannada', v: 29 },
+  { lang: 'English', v: 86 },
+  { lang: 'Spanish', v: 61 },
+  { lang: 'Hindi', v: 48 },
+  { lang: 'Arabic', v: 34 },
+  { lang: 'French', v: 27 },
 ];
 
 const nav: [typeof Bot, string][] = [
   [LayoutGrid, 'Overview'],
   [Bot, 'Agents'],
   [AudioWaveform, 'Voice'],
-  [Clapperboard, 'Studio'],
   [Search, 'Knowledge'],
   [Server, 'Deployments'],
 ];
@@ -35,7 +34,7 @@ export const CommandCenter = () => (
     <Chrome title="YashAI · Command Center" />
     <div className="cc">
       <aside className="cc-side">
-        <p className="cc-org">Acme Retail</p>
+        <p className="cc-org">Northwind Retail</p>
         {nav.map(([Icon, label], i) => (
           <span key={label} className={`cc-nav${i === 0 ? ' on' : ''}`}>
             <Icon size={15} /> {label}
@@ -46,7 +45,7 @@ export const CommandCenter = () => (
       <div className="cc-main">
         <div className="cc-head">
           <div>
-            <p className="cc-h">Good evening, Priya</p>
+            <p className="cc-h">Good evening, Alex</p>
             <p className="cc-sub">Customer agents · last 24 hours</p>
           </div>
           <span className="cc-live"><span className="live-dot" /> 3 agents live</span>
@@ -73,10 +72,10 @@ export const CommandCenter = () => (
           <div className="panel">
             <p className="panel-h">Live activity</p>
             <ul className="feed">
-              <li><PhoneCall size={14} /> <span>Return booked for order #4471 <em>Telugu · voice</em></span></li>
-              <li><MessageCircle size={14} /> <span>Refund status shared <em>Hindi · WhatsApp</em></span></li>
-              <li><Globe size={14} /> <span>Size exchange started <em>English · web</em></span></li>
-              <li className="warn"><ArrowUpRight size={14} /> <span>Escalated to Ravi: damaged item <em>Telugu · voice</em></span></li>
+              <li><PhoneCall size={14} /> <span>Replacement created for order #4471 <em>English · voice</em></span></li>
+              <li><MessageCircle size={14} /> <span>Refund status shared <em>Spanish · messaging</em></span></li>
+              <li><Globe size={14} /> <span>Size exchange started <em>French · web</em></span></li>
+              <li className="warn"><ArrowUpRight size={14} /> <span>Escalated to Sam: billing dispute <em>English · voice</em></span></li>
             </ul>
           </div>
         </div>
@@ -87,19 +86,19 @@ export const CommandCenter = () => (
 
 export const AgentMock = () => (
   <div className="mock" aria-hidden="true">
-    <Chrome title="Yash Agents · Returns agent" />
+    <Chrome title="Yash Agents · Support agent" />
     <div className="mock-pane space-y-3">
       <div className="flex items-center justify-between text-xs text-soft">
-        <span className="inline-flex items-center gap-2"><span className="live-dot" /> Voice call · +91 ••••• ••421</span>
+        <span className="inline-flex items-center gap-2"><span className="live-dot" /> Voice call · +1 ••• ••• 0142</span>
         <span>01:42</span>
       </div>
-      <div className="bubble bubble-them">Naa order damage ayyi vachindi. Return cheyyali.</div>
-      <div className="bubble bubble-us">Sorry andi! Order #4471 kanipisthondi. Pickup repu 10–1 madhyalo book cheyyana?</div>
-      <div className="bubble bubble-them">Haan, cheyyandi.</div>
+      <div className="bubble bubble-them">Hi, my order arrived damaged. I'd like a replacement.</div>
+      <div className="bubble bubble-us">I'm sorry about that! I can see order #4471. Shall I send a replacement and book a pickup for tomorrow, 10 am to 1 pm?</div>
+      <div className="bubble bubble-them">Yes, please.</div>
       <div className="tool">
-        <CornerDownRight size={14} /> <code>orders.create_return(4471, pickup="tomorrow 10:00–13:00")</code>
+        <CornerDownRight size={14} /> <code>orders.create_replacement(4471, pickup="tomorrow 10:00–13:00")</code>
       </div>
-      <div className="event"><CheckCircle2 size={16} /> Return created · SMS and WhatsApp confirmation sent</div>
+      <div className="event"><CheckCircle2 size={16} /> Replacement created · confirmation sent by email and SMS</div>
     </div>
   </div>
 );
@@ -107,17 +106,17 @@ export const AgentMock = () => (
 export const VoiceApiMock = () => (
   <div className="mock code-mock" aria-hidden="true">
     <Chrome title="stream.py" tag="Preview API" />
-    <pre className="code"><span className="c"># Real-time transcription for code-mixed speech</span>{`
+    <pre className="code"><span className="c"># Real-time transcription for multilingual calls</span>{`
 `}<span className="k">from</span> yashai <span className="k">import</span> Voice{`
 
 voice = Voice(api_key=`}<span className="s">"yk_..."</span>{`)
 
 `}<span className="k">async for</span> event <span className="k">in</span>{` voice.transcribe_stream(
     audio=call.audio,
-    languages=[`}<span className="s">"te"</span>, <span className="s">"hi"</span>, <span className="s">"en"</span>{`],
+    languages=[`}<span className="s">"en"</span>, <span className="s">"es"</span>, <span className="s">"hi"</span>{`],
 ):
     print(event.text)
-`}<span className="c"># → "Naa order damage ayyi vachindi"</span></pre>
+`}<span className="c"># → "I need to change my booking… para el sábado"</span></pre>
   </div>
 );
 

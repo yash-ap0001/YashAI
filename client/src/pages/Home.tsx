@@ -8,34 +8,33 @@ import { modules, industries, trust, type ModuleStatus } from '@/constants/platf
 import { COMPANY, CONTACT, DEMO_URL } from '@/constants/contact';
 
 const statusClass: Record<ModuleStatus, string> = {
-  'Early access': 'badge badge-beta',
   'In development': 'badge',
   'Roadmap': 'badge badge-muted',
 };
 
 const deployments = [
-  { icon: Cloud, title: 'YashAI Cloud (India)', body: 'Fully managed, hosted in India. The fastest way to start.' },
-  { icon: Building, title: 'Private cloud', body: 'Deployed in your own AWS, Azure or Google Cloud account, in an Indian region.' },
+  { icon: Cloud, title: 'YashAI Cloud', body: 'Fully managed, in the region you choose. The fastest way to start.' },
+  { icon: Building, title: 'Private cloud', body: 'Deployed in your own AWS, Azure or Google Cloud account, in your region.' },
   { icon: ServerCog, title: 'On-premise', body: 'Air-gapped deployment on your own GPUs, for the most sensitive workloads.' },
 ];
 
 const principles = [
   { title: 'Honest about what works', body: "Our agents say 'I don't know' and hand off to a person instead of guessing. Every answer from your documents shows its source." },
-  { title: 'Your data stays yours', body: 'Data stays in India by default, never trains models for other customers, and can stay entirely on your premises.' },
-  { title: 'Built for Bharat, not translated', body: 'We design for code-mixed speech and regional languages from the start, not as an afterthought to English.' },
+  { title: 'Your data stays yours', body: 'Data stays in the region you choose, never trains models for other customers, and can stay entirely on your premises.' },
+  { title: 'Every language, first class', body: 'We design for accents, dialects and customers who switch languages mid-conversation from the start, not as an afterthought to English.' },
   { title: 'People stay in control', body: 'Every agent action is logged, reviewable and reversible. Sensitive decisions always go to a human.' },
 ];
 
 const news = [
-  { tag: 'Product', date: 'Sep 2026', title: 'Yash Studio opens for early access', body: 'Enterprises can now request access to generate training and product videos in Indian languages.', href: '#studio', art: 'art-a' },
+  { tag: 'Company', date: 'Sep 2026', title: 'Now accepting design partners', body: 'We are inviting a small group of companies to shape Yash Agents, Voice and Knowledge before general release.', href: '#partner', art: 'art-a' },
   { tag: 'Company', date: 'Aug 2026', title: 'GetJobEasy launches', body: 'Our career platform for full-stack and Gen AI training, with a placement fee due only after an offer.', href: 'https://jobs.yashaitech.com', art: 'art-b' },
-  { tag: 'Company', date: 'Apr 2025', title: 'YashAI Technologies is incorporated', body: 'YashAI Technologies Private Limited is registered in Telangana to build AI for Indian businesses.', href: '#company', art: 'art-c' },
+  { tag: 'Company', date: 'Apr 2025', title: 'YashAI Technologies is incorporated', body: 'YashAI Technologies Private Limited is registered in Hyderabad, India, to build enterprise AI.', href: '#company', art: 'art-c' },
 ];
 
 const faqs = [
   {
     q: 'Which parts of the platform are available today?',
-    a: 'Yash Studio is open for early-access requests. Yash Agents, Yash Voice and Yash Knowledge are in development, and Yash Sovereign is on our roadmap. Each module on this page shows its current status. Our career platform GetJobEasy is live.',
+    a: 'Yash Agents, Yash Voice and Yash Knowledge are in development, and Yash Sovereign is on our roadmap. Each module on this page shows its current status. We are now accepting design partners for early access.',
   },
   {
     q: 'What is a design partner?',
@@ -43,32 +42,32 @@ const faqs = [
   },
   {
     q: 'Where is data processed and stored?',
-    a: 'In India by default. For regulated workloads we deploy in your own cloud account or on your premises, so data never leaves your control. We never train models for other customers on your data.',
+    a: 'In the region you choose. For regulated workloads we deploy in your own cloud account or on your premises, so data never leaves your control. We never train models for other customers on your data.',
   },
   {
     q: 'Which models do you use?',
-    a: 'We build on leading open-weight language and speech models, adapted and evaluated for Indian languages. Because we control the models, we can run them wherever your data needs to stay.',
+    a: 'We build on leading open-weight language and speech models, adapted and evaluated for multilingual use. Because we control the models, we can run them wherever your data needs to stay.',
   },
   {
     q: 'Do you have security certifications?',
-    a: 'We are an early-stage company and do not yet hold SOC 2 or ISO 27001 certification; both are on our roadmap. Today we design for India\'s DPDP Act and offer on-premise deployment for sensitive data.',
+    a: 'We are an early-stage company and do not yet hold SOC 2 or ISO 27001 certification; both are on our roadmap. Today we design around GDPR and India\'s DPDP Act and offer on-premise deployment for sensitive data.',
   },
   {
     q: 'Who is behind YashAI?',
-    a: `${COMPANY.legalName} (CIN ${COMPANY.cin}) was incorporated in Telangana in April 2025. We are a Hyderabad-based team.`,
+    a: `${COMPANY.legalName} (CIN ${COMPANY.cin}) was incorporated in April 2025 and is headquartered in Hyderabad, India. We build for customers worldwide.`,
   },
 ];
 
 const Home = () => {
   useEffect(() => {
-    document.title = 'YashAI | Enterprise AI platform for India';
+    document.title = 'YashAI | Enterprise AI in every language';
   }, []);
 
   return (
     <div className="site">
       <a href="#main" className="skip-link">Skip to content</a>
-      <a href="#studio" className="announce">
-        Yash Studio early access is open: enterprise video in every Indian language <ArrowRight size={14} aria-hidden="true" />
+      <a href="#partner" className="announce">
+        Now accepting design partners for Yash Agents, Voice and Knowledge <ArrowRight size={14} aria-hidden="true" />
       </a>
       <Header overDark />
 
@@ -79,14 +78,14 @@ const Home = () => {
           <div className="glow" aria-hidden="true" />
           <div className="container-x relative text-center">
             <p className="hero-pill">
-              <span className="eyebrow-dot" /> Yash Studio early access is open
+              <span className="eyebrow-dot" /> Now accepting design partners
             </p>
             <h1 className="display-xl">
-              Enterprise AI that <span className="grad">speaks India.</span>
+              Enterprise AI that speaks <span className="grad">every language.</span>
             </h1>
             <p className="hero-sub">
-              One platform for agents, real-time voice, generative video and private knowledge search. Built for
-              India's languages, deployed in India, on your terms.
+              One platform for customer agents, real-time voice and private knowledge search. Built for
+              global teams, deployed in the region you choose, on your terms.
             </p>
             <PromptDemo />
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -99,9 +98,9 @@ const Home = () => {
         {/* Designed-for strip */}
         <section className="strip" aria-label="Platform principles">
           <div className="container-x strip-row">
-            <span>Data residency in India</span>
-            <span>DPDP Act by design</span>
-            <span>Code-mixed Indian languages</span>
+            <span>Regional data residency</span>
+            <span>Privacy by design</span>
+            <span>Multilingual by default</span>
             <span>Cloud, private cloud or on-premise</span>
             <span>Open-weight models</span>
           </div>
@@ -123,17 +122,17 @@ const Home = () => {
           <div className="container-x">
             <div className="section-head">
               <p className="kicker">The platform</p>
-              <h2 className="h2">One platform. Five ways to put AI to work.</h2>
+              <h2 className="h2">One platform. Four ways to put AI to work.</h2>
               <p className="lead">
                 Each module works on its own and gets stronger together: shared models, shared knowledge,
                 one place to govern it all.
               </p>
             </div>
             <div className="bento">
-              {modules.map((m, i) => {
+              {modules.map((m) => {
                 const Icon = m.icon;
                 return (
-                  <article key={m.id} id={m.id} className={`module${i < 2 ? ' module-wide' : ''}`}>
+                  <article key={m.id} id={m.id} className="module module-wide">
                     <div className="flex items-start justify-between gap-4">
                       <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>
                       <span className={statusClass[m.status]}>{m.status}</span>
@@ -163,10 +162,10 @@ const Home = () => {
             <div className="spotlight">
               <div>
                 <p className="kicker">Yash Agents</p>
-                <h2 className="h2">Agents that take action, in the customer's language.</h2>
+                <h2 className="h2">Agents that take action, not just answer.</h2>
                 <p className="lead">
                   Agents don't stop at answering. They look up the order, create the return, book the pickup and
-                  confirm on WhatsApp, and hand off to a person with full context when judgement is needed.
+                  confirm by email or message, and hand off to a person with full context when judgement is needed.
                 </p>
               </div>
               <AgentMock />
@@ -174,10 +173,10 @@ const Home = () => {
             <div className="spotlight spotlight-rev">
               <div>
                 <p className="kicker">Yash Voice</p>
-                <h2 className="h2">Voice AI for the way India actually speaks.</h2>
+                <h2 className="h2">Voice AI for the way people actually speak.</h2>
                 <p className="lead">
-                  Most speech models struggle when a caller switches from Telugu to English mid-sentence. Yash Voice
-                  is being built for code-mixed speech from the start, as streaming APIs developers can build on.
+                  Real callers have accents, background noise and switch languages mid-sentence. Yash Voice is being
+                  built for real-world speech from the start, as streaming APIs developers can build on.
                 </p>
               </div>
               <VoiceApiMock />
@@ -201,7 +200,7 @@ const Home = () => {
           <div className="container-x">
             <div className="section-head">
               <p className="kicker">Industries</p>
-              <h2 className="h2">Built for India's largest sectors.</h2>
+              <h2 className="h2">Built for industries that run on conversations.</h2>
             </div>
             <div className="industry-grid">
               {industries.map(({ name, icon: Icon, uses }) => (
@@ -224,7 +223,7 @@ const Home = () => {
               <p className="kicker kicker-dark">Security & trust</p>
               <h2 className="h2 text-white">Enterprise-grade control over your data.</h2>
               <p className="lead lead-dark">
-                Designed for banks, hospitals and government from day one, not bolted on later.
+                Designed for banks, hospitals and governments from day one, not bolted on later.
               </p>
             </div>
             <div className="trust-grid">
@@ -256,19 +255,20 @@ const Home = () => {
           <div className="container-x grid gap-12 md:grid-cols-2 items-start">
             <div>
               <p className="kicker">Company</p>
-              <h2 className="h2">Our mission: make world-class AI work for every Indian business.</h2>
+              <h2 className="h2">Our mission: make world-class AI work for every business, in every language.</h2>
               <p className="lead">
-                India's businesses run in dozens of languages, under strict data rules, at price points global AI
-                products weren't designed for. YashAI is building the platform that fits: from Hyderabad, for India.
+                Most enterprise AI is built for English-speaking customers and a single cloud. Real businesses serve
+                customers in many languages, under strict data rules. YashAI is building the platform that fits,
+                from Hyderabad, for the world.
               </p>
               <p className="text-soft mt-5">
                 Also from YashAI: <a className="text-link" href="https://jobs.yashaitech.com">GetJobEasy</a>, our
-                career-training platform for India's next generation of engineers.
+                career-training platform for software engineers.
               </p>
             </div>
             <dl className="facts">
               <div><dt>Legal name</dt><dd>{COMPANY.legalName}</dd></div>
-              <div><dt>Incorporated</dt><dd>24 April 2025, Telangana</dd></div>
+              <div><dt>Incorporated</dt><dd>24 April 2025</dd></div>
               <div><dt>CIN</dt><dd>{COMPANY.cin}</dd></div>
               <div><dt>Headquarters</dt><dd>Hyderabad, India</dd></div>
               <div><dt>Contact</dt><dd><a className="text-link" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></dd></div>
@@ -338,12 +338,12 @@ const Home = () => {
         </section>
 
         {/* CTA */}
-        <section className="section">
+        <section id="partner" className="section">
           <div className="container-x">
             <div className="cta">
               <h2 className="h2 text-white">Become a design partner.</h2>
               <p className="mt-4 text-white/75 max-w-xl mx-auto text-lg">
-                We're looking for a small group of Indian companies to shape the platform with us. Partners get early
+                We're looking for a small group of companies to shape the platform with us. Partners get early
                 access, founding pricing and a direct line to our engineers.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
