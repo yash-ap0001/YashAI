@@ -5,6 +5,7 @@ import Footer from '@/components/site/Footer';
 import AgentRun from '@/components/site/AgentRun';
 import { Workforce } from '@/components/site/Mocks';
 import IndustryExplorer from '@/components/site/IndustryExplorer';
+import { ideas, TeamThread } from '@/components/site/AgentTeam';
 import { agents, capabilities, steps, plans, comparison } from '@/constants/agents';
 import { trust } from '@/constants/platform';
 import { COMPANY, CONTACT, DEMO_URL } from '@/constants/contact';
@@ -42,6 +43,14 @@ const faqs = [
   {
     q: 'What is the difference between an AI agent and a chatbot?',
     a: 'A chatbot answers questions. An agent completes work: it plans the steps, uses your systems (CRM, ERP, ticketing, email), checks your policies, and finishes the task, asking a person to approve anything above the limits you set.',
+  },
+  {
+    q: 'Where do the agents run? Does my computer need to stay on?',
+    a: 'No. Agents run in the cloud, each with its own secure workspace and browser. You can start a task from your phone and close your laptop; the agent keeps working and messages you when it needs a decision or is done.',
+  },
+  {
+    q: 'Can agents use systems that have no API?',
+    a: 'Yes. Where a system has an API we use it. Where it does not, such as an older portal or a vendor website, the agent uses its own browser the way a person would, with scoped credentials stored in a vault.',
   },
   {
     q: 'What happens when an agent makes a mistake?',
@@ -127,6 +136,32 @@ const Home = () => {
                   <a href={f.href} target="_blank" rel="noopener noreferrer" className="fact-src">Source: {f.source}</a>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How our agents work */}
+        <section id="how-agents-work" className="section">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">How our agents work</p>
+              <h2 className="h2">Not a chatbot. A team that works while you sleep.</h2>
+              <p className="lead">
+                Our agents behave like capable colleagues: they live in the cloud, have their own computer, remember
+                their job, and bring you decisions instead of busywork.
+              </p>
+            </div>
+            <div className="team-grid">
+              <div className="idea-grid">
+                {ideas.map(({ icon: Icon, title, body }) => (
+                  <div key={title} className="idea">
+                    <Icon size={18} className="text-brand" aria-hidden="true" />
+                    <h3 className="font-semibold mt-3">{title}</h3>
+                    <p className="text-soft mt-1.5 text-[14.5px] leading-relaxed">{body}</p>
+                  </div>
+                ))}
+              </div>
+              <TeamThread />
             </div>
           </div>
         </section>

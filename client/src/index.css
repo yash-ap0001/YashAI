@@ -549,3 +549,26 @@ summary:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---- Agent team section ---- */
+@layer components {
+  .team-grid { @apply grid items-start gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-10; }
+  .idea-grid { @apply grid gap-3 sm:grid-cols-2; }
+  .idea { @apply rounded-2xl p-5; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+  .thread { @apply space-y-5 p-5 md:p-6 text-[14.5px]; color: var(--ink-2); }
+  .msg { @apply flex gap-3; }
+  .msg-av { @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-semibold; }
+  .msg-av.human { background: var(--overlay-2); color: var(--ink); }
+  .msg-av.agent { background: var(--brand-soft); color: var(--brand-ink); box-shadow: inset 0 0 0 1px var(--brand-soft); }
+  .msg-name { @apply mb-1 flex flex-wrap items-center gap-2 text-sm font-semibold; color: var(--ink); }
+  .msg-name em { @apply font-mono text-[11px] font-normal not-italic; color: var(--faint); }
+  .role { @apply rounded px-1.5 py-0.5 font-mono text-[10px] font-normal uppercase; letter-spacing: 0.06em; background: var(--brand-soft); color: var(--brand-ink); }
+  .delegate { @apply mt-2 space-y-1.5; }
+  .delegate li { @apply flex items-start gap-2; }
+  .delegate svg { @apply mt-1 shrink-0; color: var(--brand); }
+  .delegate b { color: var(--ink); font-weight: 600; }
+  .draft { @apply mt-3 rounded-xl p-4; background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--line-strong); }
+  .draft-h { @apply flex items-center gap-1.5 font-mono text-[11px] uppercase; letter-spacing: 0.06em; color: var(--muted-ink); }
+  .draft-body { @apply mt-2 text-sm italic; color: var(--ink-2); }
+  .draft-actions { @apply mt-3 flex flex-wrap gap-1.5; }
+}
