@@ -19,18 +19,18 @@ const ServicesSection = () => {
 
   // Find featured services for highlighting
   const modernizationService = services.find(service => service.name === "Modernization");
-  const strategyService = services.find(service => service.name === "Strategy");
-  const cloudService = services.find(service => service.name === "Cloud");
-  
+  const strategyService = services.find(service => service.name === "Video");
+  const cloudService = services.find(service => service.name === "Assistants");
+
   // Get the list of services that aren't featured
-  const regularServices = services.filter(service => 
-    !["Modernization", "Strategy", "Cloud"].includes(service.name)
+  const regularServices = services.filter(service =>
+    !["Modernization", "Video", "Assistants"].includes(service.name)
   );
 
   return (
     <section id="services" className="py-24 bg-dark-900 relative">
       <div className="container mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,30 +38,30 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-1 rounded-full bg-secondary-900/30 text-secondary-400 text-sm font-semibold mb-4">
-            Our Services
+            What We Build
           </span>
           <h2 className="font-space text-3xl lg:text-5xl font-bold mb-6">
-            Comprehensive <span className="text-gradient">AI Solutions</span>
+            Practical <span className="text-gradient">AI Products</span>
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            We provide end-to-end AI services from strategy development to implementation and optimization, helping organizations leverage the power of artificial intelligence.
+            We are an early-stage company building AI tools for small businesses. These are the products and services we are working on today.
           </p>
         </motion.div>
-        
+
         {/* Featured Service Highlights */}
         {strategyService && (
           <ServiceHighlight service={strategyService} />
         )}
-        
+
         {modernizationService && (
           <ServiceHighlight service={modernizationService} reverse={true} />
         )}
-        
+
         {cloudService && (
           <ServiceHighlight service={cloudService} />
         )}
-        
-        <motion.div 
+
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
           variants={containerVariants}
           initial="hidden"
@@ -69,7 +69,7 @@ const ServicesSection = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           {regularServices.map((service, index) => (
-              <GlassCard 
+              <GlassCard
                 key={index}
                 className="p-6 transition-all duration-500 hover:shadow-xl hover:shadow-primary-900/20"
                 delay={index}
@@ -91,8 +91,8 @@ const ServicesSection = () => {
                   ))}
                 </ul>
                 <div className="mt-6">
-                  <motion.a 
-                    href="#" 
+                  <motion.a
+                    href={service.name === "Careers" ? "https://jobs.yashaitech.com" : "#contact"}
                     className="text-amber-500 hover:text-amber-400 flex items-center text-sm font-medium"
                     whileHover={{ x: 5 }}
                     onMouseEnter={() => setIsHovering(true)}
@@ -104,9 +104,9 @@ const ServicesSection = () => {
               </GlassCard>
             ))}
         </motion.div>
-        
+
         {/* Process Visualization */}
-        <motion.div 
+        <motion.div
           className="mt-24"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,21 +114,21 @@ const ServicesSection = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="text-center mb-12">
-            <h3 className="font-space text-2xl lg:text-3xl font-bold mb-4">Our Implementation Process</h3>
+            <h3 className="font-space text-2xl lg:text-3xl font-bold mb-4">How We Work</h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              A proven methodology to deliver successful AI solutions
+              Small first versions, shipped quickly and improved with you
             </p>
           </div>
-          
+
           <div className="relative">
             {/* Process timeline */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-700 transform -translate-y-1/2"></div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {processSteps.map((step, index) => (
                 <div key={index} className="relative process-step group">
                   <div className="hidden md:flex absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <motion.div 
+                    <motion.div
                       className="w-10 h-10 rounded-full bg-gradient-to-r from-primary-700 to-secondary-700 flex items-center justify-center text-white font-bold shadow-lg transition-all duration-300 group-hover:scale-110"
                       whileHover={{ scale: 1.2 }}
                       onMouseEnter={() => setIsHovering(true)}

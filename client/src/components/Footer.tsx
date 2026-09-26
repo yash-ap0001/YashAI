@@ -9,11 +9,11 @@ type FooterLinkProps = {
 
 const FooterLink = ({ href, children }: FooterLinkProps) => {
   const { setIsHovering } = useCursor();
-  
+
   return (
     <li>
-      <a 
-        href={href} 
+      <a
+        href={href}
         className="text-gray-400 hover:text-white transition-colors"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
@@ -37,63 +37,44 @@ const FooterSection = () => {
               <DigitalBrainLogo className="w-11 h-11" />
             </div>
             <p className="text-gray-400 mb-6">
-              Transforming businesses through innovative AI solutions and digital modernization strategies.
+              AI software startup from Hyderabad, building practical AI tools for small businesses.
             </p>
             <div className="flex flex-col space-y-2 mb-4">
               <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">{CONTACT.name}</a>
-              <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">{CONTACT.email}</a>
+              <a href={`mailto:${CONTACT.email}`} className="text-gray-400 hover:text-white text-sm transition-colors">{CONTACT.email}</a>
               <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">{CONTACT.phoneDisplay}</a>
               <a href="https://www.yashaitech.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white text-sm transition-colors">www.yashaitech.com</a>
             </div>
-            <div className="flex space-x-4">
-              {['linkedin-in', 'twitter', 'facebook-f', 'instagram'].map((icon, index) => (
-                <a 
-                  key={index}
-                  href="#" 
-                  className="text-gray-400 hover:text-white transition-colors"
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  <i className={`fab fa-${icon}`}></i>
-                </a>
-              ))}
-            </div>
           </div>
-          
+
           <div>
-            <h4 className="font-space font-bold text-lg mb-6 text-white">Services</h4>
+            <h4 className="font-space font-bold text-lg mb-6 text-white">Products</h4>
             <ul className="space-y-3">
-              <FooterLink href="#">Strategy & Advisory</FooterLink>
-              <FooterLink href="#">Data Solutions</FooterLink>
-              <FooterLink href="#">Professional Services</FooterLink>
-              <FooterLink href="#">Software Products</FooterLink>
-              <FooterLink href="#">Modernization</FooterLink>
-              <FooterLink href="#">Cloud Services</FooterLink>
+              <FooterLink href="/#services">AI Explainer Videos</FooterLink>
+              <FooterLink href="/#services">AI Assistants</FooterLink>
+              <FooterLink href="/#services">AI Development</FooterLink>
+              <FooterLink href="https://jobs.yashaitech.com">GetJobEasy</FooterLink>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-space font-bold text-lg mb-6 text-white">Company</h4>
             <ul className="space-y-3">
-              <FooterLink href="#about">About Us</FooterLink>
-              <FooterLink href="#work">Case Studies</FooterLink>
-              <FooterLink href="#work">Testimonials</FooterLink>
-              <FooterLink href="#">Careers</FooterLink>
-              <FooterLink href="#">Blog</FooterLink>
-              <FooterLink href="#contact">Contact</FooterLink>
+              <FooterLink href="/#about">About Us</FooterLink>
+              <FooterLink href="/#contact">Contact</FooterLink>
             </ul>
           </div>
         </div>
-        
+
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} YashAI. All rights reserved.
+            &copy; {currentYear} YashAI Technologies Private Limited · CIN U62090TS2025PTC197645
           </p>
           <div className="flex space-x-6">
-            {['Privacy Policy', 'Terms of Service', 'Cookies Policy'].map((text, index) => (
-              <a 
+            {[['Privacy Policy', '/privacy'], ['Terms of Service', '/terms']].map(([text, href], index) => (
+              <a
                 key={index}
-                href="#" 
+                href={href}
                 className="text-gray-500 hover:text-white text-sm transition-colors"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}

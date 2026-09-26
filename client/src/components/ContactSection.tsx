@@ -8,7 +8,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-dark-800 to-dark-900 relative">
       <div className="container mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,28 +22,28 @@ const ContactSection = () => {
             Let's Start Your <span className="text-gradient">AI Journey</span> Together
           </h2>
           <p className="text-gray-300 mb-12 max-w-2xl mx-auto text-center">
-            Have questions about our services or ready to embark on your AI transformation? Our team is here to help you navigate the possibilities.
+            Want early access to one of our products, or have a problem AI could solve? Get in touch.
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="flex items-start">
               <div className="text-amber-500 text-xl mt-1 mr-4">
                 <i className="fas fa-map-marker-alt"></i>
               </div>
               <div>
-                <h4 className="font-medium text-white mb-1">Office Location</h4>
+                <h4 className="font-medium text-white mb-1">Registered Office</h4>
                 <p className="text-gray-400">
-                  Madhapur, Hyderabad, 500081, India
+                  Patancheru, Medak – 502319, Telangana, India
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start">
               <div className="text-amber-500 text-xl mt-1 mr-4">
                 <i className="fas fa-user"></i>
               </div>
               <div>
-                <h4 className="font-medium text-white mb-1">Contact</h4>
+                <h4 className="font-medium text-white mb-1">WhatsApp</h4>
                 <p className="text-gray-400">
                   <a
                     href={CONTACT.whatsappUrl}
@@ -58,18 +58,16 @@ const ContactSection = () => {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex items-start">
               <div className="text-amber-500 text-xl mt-1 mr-4">
-                <i className="fab fa-whatsapp"></i>
+                <i aria-hidden="true" className="fas fa-envelope"></i>
               </div>
               <div>
                 <h4 className="font-medium text-white mb-1">Email</h4>
                 <p className="text-gray-400">
                   <a
-                    href={CONTACT.whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`mailto:${CONTACT.email}`}
                     className="hover:underline"
                     onMouseEnter={() => setIsHovering(true)}
                     onMouseLeave={() => setIsHovering(false)}
@@ -92,21 +90,7 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
-          
-          <div className="flex justify-center space-x-4">
-            {['linkedin-in', 'twitter', 'facebook-f', 'instagram'].map((icon, index) => (
-              <motion.a 
-                key={index}
-                href="#" 
-                className="w-10 h-10 rounded-full bg-dark-700 flex items-center justify-center text-white hover:bg-primary-700 transition-colors duration-300"
-                whileHover={{ scale: 1.1, backgroundColor: '#3949AB' }}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                <i className={`fab fa-${icon}`}></i>
-              </motion.a>
-            ))}
-          </div>
+
         </motion.div>
       </div>
     </section>

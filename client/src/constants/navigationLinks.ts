@@ -10,16 +10,12 @@ export const navigationLinks: NavLink[] = [
     href: "#home",
   },
   {
-    label: "Services",
+    label: "Products",
     href: "#services",
   },
   {
     label: "About",
     href: "#about",
-  },
-  {
-    label: "Work",
-    href: "#work",
   },
   {
     label: "Contact",

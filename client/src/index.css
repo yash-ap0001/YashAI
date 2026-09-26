@@ -179,3 +179,62 @@
     transition: none !important;
   }
 }
+
+/* Accessibility: skip link and visible keyboard focus */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: #d97706;
+  color: #fff;
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 3px;
+}
+
+/* Legal pages */
+.legal h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 2.25rem 0 0.75rem;
+}
+.legal p,
+.legal li {
+  color: #d1d5db;
+  line-height: 1.75;
+}
+.legal p {
+  margin-bottom: 1rem;
+}
+.legal ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+.legal li {
+  margin-bottom: 0.4rem;
+}
+.legal a {
+  color: #f59e0b;
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

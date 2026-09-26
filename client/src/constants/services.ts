@@ -1,3 +1,6 @@
+import strategyDiagram from '@/assets/images/strategy-diagram.svg';
+import cloudServices from '@/assets/images/cloud-services.svg';
+
 export type ServiceItem = {
   title: string;
   description: string;
@@ -12,72 +15,68 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    name: "Strategy",
-    icon: "fa-chess",
+    name: "Video",
+    icon: "fa-film",
     items: [
       {
-        title: "Strategic Advisory",
-        description: "Expert guidance on AI implementation roadmaps and digital transformation strategies."
+        title: "Script to Video",
+        description: "Turn a script or topic into a narrated explainer video with visuals, voice-over and captions."
       },
       {
-        title: "AI-Celerate",
-        description: "Accelerate business transformation through targeted AI solution deployment."
+        title: "Indian-Language Narration",
+        description: "Voice-overs in English, Telugu, Hindi and more, for training, product demos and social media."
       }
     ],
-    backgroundImage: '/src/assets/images/strategy-diagram.svg'
+    backgroundImage: strategyDiagram
   },
   {
-    name: "Data",
-    icon: "fa-database",
-    items: [
-      {
-        title: "Data Integration",
-        description: "Seamlessly connect disparate data sources to create unified data pipelines for AI systems."
-      }
-    ]
-  },
-  {
-    name: "Professional Services",
-    icon: "fa-users-cog",
-    items: [
-      {
-        title: "Staffing Services",
-        description: "Access to specialized AI talent and expertise for your projects and initiatives."
-      },
-      {
-        title: "Application Services",
-        description: "End-to-end development and management of AI-powered applications."
-      }
-    ]
-  },
-  {
-    name: "Software Products",
+    name: "AI Development",
     icon: "fa-laptop-code",
     items: [
       {
-        title: "Custom AI Solutions",
-        description: "Bespoke AI software products tailored to your organization's specific needs."
+        title: "Custom AI Apps",
+        description: "LLM apps, RAG and agents built for a specific business problem."
       },
       {
         title: "AI Integration",
-        description: "Seamlessly integrate AI capabilities into your existing software ecosystem."
+        description: "Add AI features to software a business already uses."
       }
     ]
   },
   {
-    name: "Cloud",
-    icon: "fa-cloud",
+    name: "Careers",
+    icon: "fa-user-graduate",
     items: [
       {
-        title: "Cloud Hosting Services",
-        description: "Reliable, scalable cloud infrastructure optimized for AI workloads."
+        title: "GetJobEasy",
+        description: "Full-stack and Gen AI training with placement support, live at jobs.yashaitech.com."
+      }
+    ]
+  },
+  {
+    name: "Private AI",
+    icon: "fa-server",
+    items: [
+      {
+        title: "On-Premise LLMs",
+        description: "Open models running on our own GPU hardware, so customer data stays private."
+      }
+    ]
+  },
+  {
+    name: "Assistants",
+    icon: "fa-robot",
+    items: [
+      {
+        title: "Answers From Your Documents",
+        description: "Assistants that answer customer and staff questions from a company's own documents."
       },
       {
-        title: "Cloud Managed Services",
-        description: "Comprehensive management and optimization of your cloud environment."
+        title: "Workflow Automation",
+        description: "Draft replies, sort requests and handle routine tasks automatically."
       }
     ],
-    backgroundImage: '/src/assets/images/cloud-services.svg'
+    backgroundImage: cloudServices
   }
 ];
 
@@ -91,21 +90,21 @@ export const processSteps: ProcessStep[] = [
   {
     number: 1,
     title: "Discovery",
-    description: "We analyze your business needs, data landscape, and technical requirements to identify the optimal AI solutions."
+    description: "We learn how your business works and find the tasks where AI saves real time or money."
   },
   {
     number: 2,
-    title: "Strategy",
-    description: "We develop a comprehensive implementation plan with clear milestones, resource allocations, and expected outcomes."
+    title: "Plan",
+    description: "We agree on a small first version, a timeline and the result it should deliver."
   },
   {
     number: 3,
-    title: "Implementation",
-    description: "Our expert team develops and deploys customized AI solutions integrated with your existing systems."
+    title: "Build",
+    description: "We build and deploy it, connected to the tools you already use."
   },
   {
     number: 4,
-    title: "Optimization",
-    description: "We continuously monitor, refine, and enhance your AI solutions to ensure optimal performance and ROI."
+    title: "Improve",
+    description: "We measure how it performs and keep improving it with you."
   }
 ];

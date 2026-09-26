@@ -41,13 +41,16 @@ const Navbar = () => {
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = '/' + href;
       }
+      setIsMobileMenuOpen(false);
     }
   };
 
   return (
     <header id="navbar" className="fixed w-full top-0 z-50 transition-all duration-300">
-      <motion.nav 
+      <motion.nav
         className={cn(
           "px-6 py-4",
           isScrolled && "shadow-lg"
@@ -55,17 +58,17 @@ const Navbar = () => {
         style={{ backgroundColor: '#0B0023' }}
       >
         <div className="container mx-auto flex justify-between items-center">
-          <a 
-            href="/" 
+          <a
+            href="/"
             className="flex items-center"
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
             <div className="h-16 flex items-center">
-              <img src="/blue-logo.png" alt="Logo" className="h-full w-auto" />
+              <img src="/blue-logo.png" alt="YashAI Technologies home" width="547" height="275" className="h-full w-auto" />
             </div>
           </a>
-          
+
           <div className="hidden lg:flex items-center space-x-8">
             {navigationLinks.map((link, index) => (
               <a
@@ -98,30 +101,34 @@ const Navbar = () => {
               </span>
             </a>
           </div>
-          
-          <button 
-            className="lg:hidden text-2xl" 
+
+          <button
+            className="lg:hidden text-2xl"
             id="menuToggle"
+            type="button"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobileMenu"
             onClick={toggleMobileMenu}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
           >
-            <i className={cn("fas", isMobileMenuOpen ? "fa-times" : "fa-bars")}></i>
+            <i aria-hidden="true" className={cn("fas", isMobileMenuOpen ? "fa-times" : "fa-bars")}></i>
           </button>
         </div>
       </motion.nav>
-      
+
       {/* Mobile menu */}
-      <motion.div 
+      <motion.div
         id="mobileMenu"
         className="lg:hidden bg-dark-800 glass p-4"
         initial={{ height: 0, opacity: 0 }}
-        animate={{ 
+        animate={{
           height: isMobileMenuOpen ? 'auto' : 0,
           opacity: isMobileMenuOpen ? 1 : 0
         }}
         transition={{ duration: 0.3 }}
-        style={{ overflow: 'hidden' }}
+        style={{ overflow: 'hidden', visibility: isMobileMenuOpen ? 'visible' : 'hidden' }}
       >
         <div className="flex flex-col space-y-4">
           <a

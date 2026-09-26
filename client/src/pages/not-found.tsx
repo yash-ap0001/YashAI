@@ -1,21 +1,34 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { useEffect } from 'react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default function NotFound() {
-  return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
-          </div>
+  useEffect(() => {
+    document.title = 'Page not found | YashAI Technologies';
+    let robots = document.querySelector('meta[name="robots"]');
+    if (!robots) {
+      robots = document.createElement('meta');
+      robots.setAttribute('name', 'robots');
+      document.head.appendChild(robots);
+    }
+    robots.setAttribute('content', 'noindex');
+  }, []);
 
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+  return (
+    <div className="min-h-screen bg-dark-900 text-white flex flex-col">
+      <Navbar />
+      <main id="main" className="flex-1 container mx-auto px-6 pt-40 pb-24 text-center">
+        <p className="text-amber-500 font-semibold mb-2">404</p>
+        <h1 className="font-space text-3xl lg:text-4xl font-bold mb-4">Page not found</h1>
+        <p className="text-gray-400 mb-8">The page you are looking for doesn't exist or has moved.</p>
+        <a
+          href="/"
+          className="inline-block bg-gradient-to-r from-amber-600 to-amber-800 text-white px-6 py-3 rounded-lg"
+        >
+          Back to home
+        </a>
+      </main>
+      <Footer />
     </div>
   );
 }

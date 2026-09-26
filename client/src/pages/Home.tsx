@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import AboutSection from '@/components/AboutSection';
-import WorkSection from '@/components/WorkSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import useScrollReveal from '@/hooks/useScrollReveal';
@@ -14,23 +13,23 @@ const Home = () => {
 
   useEffect(() => {
     // Set document title
-    document.title = 'YashAI | Intelligent Software Solutions';
-    
+    document.title = 'YashAI Technologies | AI Software Startup, Hyderabad';
+
     // Add meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'YashAI provides cutting-edge artificial intelligence software and solutions for enterprise clients seeking innovation and digital transformation.');
+      metaDescription.setAttribute('content', 'YashAI Technologies is a Hyderabad AI software startup, founded in 2025, building AI video generation and AI assistant tools for small businesses.');
     }
   }, []);
 
   return (
     <div className="min-h-screen bg-dark-900 text-white overflow-hidden">
+      <a href="#main" className="skip-link">Skip to content</a>
       <Navbar />
-      <main>
+      <main id="main">
         <HeroSection />
         <ServicesSection />
         <AboutSection />
-        <WorkSection />
         <ContactSection />
       </main>
       <Footer />

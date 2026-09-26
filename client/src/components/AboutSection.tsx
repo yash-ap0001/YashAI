@@ -6,25 +6,23 @@ const AboutSection = () => {
   const { setIsHovering } = useCursor();
 
   const stats = [
-    { value: "250+", label: "Projects Delivered" },
-    { value: "50+", label: "Enterprise Clients" },
-    { value: "95%", label: "Client Satisfaction" },
-    { value: "10+", label: "Years of Innovation" }
+    { value: "2025", label: "Incorporated" },
+    { value: "Hyderabad", label: "Headquarters" },
+    { value: "3", label: "Products in progress" },
+    { value: "Own GPU", label: "AI infrastructure" }
   ];
 
   const timelineItems = [
-    { year: "2015", title: "Company Founded", description: "YashAI Technologies was established with a focus on delivering custom AI solutions for enterprise clients." },
-    { year: "2017", title: "First Major Partnership", description: "Secured our first major enterprise client and launched our enterprise AI services." },
-    { year: "2019", title: "Expanded Service Offerings", description: "Launched our comprehensive cloud services and AI-powered data analytics solutions." },
-    { year: "2022", title: "Global Expansion", description: "Opened offices in North America and Europe, expanding our client base to over 50 enterprise organizations." },
-    { year: "Present", title: "Industry Leadership", description: "Recognized as a leader in AI solutions, continuing to innovate and expand our service offerings." }
+    { year: "April 2025", title: "Company Incorporated", description: "YashAI Technologies Private Limited was incorporated in Telangana (CIN U62090TS2025PTC197645)." },
+    { year: "2026", title: "GetJobEasy Launched", description: "Our career platform went live at jobs.yashaitech.com, offering full-stack and Gen AI training with placement support." },
+    { year: "Now", title: "Building AI Products", description: "Developing our AI explainer video generator and AI assistants for small businesses, running on our own GPU hardware." }
   ];
 
   return (
     <section id="about" className="py-24 bg-gradient-to-b from-dark-800 to-dark-900 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center">
-          <motion.div 
+          <motion.div
             className="lg:w-1/2 mb-12 lg:mb-0"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -32,42 +30,42 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="relative">
-              <motion.div 
+              <motion.div
                 className="lg:absolute -left-4 top-1/2 transform lg:-translate-y-1/2 w-full max-w-md animate-float"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ 
-                  repeat: Infinity, 
+                transition={{
+                  repeat: Infinity,
                   duration: 6,
                   ease: "easeInOut",
                   delay: 0.5
                 }}
               >
-                <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=700&auto=format&fit=crop" 
-                  alt="Team collaboration" 
+                <img
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=700&auto=format&fit=crop"
+                  alt="Engineer working with circuit hardware" loading="lazy" width="700" height="467"
                   className="rounded-xl shadow-2xl"
                 />
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="hidden lg:block absolute -right-8 -bottom-8 w-full max-w-sm animate-float"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ 
-                  repeat: Infinity, 
+                transition={{
+                  repeat: Infinity,
                   duration: 6,
                   ease: "easeInOut",
                   delay: 1
                 }}
               >
-                <img 
-                  src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=500&auto=format&fit=crop" 
-                  alt="AI technology innovation" 
+                <img
+                  src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=500&auto=format&fit=crop"
+                  alt="Developer working at a laptop" loading="lazy" width="500" height="333"
                   className="rounded-xl shadow-2xl"
                 />
               </motion.div>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="lg:w-1/2 lg:pl-12"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -78,18 +76,18 @@ const AboutSection = () => {
               About Us
             </span>
             <h2 className="font-space text-3xl lg:text-4xl font-bold mb-6">
-              Pioneering the Future of <span className="text-gradient">AI Innovation</span>
+              A Young Company Building <span className="text-gradient">Practical AI</span>
             </h2>
             <p className="text-gray-300 mb-6">
-              YashAI Technologies was founded with a singular vision: to democratize access to cutting-edge artificial intelligence technologies and help organizations harness their transformative power.
+              YashAI Technologies Private Limited was incorporated in April 2025 in Telangana, India. Our goal is simple: make useful AI affordable for small businesses, not just large enterprises.
             </p>
             <p className="text-gray-300 mb-6">
-              Our team of AI specialists, data scientists, and software engineers brings decades of combined experience in developing and implementing AI solutions across diverse industries.
+              We are a small, founder-led team. We build our products ourselves, from setting up the models to shipping the finished app, and we run them on our own GPU hardware.
             </p>
             <p className="text-gray-300 mb-8">
-              We are committed to ethical AI development and transparency, ensuring that our solutions not only drive business value but also uphold the highest standards of responsible innovation.
+              We are open about where we are: early, focused, and looking for our first customers and partners.
             </p>
-            
+
             <div className="grid grid-cols-2 gap-6 mb-8">
               {stats.map((stat, index) => (
                 <div key={index} className="flex flex-col">
@@ -98,24 +96,24 @@ const AboutSection = () => {
                 </div>
               ))}
             </div>
-            
+
             <div>
-              <motion.a 
-                href="#contact" 
+              <motion.a
+                href="#contact"
                 className="bg-gradient-to-r from-primary-700 to-secondary-700 text-white px-8 py-3 rounded-lg hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
               >
-                Contact Our Team
+                Contact Us
               </motion.a>
             </div>
           </motion.div>
         </div>
-        
+
         {/* Timeline Section */}
-        <motion.div 
+        <motion.div
           className="mt-32"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,20 +123,20 @@ const AboutSection = () => {
           <div className="text-center mb-16">
             <h3 className="font-space text-2xl lg:text-3xl font-bold mb-4">Our Journey</h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              From startup to industry leader, our timeline showcases our evolution
+              Where we are so far
             </p>
           </div>
-          
+
           <div className="relative">
             {/* Timeline line */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gray-700 transform -translate-x-1/2"></div>
-            
+
             <div className="space-y-16">
               {timelineItems.map((item, index) => (
                 <div key={index} className="flex flex-col md:flex-row items-center">
                   {index % 2 === 0 ? (
                     <>
-                      <motion.div 
+                      <motion.div
                         className="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -154,7 +152,7 @@ const AboutSection = () => {
                         </GlassCard>
                       </motion.div>
                       <div className="hidden md:flex items-center justify-center relative z-10">
-                        <motion.div 
+                        <motion.div
                           className="w-10 h-10 rounded-full bg-gradient-to-r from-primary-700 to-secondary-700 flex items-center justify-center text-white font-bold shadow-lg"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
@@ -169,7 +167,7 @@ const AboutSection = () => {
                     <>
                       <div className="md:w-1/2 md:pr-12 md:invisible mb-6 md:mb-0"></div>
                       <div className="hidden md:flex items-center justify-center relative z-10">
-                        <motion.div 
+                        <motion.div
                           className="w-10 h-10 rounded-full bg-gradient-to-r from-primary-700 to-secondary-700 flex items-center justify-center text-white font-bold shadow-lg"
                           initial={{ scale: 0 }}
                           whileInView={{ scale: 1 }}
@@ -178,7 +176,7 @@ const AboutSection = () => {
                           whileHover={{ scale: 1.2 }}
                         ></motion.div>
                       </div>
-                      <motion.div 
+                      <motion.div
                         className="md:w-1/2 md:pl-12"
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
