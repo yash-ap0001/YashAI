@@ -1,4 +1,5 @@
-import { services, stack } from '@/constants/services';
+import { FolderGit2, BookOpen, Handshake } from 'lucide-react';
+import { services } from '@/constants/services';
 
 /* Illustrative Terraform for a private inference deployment. Decorative, hidden from screen readers. */
 const TerraformMock = () => (
@@ -32,7 +33,7 @@ const TerraformMock = () => (
 const Services = () => (
   <>
     <div className="svc-grid">
-      {services.map(({ title, icon: Icon, body, deliverables, stack: tools }) => (
+      {services.map(({ title, icon: Icon, body, deliverables }) => (
         <article key={title} className="svc">
           <span className="icon-tile"><Icon size={19} aria-hidden="true" /></span>
           <h3 className="h3 mt-4">{title}</h3>
@@ -40,9 +41,6 @@ const Services = () => (
           <ul className="svc-list">
             {deliverables.map((d) => <li key={d}>{d}</li>)}
           </ul>
-          <div className="agent-tools mt-auto pt-4">
-            {tools.map((t) => <span key={t}>{t}</span>)}
-          </div>
         </article>
       ))}
     </div>
@@ -50,19 +48,12 @@ const Services = () => (
     <div className="svc-bottom">
       <TerraformMock />
       <div className="stack">
-        <p className="panel-h">Our stack</p>
-        {stack.map((row) => (
-          <div key={row.group} className="stack-row">
-            <span className="stack-group">{row.group}</span>
-            <div className="agent-tools">
-              {row.items.map((i) => <span key={i}>{i}</span>)}
-            </div>
-          </div>
-        ))}
-        <p className="text-soft mt-5 text-sm leading-relaxed">
-          Everything we build is delivered as code in your repositories, with documentation and a handover, so your
-          team can run it without us.
-        </p>
+        <p className="panel-h">Delivered as code, owned by you</p>
+        <ul className="handover">
+          <li><FolderGit2 size={18} aria-hidden="true" /><span><b>In your repositories.</b> Infrastructure, pipelines and agents live in your own Git, reviewed like any other code.</span></li>
+          <li><BookOpen size={18} aria-hidden="true" /><span><b>Documented.</b> Architecture notes, runbooks and evaluation results for every system we ship.</span></li>
+          <li><Handshake size={18} aria-hidden="true" /><span><b>Handed over.</b> We train your team so you can run, change and redeploy it without us.</span></li>
+        </ul>
       </div>
     </div>
   </>

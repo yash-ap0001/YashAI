@@ -594,3 +594,10 @@ summary:focus-visible {
   .code .n { color: var(--warn); }
   .code .c { color: var(--faint); }
 }
+
+@layer components {
+  .handover { @apply mt-2 space-y-5 text-[15px] leading-relaxed; color: var(--muted-ink); }
+  .handover li { @apply flex gap-3; }
+  .handover svg { @apply mt-0.5 shrink-0; color: var(--brand); }
+  .handover b { color: var(--ink); font-weight: 600; }
+}
