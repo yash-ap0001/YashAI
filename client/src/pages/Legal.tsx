@@ -1,6 +1,6 @@
 import { useEffect, type ReactNode } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Header from '@/components/site/Header';
+import Footer from '@/components/site/Footer';
 import { COMPANY, CONTACT } from '@/constants/contact';
 
 const LAST_UPDATED = '26 September 2026';
@@ -19,12 +19,12 @@ const LegalPage = ({ title, description, children }: LegalPageProps) => {
   }, [title, description]);
 
   return (
-    <div className="min-h-screen bg-dark-900 text-white">
+    <div className="site">
       <a href="#main" className="skip-link">Skip to content</a>
-      <Navbar />
-      <main id="main" className="container mx-auto px-6 pt-36 pb-24 max-w-3xl legal">
-        <h1 className="font-space text-3xl lg:text-4xl font-bold mb-2">{title}</h1>
-        <p className="text-gray-400 text-sm mb-10">Last updated: {LAST_UPDATED}</p>
+      <Header />
+      <main id="main" className="container-x max-w-3xl pt-16 pb-24 legal">
+        <h1 className="h2 mb-2">{title}</h1>
+        <p className="text-soft text-sm mb-10">Last updated: {LAST_UPDATED}</p>
         {children}
       </main>
       <Footer />
@@ -64,8 +64,7 @@ export const PrivacyPolicy = () => (
     <p>Some parts of the site are provided by other companies, which receive your IP address when your browser loads them:</p>
     <ul>
       <li>Vercel (website hosting)</li>
-      <li>Google Fonts and cdnjs/Cloudflare (fonts and icons)</li>
-      <li>Unsplash (some images)</li>
+      <li>Google Fonts (fonts)</li>
       <li>WhatsApp (only if you choose to message us there)</li>
     </ul>
     <p>
@@ -125,8 +124,7 @@ export const TermsOfService = () => (
 
     <h2>Intellectual property</h2>
     <p>
-      The YashAI name, logo, text and design of this site belong to {COMPANY.legalName}. Some photos
-      are used under the Unsplash licence. You may not copy the site's content for commercial use
+      The YashAI name, logo, text and design of this site belong to {COMPANY.legalName}. You may not copy the site's content for commercial use
       without our permission.
     </p>
 
