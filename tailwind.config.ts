@@ -6,9 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Inter"', 'system-ui', 'sans-serif'],
-        space: ['"Space Grotesk"', 'sans-serif'],
-        display: ['"Playfair Display"', 'serif']
+        sans: ['"Geist"', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'monospace']
       },
       borderRadius: {
         lg: "var(--radius)",

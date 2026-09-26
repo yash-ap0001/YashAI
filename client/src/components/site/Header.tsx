@@ -18,7 +18,7 @@ const Header = ({ overDark = false }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > (overDark ? 480 : 8));
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -31,10 +31,10 @@ const Header = ({ overDark = false }: HeaderProps) => {
   }, []);
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}${overDark && !scrolled ? ' on-dark' : ''}`}>
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="container-x flex h-16 items-center justify-between">
         <a href="/" aria-label="YashAI Technologies home" className="flex items-center">
-          <Logo className="h-11 w-auto" tone={overDark && !scrolled ? 'dark' : 'auto'} />
+          <Logo className="h-10 w-auto" tone="dark" />
         </a>
 
         <nav aria-label="Main" className="hidden md:flex items-center gap-8">

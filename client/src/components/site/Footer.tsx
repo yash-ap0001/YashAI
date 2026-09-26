@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className="site-footer">
     <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
       <div className="lg:col-span-2 max-w-sm">
-        <Logo className="h-11 w-auto mb-4" />
+        <Logo className="h-10 w-auto mb-5" tone="dark" />
         <p className="text-soft text-sm leading-relaxed">
           AI agents that do the work, designed, built and run by our engineers inside your systems.
         </p>
