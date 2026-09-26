@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import {
   Headset, Target, PhoneCall, Receipt, UserSearch, ShieldAlert, FileHeart, Code2,
+  Network, Microscope, Car, AppWindow,
   Workflow, Plug, ShieldCheck, FlaskConical, Activity, Brain,
 } from 'lucide-react';
 
@@ -17,6 +18,26 @@ export type Agent = {
 
 // The digital workforce we design, build and run for customers.
 export const agents: Agent[] = [
+  {
+    id: 'atlas',
+    name: 'Atlas',
+    role: 'Lead Agent',
+    icon: Network,
+    summary: 'Your chief of staff. Splits goals across the team.',
+    tasks: ['Breaks a goal into tasks for specialist agents', 'Reviews their work before it reaches you', 'Reports progress and asks for decisions'],
+    tools: ['Slack', 'Teams', 'Email', 'All your agents'],
+    pilot: 'Coordinate two agents on one goal',
+  },
+  {
+    id: 'sage',
+    name: 'Sage',
+    role: 'Research Agent',
+    icon: Microscope,
+    summary: 'Deep research with every claim sourced.',
+    tasks: ['Market, competitor and customer research', 'Literature and patent reviews', 'Due-diligence briefs with citations'],
+    tools: ['Web', 'Research databases', 'Your documents', 'Notion'],
+    pilot: 'Produce a weekly competitor brief',
+  },
   {
     id: 'aria',
     name: 'Aria',
@@ -86,6 +107,26 @@ export const agents: Agent[] = [
     tasks: ['Reads denial reasons and payer rules', 'Drafts appeals with evidence', 'Tracks every claim to resolution'],
     tools: ['Epic', 'Athenahealth', 'Payer portals', 'Excel'],
     pilot: 'Work one denial category',
+  },
+  {
+    id: 'axel',
+    name: 'Axel',
+    role: 'Automotive Agent',
+    icon: Car,
+    summary: 'Books service, qualifies buyers and chases warranty claims.',
+    tasks: ['Service bookings and recall outreach', 'Test drives and finance pre-qualification', 'Warranty claim preparation for OEMs'],
+    tools: ['DMS', 'CDK', 'Reynolds', 'OEM portals'],
+    pilot: 'Answer every after-hours service call',
+  },
+  {
+    id: 'echo',
+    name: 'Echo',
+    role: 'In-App Agent',
+    icon: AppWindow,
+    summary: 'An agent inside your own product that takes actions for your users.',
+    tasks: ['Turns plain requests into in-app actions', 'Guides new users through onboarding', 'Answers from your docs, with sources'],
+    tools: ['Your API', 'React SDK', 'Webhooks', 'Your docs'],
+    pilot: 'Ship one agent-powered feature',
   },
   {
     id: 'dev',

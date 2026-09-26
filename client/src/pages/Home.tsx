@@ -6,6 +6,7 @@ import AgentRun from '@/components/site/AgentRun';
 import { Workforce } from '@/components/site/Mocks';
 import IndustryExplorer from '@/components/site/IndustryExplorer';
 import { ideas, TeamThread } from '@/components/site/AgentTeam';
+import Services from '@/components/site/Services';
 import { agents, capabilities, steps, plans, comparison } from '@/constants/agents';
 import { trust } from '@/constants/platform';
 import { COMPANY, CONTACT, DEMO_URL } from '@/constants/contact';
@@ -53,6 +54,10 @@ const faqs = [
     a: 'Yes. Where a system has an API we use it. Where it does not, such as an older portal or a vendor website, the agent uses its own browser the way a person would, with scoped credentials stored in a vault.',
   },
   {
+    q: 'Can you help with RAG, fine-tuning or cloud setup without building an agent?',
+    a: 'Yes. We take on standalone engineering work: RAG systems, fine-tuning open-weight models, deploying AI on AWS, Azure or Google Cloud, and Terraform and MLOps for AI infrastructure. Everything is delivered as code in your repositories.',
+  },
+  {
     q: 'What happens when an agent makes a mistake?',
     a: 'Every agent runs with guardrails and approval limits, and every step is logged so it can be replayed and reviewed. New agents start in shadow mode, where people approve every action, and only act alone once they have met the agreed accuracy on real work.',
   },
@@ -98,7 +103,7 @@ const Home = () => {
               AI agents that <span className="grad">do&nbsp;the&nbsp;work.</span>
             </h1>
             <p className="hero-sub">
-              We design, build and run production AI agents for support, sales, finance, security and operations.
+              We design, build and run production AI agents for support, sales, finance, research and operations, and inside your own apps.
               They are embedded in your tools, governed by your rules and measured against your KPIs.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -218,7 +223,7 @@ const Home = () => {
           <div className="container-x">
             <div className="section-head">
               <p className="kicker">Industries</p>
-              <h2 className="h2">Agents for every domain.</h2>
+              <h2 className="h2">Agents for every domain, from dealerships to research labs.</h2>
               <p className="lead">
                 The same platform, configured for the systems, rules and language of your industry. Pick a domain
                 to see what its agents do and an example of one at work.
@@ -286,6 +291,21 @@ const Home = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* AI engineering services */}
+        <section id="services" className="section">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">AI engineering services</p>
+              <h2 className="h2">The engineering under every agent, also available on its own.</h2>
+              <p className="lead">
+                RAG, fine-tuning, cloud deployment, Terraform and MLOps. Hire us for the full agent or for any
+                layer of the stack.
+              </p>
+            </div>
+            <Services />
           </div>
         </section>
 

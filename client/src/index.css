@@ -572,3 +572,25 @@ summary:focus-visible {
   .draft-body { @apply mt-2 text-sm italic; color: var(--ink-2); }
   .draft-actions { @apply mt-3 flex flex-wrap gap-1.5; }
 }
+
+/* ---- AI engineering services ---- */
+@layer components {
+  .svc-grid { @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-4; }
+  .svc { @apply flex flex-col rounded-2xl p-6; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+  .svc:hover { box-shadow: inset 0 0 0 1px var(--line-strong); background: var(--surface-2); }
+  .svc-list { @apply mt-4 space-y-1.5 text-[14px]; color: var(--ink-2); }
+  .svc-list li { @apply relative pl-4; }
+  .svc-list li::before { content: ""; @apply absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full; background: var(--brand); }
+  .svc-bottom { @apply mt-4 grid gap-4 lg:grid-cols-2; }
+  .stack { @apply rounded-2xl p-6; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+  .stack-row { @apply grid gap-2 py-3 sm:grid-cols-[8.5rem_1fr] sm:items-center; }
+  .stack-row + .stack-row { border-top: 1px solid var(--line); }
+  .stack-group { @apply font-mono text-[11px] uppercase; letter-spacing: 0.06em; color: var(--faint); }
+
+  .code-mock { background: var(--bg-raised); }
+  .code { @apply overflow-x-auto p-5 font-mono text-[13px] leading-6; color: var(--ink-2); }
+  .code .k { color: var(--violet); }
+  .code .s { color: var(--code); }
+  .code .n { color: var(--warn); }
+  .code .c { color: var(--faint); }
+}

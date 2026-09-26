@@ -27,6 +27,7 @@ const Footer = () => (
           <li><a href="/#how" className="footer-link">How we deploy</a></li>
           <li><a href="/#industries" className="footer-link">Industries</a></li>
           <li><a href="/#platform" className="footer-link">Agent platform</a></li>
+          <li><a href="/#services" className="footer-link">AI engineering services</a></li>
           <li><a href="/#security" className="footer-link">Security &amp; governance</a></li>
           <li><a href="/#pricing" className="footer-link">Engagement models</a></li>
           <li><a href="/#faq" className="footer-link">FAQ</a></li>

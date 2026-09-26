@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import {
   Landmark, Umbrella, HeartPulse, Pill, ShoppingBag, Factory, Truck, RadioTower,
-  Home, GraduationCap, Plane, Scale, Building2, Zap, Cpu, Users,
+  Home, GraduationCap, Plane, Scale, Building2, Zap, Cpu, Users, Car, AppWindow, Microscope, CandlestickChart,
 } from 'lucide-react';
 
 export type UseCase = { title: string; example: string };
@@ -34,6 +34,24 @@ export const industries: Industry[] = [
       task: 'Loan #88-2140 is 35 days overdue ($1,240).',
       steps: ['Pulls repayment history and hardship flags', 'Calls customer and offers a 3-month plan within policy', 'Customer accepts; plan created in core banking', 'Written confirmation sent and case closed'],
       outcome: 'Plan agreed in one call · no human time needed',
+    },
+  },
+  {
+    id: 'capital-markets',
+    name: 'Capital markets & investing',
+    icon: CandlestickChart,
+    headline: 'Research, monitoring and reporting done before the market opens.',
+    systems: ['Market data feeds', 'Exchange filings', 'Portfolio systems', 'CRM'],
+    useCases: [
+      { title: 'Equity research support', example: 'Reads earnings calls, filings and news overnight and drafts a sourced summary for each covered stock.' },
+      { title: 'Portfolio monitoring', example: 'Watches holdings for price moves, rating changes and news, and alerts the portfolio manager with context.' },
+      { title: 'Compliance & client reporting', example: 'Checks trades against restricted lists and mandates, and drafts client portfolio reports for review.' },
+    ],
+    run: {
+      agent: 'Research support agent',
+      task: 'A company in the portfolio reported quarterly results overnight.',
+      steps: ['Reads the results filing and earnings-call transcript', 'Compares revenue and margins with the last 4 quarters and guidance', 'Flags a margin drop and a change in outlook, with page references', 'Posts a sourced brief to the portfolio manager before market open'],
+      outcome: 'Brief ready at 8:30 am · investment decisions stay with the PM',
     },
   },
   {
@@ -142,6 +160,24 @@ export const industries: Industry[] = [
       task: 'Container MSKU-77301 missed its rail connection.',
       steps: ['Checks next available rail slots and truck options', 'Books truck to keep the delivery date', 'Cost within approved limit; no approval needed', 'Updates TMS and emails the customer the unchanged ETA'],
       outcome: 'Delivery date protected',
+    },
+  },
+  {
+    id: 'automotive',
+    name: 'Automotive',
+    icon: Car,
+    headline: 'Dealers, carmakers and fleets that never miss a customer or a claim.',
+    systems: ['Dealer management (DMS)', 'CDK', 'Reynolds & Reynolds', 'OEM warranty portals'],
+    useCases: [
+      { title: 'Dealership service desk', example: 'Answers service calls 24/7, books slots in the DMS, sends reminders and runs recall outreach.' },
+      { title: 'Sales lead response', example: 'Replies to website and marketplace leads in seconds, books test drives and pre-qualifies finance.' },
+      { title: 'Warranty & fleet operations', example: 'Prepares warranty claims with repair-order evidence, and schedules fleet maintenance from telematics alerts.' },
+    ],
+    run: {
+      agent: 'Service desk agent',
+      task: 'Customer calls at 8:40 pm: “Check-engine light is on, can I bring it in?”',
+      steps: ['Looks up the vehicle by number plate and service history', 'Finds an open recall for the same model and bundles it in', 'Books Thursday 8:00 am with a courtesy car', 'Sends confirmation and drop-off instructions by SMS'],
+      outcome: 'Service and recall booked after hours',
     },
   },
   {
@@ -286,6 +322,42 @@ export const industries: Industry[] = [
       task: '“Webhook deliveries failing since this morning.”',
       steps: ['Checks the account’s webhook logs: 401 errors', 'Finds the signing secret was rotated at 08:12', 'Guides the customer to update the secret', 'Confirms deliveries succeed and closes ticket'],
       outcome: 'Resolved without engineering escalation',
+    },
+  },
+  {
+    id: 'software-products',
+    name: 'Software products & apps',
+    icon: AppWindow,
+    headline: 'Put an agent inside your own product, for your users.',
+    systems: ['Your REST/GraphQL API', 'React & mobile SDKs', 'Webhooks', 'Product docs'],
+    useCases: [
+      { title: 'In-app copilot that acts', example: 'Users type “move all overdue tasks to next sprint” and the agent does it through your own API.' },
+      { title: 'Guided onboarding', example: 'Sets up a new account with the user: imports data, configures settings and explains each step.' },
+      { title: 'Agent APIs for your customers', example: 'Exposes your product’s actions to AI agents safely, with scopes, rate limits and audit logs.' },
+    ],
+    run: {
+      agent: 'In-app agent (project-management app)',
+      task: 'User types: “Reassign Maria’s open tickets to Dev team B, she’s on leave.”',
+      steps: ['Checks the user has admin rights for this workspace', 'Finds 14 open tickets assigned to Maria', 'Shows a preview of the reassignment for confirmation', 'Reassigns via the product API and notifies both teams'],
+      outcome: '14 tickets moved in one sentence',
+    },
+  },
+  {
+    id: 'research',
+    name: 'Research & analysis',
+    icon: Microscope,
+    headline: 'Days of research in an hour, with every claim traceable.',
+    systems: ['Web & news', 'Research databases', 'Internal documents', 'Spreadsheets'],
+    useCases: [
+      { title: 'Market & competitor research', example: 'Tracks competitors’ pricing, launches and hiring, and delivers a weekly brief with sources.' },
+      { title: 'Scientific & patent literature', example: 'Searches papers and patents, summarises findings and maps who is working on what.' },
+      { title: 'Due diligence', example: 'Builds company profiles from filings, news and data rooms, and flags risks for analysts to verify.' },
+    ],
+    run: {
+      agent: 'Research agent',
+      task: '“Size the market for EV charging software in Southeast Asia.”',
+      steps: ['Plans the questions: players, pricing, adoption, regulation', 'Reads 60+ sources: reports, filings, news and government data', 'Cross-checks figures and marks estimates versus reported numbers', 'Writes a 6-page brief with a sourced table and open questions'],
+      outcome: 'Sourced brief ready for analyst review',
     },
   },
   {

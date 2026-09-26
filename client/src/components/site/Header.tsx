@@ -8,7 +8,7 @@ const links = [
   { label: 'Agents', href: '/#agents' },
   { label: 'How we deploy', href: '/#how' },
   { label: 'Industries', href: '/#industries' },
-  { label: 'Platform', href: '/#platform' },
+  { label: 'Services', href: '/#services' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Company', href: '/#company' },
 ];

@@ -73,6 +73,30 @@ const runs: Run[] = [
     ],
   },
   {
+    chip: 'Book a car service',
+    agent: 'Axel · Automotive Agent',
+    task: 'After-hours call: “My check-engine light is on. Can I bring the car in?”',
+    steps: [
+      { kind: 'plan', text: 'Identify vehicle → check history and recalls → book service → confirm' },
+      { kind: 'tool', text: 'dms.lookup_vehicle(plate="KA05 MX 2211")', meta: '2022 SUV · 38,400 km' },
+      { kind: 'tool', text: 'oem.open_recalls(vin)', meta: '1 open recall found' },
+      { kind: 'tool', text: 'dms.book_service(Thu 08:00, add_recall=true, courtesy_car=true)', meta: 'Booked' },
+      { kind: 'done', text: 'SMS confirmation sent with drop-off instructions', meta: '3 min call' },
+    ],
+  },
+  {
+    chip: 'Research a market',
+    agent: 'Sage · Research Agent',
+    task: '“Who are the top 5 competitors in AI invoice processing, and how do they price?”',
+    steps: [
+      { kind: 'plan', text: 'Find vendors → collect pricing and positioning → verify → summarise' },
+      { kind: 'tool', text: 'web.search("AI invoice processing vendors 2026")', meta: '34 sources read' },
+      { kind: 'tool', text: 'web.read(pricing pages × 5)', meta: '3 public · 2 on request' },
+      { kind: 'check', text: 'Every figure linked to a source; estimates marked as estimates', meta: 'Passed' },
+      { kind: 'done', text: 'Comparison table and 1-page brief delivered to #research', meta: '11 min' },
+    ],
+  },
+  {
     chip: 'Triage a security alert',
     agent: 'Sentinel · SecOps Agent',
     task: 'Alert: impossible-travel login for j.doe (Mumbai → Frankfurt in 20 min)',
