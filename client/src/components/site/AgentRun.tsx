@@ -49,6 +49,30 @@ const runs: Run[] = [
     ],
   },
   {
+    chip: 'Reschedule a patient',
+    agent: 'Vera · Voice Agent (healthcare)',
+    task: 'Inbound call: patient needs to move Thursday’s cardiology follow-up',
+    steps: [
+      { kind: 'plan', text: 'Verify identity → find next slot with same doctor → reschedule → refill freed slot' },
+      { kind: 'tool', text: 'ehr.verify_patient(dob, mrn)', meta: 'Verified' },
+      { kind: 'tool', text: 'ehr.find_slots(provider="Dr. Shah", after="Thu")', meta: 'Mon 9:40 am free' },
+      { kind: 'tool', text: 'ehr.reschedule(appt_5521 → Mon 09:40)', meta: 'Prep instructions sent' },
+      { kind: 'done', text: 'Thursday slot offered to waitlist and filled', meta: '2 min call' },
+    ],
+  },
+  {
+    chip: 'Handle a shipment delay',
+    agent: 'Exceptions Agent · Logistics',
+    task: 'Container MSKU-77301 missed its rail connection in Chicago',
+    steps: [
+      { kind: 'plan', text: 'Assess delay → find alternatives → protect delivery date → inform customer' },
+      { kind: 'tool', text: 'tms.options(MSKU-77301, deliver_by="Fri")', meta: 'Next rail: Sat · Truck: Thu' },
+      { kind: 'check', text: 'Truck surcharge $640 is within the $1,000 auto-approve limit', meta: 'Passed' },
+      { kind: 'tool', text: 'carrier.book_truck(pickup="today 16:00")', meta: 'Booked' },
+      { kind: 'done', text: 'TMS updated · customer told delivery date is unchanged', meta: '4 min' },
+    ],
+  },
+  {
     chip: 'Triage a security alert',
     agent: 'Sentinel · SecOps Agent',
     task: 'Alert: impossible-travel login for j.doe (Mumbai → Frankfurt in 20 min)',

@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { DEMO_URL } from '@/constants/contact';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { label: 'Agents', href: '/#agents' },
   { label: 'How we deploy', href: '/#how' },
+  { label: 'Industries', href: '/#industries' },
   { label: 'Platform', href: '/#platform' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Company', href: '/#company' },
@@ -43,15 +45,18 @@ const Header = ({ overDark = false }: HeaderProps) => {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-2">
+          <ThemeToggle />
           <a href={DEMO_URL} className="btn btn-primary btn-sm">
             Book a workshop
           </a>
         </div>
 
+        <div className="md:hidden flex items-center gap-1">
+        <ThemeToggle />
         <button
           type="button"
-          className="md:hidden icon-btn"
+          className="icon-btn"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -59,6 +64,7 @@ const Header = ({ overDark = false }: HeaderProps) => {
         >
           {open ? <X aria-hidden="true" size={22} /> : <Menu aria-hidden="true" size={22} />}
         </button>
+        </div>
       </div>
 
       <nav id="mobile-nav" aria-label="Mobile" hidden={!open} className="md:hidden mobile-nav">

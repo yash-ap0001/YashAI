@@ -25,6 +25,7 @@ const Footer = () => (
         <h2 className="footer-heading">Platform</h2>
         <ul className="space-y-2">
           <li><a href="/#how" className="footer-link">How we deploy</a></li>
+          <li><a href="/#industries" className="footer-link">Industries</a></li>
           <li><a href="/#platform" className="footer-link">Agent platform</a></li>
           <li><a href="/#security" className="footer-link">Security &amp; governance</a></li>
           <li><a href="/#pricing" className="footer-link">Engagement models</a></li>

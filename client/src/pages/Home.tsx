@@ -4,6 +4,7 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import AgentRun from '@/components/site/AgentRun';
 import { Workforce } from '@/components/site/Mocks';
+import IndustryExplorer from '@/components/site/IndustryExplorer';
 import { agents, capabilities, steps, plans, comparison } from '@/constants/agents';
 import { trust } from '@/constants/platform';
 import { COMPANY, CONTACT, DEMO_URL } from '@/constants/contact';
@@ -177,6 +178,21 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Industries */}
+        <section id="industries" className="section">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">Industries</p>
+              <h2 className="h2">Agents for every domain.</h2>
+              <p className="lead">
+                The same platform, configured for the systems, rules and language of your industry. Pick a domain
+                to see what its agents do and an example of one at work.
+              </p>
+            </div>
+            <IndustryExplorer />
+          </div>
+        </section>
+
         {/* Workforce view */}
         <section className="section pb-0">
           <div className="container-x">
@@ -243,7 +259,7 @@ const Home = () => {
           <div className="container-x">
             <div className="section-head">
               <p className="kicker kicker-dark">Security &amp; governance</p>
-              <h2 className="h2 text-white">Autonomy, with you in control.</h2>
+              <h2 className="h2">Autonomy, with you in control.</h2>
               <p className="lead lead-dark">
                 Agents act inside limits you define. Anything outside them goes to a person, and everything is on the record.
               </p>
@@ -252,7 +268,7 @@ const Home = () => {
               {trust.map(({ title, body, icon: Icon }) => (
                 <div key={title} className="trust">
                   <Icon size={20} aria-hidden="true" />
-                  <h3 className="font-semibold mt-4 text-white">{title}</h3>
+                  <h3 className="font-semibold mt-4">{title}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed">{body}</p>
                 </div>
               ))}
@@ -262,7 +278,7 @@ const Home = () => {
                 <div key={title} className="deploy">
                   <Icon size={20} aria-hidden="true" />
                   <div>
-                    <h3 className="font-semibold text-white">{title}</h3>
+                    <h3 className="font-semibold">{title}</h3>
                     <p className="mt-1 text-[15px]">{body}</p>
                   </div>
                 </div>
@@ -376,8 +392,8 @@ const Home = () => {
         <section id="partner" className="section">
           <div className="container-x">
             <div className="cta">
-              <h2 className="h2 text-white">Which job should your first agent do?</h2>
-              <p className="mt-4 text-white/75 max-w-xl mx-auto text-lg">
+              <h2 className="h2">Which job should your first agent do?</h2>
+              <p className="mt-4 text-soft max-w-xl mx-auto text-lg">
                 Book a free 30-minute workflow workshop. We'll map your top three automatable workflows and tell you
                 honestly which one an agent should take first.
               </p>
