@@ -3,6 +3,7 @@ import { ArrowRight, Check, Cloud, Building, ServerCog } from 'lucide-react';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import { CommandCenter, AgentMock, VoiceApiMock, KnowledgeMock } from '@/components/site/Mocks';
+import PromptDemo from '@/components/site/PromptDemo';
 import { modules, industries, trust, type ModuleStatus } from '@/constants/platform';
 import { COMPANY, CONTACT, DEMO_URL } from '@/constants/contact';
 
@@ -16,6 +17,19 @@ const deployments = [
   { icon: Cloud, title: 'YashAI Cloud (India)', body: 'Fully managed, hosted in India. The fastest way to start.' },
   { icon: Building, title: 'Private cloud', body: 'Deployed in your own AWS, Azure or Google Cloud account, in an Indian region.' },
   { icon: ServerCog, title: 'On-premise', body: 'Air-gapped deployment on your own GPUs, for the most sensitive workloads.' },
+];
+
+const principles = [
+  { title: 'Honest about what works', body: "Our agents say 'I don't know' and hand off to a person instead of guessing. Every answer from your documents shows its source." },
+  { title: 'Your data stays yours', body: 'Data stays in India by default, never trains models for other customers, and can stay entirely on your premises.' },
+  { title: 'Built for Bharat, not translated', body: 'We design for code-mixed speech and regional languages from the start, not as an afterthought to English.' },
+  { title: 'People stay in control', body: 'Every agent action is logged, reviewable and reversible. Sensitive decisions always go to a human.' },
+];
+
+const news = [
+  { tag: 'Product', date: 'Sep 2026', title: 'Yash Studio opens for early access', body: 'Enterprises can now request access to generate training and product videos in Indian languages.', href: '#studio', art: 'art-a' },
+  { tag: 'Company', date: 'Aug 2026', title: 'GetJobEasy launches', body: 'Our career platform for full-stack and Gen AI training, with a placement fee due only after an offer.', href: 'https://jobs.yashaitech.com', art: 'art-b' },
+  { tag: 'Company', date: 'Apr 2025', title: 'YashAI Technologies is incorporated', body: 'YashAI Technologies Private Limited is registered in Telangana to build AI for Indian businesses.', href: '#company', art: 'art-c' },
 ];
 
 const faqs = [
@@ -56,30 +70,28 @@ const Home = () => {
       <a href="#studio" className="announce">
         Yash Studio early access is open: enterprise video in every Indian language <ArrowRight size={14} aria-hidden="true" />
       </a>
-      <Header />
+      <Header overDark />
 
       <main id="main">
-        {/* Hero */}
-        <section className="hero">
-          <div className="container-x">
-            <div className="hero-grid">
-              <h1 className="display">
-                Enterprise AI that <em>speaks&nbsp;India.</em>
-              </h1>
-              <div className="hero-copy">
-                <p className="lead mt-0">
-                  YashAI is building an AI platform for Indian enterprises: agents that serve customers in their own
-                  language, real-time voice, generative video and private knowledge search, all deployed in India
-                  on your terms.
-                </p>
-                <div className="mt-7 flex flex-col sm:flex-row gap-3">
-                  <a href={DEMO_URL} className="btn btn-primary">Request a demo <ArrowRight size={18} aria-hidden="true" /></a>
-                  <a href="#platform" className="btn btn-ghost">Explore the platform</a>
-                </div>
-              </div>
-            </div>
-            <div className="hero-mock">
-              <CommandCenter />
+        {/* Hero: dark, cosmic, with a live-feeling prompt */}
+        <section className="hero-dark">
+          <div className="stars" aria-hidden="true" />
+          <div className="glow" aria-hidden="true" />
+          <div className="container-x relative text-center">
+            <p className="hero-pill">
+              <span className="eyebrow-dot" /> Yash Studio early access is open
+            </p>
+            <h1 className="display-xl">
+              Enterprise AI that <span className="grad">speaks India.</span>
+            </h1>
+            <p className="hero-sub">
+              One platform for agents, real-time voice, generative video and private knowledge search. Built for
+              India's languages, deployed in India, on your terms.
+            </p>
+            <PromptDemo />
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <a href={DEMO_URL} className="btn btn-light">Request a demo <ArrowRight size={18} aria-hidden="true" /></a>
+              <a href="#platform" className="btn btn-outline-light">Explore the platform</a>
             </div>
           </div>
         </section>
@@ -92,6 +104,17 @@ const Home = () => {
             <span>Code-mixed Indian languages</span>
             <span>Cloud, private cloud or on-premise</span>
             <span>Open-weight models</span>
+          </div>
+        </section>
+
+        {/* Platform in action */}
+        <section className="section pb-0">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">One control plane</p>
+              <h2 className="h2">Every agent, language and deployment in one view.</h2>
+            </div>
+            <CommandCenter />
           </div>
         </section>
 
@@ -250,6 +273,49 @@ const Home = () => {
               <div><dt>Headquarters</dt><dd>Hyderabad, India</dd></div>
               <div><dt>Contact</dt><dd><a className="text-link" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></dd></div>
             </dl>
+          </div>
+        </section>
+
+        {/* Principles */}
+        <section id="principles" className="section">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">Our principles</p>
+              <h2 className="h2">How we build AI we'd trust with our own customers.</h2>
+            </div>
+            <div className="principles">
+              {principles.map((p, i) => (
+                <div key={p.title} className="principle">
+                  <span className="principle-num">0{i + 1}</span>
+                  <h3 className="h3">{p.title}</h3>
+                  <p className="text-soft mt-2 leading-relaxed">{p.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Newsroom */}
+        <section id="news" className="section section-alt">
+          <div className="container-x">
+            <div className="section-head flex items-end justify-between gap-6 max-w-none">
+              <div>
+                <p className="kicker">Latest</p>
+                <h2 className="h2">News from YashAI</h2>
+              </div>
+            </div>
+            <div className="news-grid">
+              {news.map((n) => (
+                <a key={n.title} href={n.href} className="news-card">
+                  <div className={`news-art ${n.art}`} aria-hidden="true" />
+                  <div className="p-6">
+                    <p className="news-meta">{n.tag} · {n.date}</p>
+                    <h3 className="h3 mt-2">{n.title}</h3>
+                    <p className="text-soft mt-2 text-[15px] leading-relaxed">{n.body}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 

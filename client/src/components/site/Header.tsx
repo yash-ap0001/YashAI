@@ -10,16 +10,18 @@ const links = [
   { label: 'Company', href: '/#company' },
 ];
 
-const Header = () => {
+type HeaderProps = { overDark?: boolean };
+
+const Header = ({ overDark = false }: HeaderProps) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > (overDark ? 480 : 8));
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [overDark]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
@@ -28,10 +30,10 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}${overDark && !scrolled ? ' on-dark' : ''}`}>
       <div className="container-x flex h-16 items-center justify-between">
         <a href="/" aria-label="YashAI Technologies home" className="flex items-center">
-          <Logo className="h-11 w-auto" />
+          <Logo className="h-11 w-auto" tone={overDark && !scrolled ? 'dark' : 'auto'} />
         </a>
 
         <nav aria-label="Main" className="hidden md:flex items-center gap-8">

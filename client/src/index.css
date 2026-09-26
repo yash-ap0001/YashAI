@@ -332,3 +332,123 @@ summary:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---- Frontier-lab layer: dark cosmic hero, gradient glow, prompt demo, principles, newsroom ---- */
+@layer components {
+  .site-header.on-dark { background: #05070d; border-bottom-color: rgba(255, 255, 255, 0.06); }
+  .site-header.on-dark .nav-link { color: rgba(255, 255, 255, 0.72); }
+  .site-header.on-dark .nav-link:hover { color: #fff; }
+  .site-header.on-dark .btn-primary { background: #fff; color: #05070d; }
+  .site-header.on-dark .icon-btn { color: #fff; }
+
+  .hero-dark {
+    @apply relative overflow-hidden pt-16 pb-24 md:pt-24 md:pb-32;
+    background: #05070d;
+    color: #e8edf5;
+  }
+  .stars {
+    @apply absolute inset-0 opacity-70;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 78% 12%, #fff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 35% 72%, #cfe6ff 50%, transparent 51%),
+      radial-gradient(1px 1px at 62% 44%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 88% 66%, #fff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 22% 48%, #ffe6c7 50%, transparent 51%),
+      radial-gradient(1px 1px at 48% 8%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 92% 90%, #cfe6ff 50%, transparent 51%),
+      radial-gradient(1px 1px at 6% 86%, #fff 50%, transparent 51%);
+    background-size: 480px 480px;
+  }
+  .glow {
+    @apply absolute left-1/2 top-[38%] h-[560px] w-[900px] max-w-[160vw] -translate-x-1/2 -translate-y-1/2 rounded-full;
+    background: conic-gradient(from 200deg, #2f7cf6, #8b5cf6, #ec4899, #ff9933, #2f7cf6);
+    filter: blur(120px);
+    opacity: 0.32;
+    animation: glow-spin 18s linear infinite;
+  }
+  @keyframes glow-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .hero-pill {
+    @apply mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .eyebrow-dot { @apply h-2 w-2 rounded-full; background: #3fcf95; box-shadow: 0 0 0 4px rgba(63, 207, 149, 0.18); }
+  .display-xl {
+    @apply mx-auto max-w-5xl font-semibold text-white;
+    font-size: clamp(2.75rem, 7.4vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+  .grad {
+    background: linear-gradient(90deg, #6cb6ff, #a78bfa 35%, #f472b6 65%, #ffb347);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: grad-shift 8s ease-in-out infinite alternate;
+  }
+  @keyframes grad-shift { to { background-position: 100% 0; } }
+  .hero-sub { @apply mx-auto mt-6 max-w-2xl text-lg leading-relaxed; color: rgba(232, 237, 245, 0.72); }
+
+  /* Prompt demo */
+  .prompt { @apply mx-auto mt-10 max-w-2xl text-left; }
+  .prompt-log {
+    @apply min-h-[168px] space-y-3 rounded-2xl p-5;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .prompt-q { @apply ml-auto max-w-[88%] rounded-2xl px-4 py-2.5 text-sm; background: rgba(255, 255, 255, 0.1); color: #fff; border-top-right-radius: 6px; width: fit-content; }
+  .prompt-a p { @apply mt-1.5 whitespace-pre-line text-[15px] leading-relaxed; color: rgba(232, 237, 245, 0.9); }
+  .prompt-who { @apply inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider; color: #9ecbff; }
+  .caret { @apply ml-0.5 inline-block h-4 w-2 align-middle; background: #9ecbff; animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .prompt-box {
+    @apply mt-3 flex items-center gap-2 rounded-full p-1.5 pl-5;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 20px 60px -20px rgba(47, 124, 246, 0.6);
+  }
+  .prompt-box input { @apply flex-1 bg-transparent py-2 text-[15px] outline-none; color: #0b1220; }
+  .prompt-box input::placeholder { color: #7a8494; }
+  .prompt-box:focus-within { box-shadow: 0 0 0 2px #6cb6ff, 0 20px 60px -20px rgba(47, 124, 246, 0.6); }
+  .prompt-send { @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full; background: #05070d; color: #fff; }
+  .prompt-chips { @apply mt-4 flex flex-wrap justify-center gap-2; }
+  .pchip {
+    @apply rounded-full px-4 py-2 text-sm font-medium transition;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.82);
+  }
+  .pchip:hover { background: rgba(255, 255, 255, 0.08); }
+  .pchip.on { background: #fff; color: #05070d; border-color: #fff; }
+  .prompt-note { @apply mt-3 text-center text-xs; color: rgba(232, 237, 245, 0.45); }
+
+  /* Principles */
+  .principles { @apply grid gap-x-10 gap-y-12 md:grid-cols-2; }
+  .principle { @apply pt-6; border-top: 1px solid var(--ink); }
+  .principle-num { @apply mb-4 block text-sm font-semibold; color: var(--brand); font-variant-numeric: tabular-nums; }
+
+  /* Newsroom */
+  .news-grid { @apply grid gap-5 md:grid-cols-3; }
+  .news-card { @apply block overflow-hidden rounded-2xl transition; background: var(--surface); border: 1px solid var(--line); }
+  .news-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+  .news-art { @apply aspect-[16/9]; }
+  .art-a { background: radial-gradient(60% 80% at 30% 30%, #6cb6ff, transparent 60%), radial-gradient(60% 80% at 80% 70%, #a78bfa, transparent 60%), #0b1220; }
+  .art-b { background: radial-gradient(60% 80% at 70% 30%, #3fcf95, transparent 60%), radial-gradient(60% 80% at 20% 80%, #6cb6ff, transparent 60%), #0b1220; }
+  .art-c { background: radial-gradient(60% 80% at 50% 40%, #ffb347, transparent 60%), radial-gradient(60% 80% at 20% 90%, #f472b6, transparent 60%), #0b1220; }
+  .news-meta { @apply text-xs font-semibold uppercase tracking-wider; color: var(--muted-ink); }
+
+  .cta {
+    background:
+      radial-gradient(40% 70% at 20% 0%, rgba(47, 124, 246, 0.45), transparent 70%),
+      radial-gradient(40% 70% at 80% 100%, rgba(236, 72, 153, 0.3), transparent 70%),
+      radial-gradient(30% 50% at 60% 20%, rgba(255, 153, 51, 0.22), transparent 70%),
+      #05070d;
+  }
+  .section-dark { background: #05070d; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow, .grad, .caret { animation: none !important; }
+}
