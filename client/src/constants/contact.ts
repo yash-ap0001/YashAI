@@ -15,3 +15,5 @@ export const COMPANY = {
   cin: "U62090TS2025PTC197645",
   address: "H No. 5-81/34E/33S, P No. 33/Part, Durga Nagar, Kistareddypet, Patancheru, Medak – 502319, Telangana, India",
 } as const;
+
+export const DEMO_URL = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Demo request: YashAI platform')}`;

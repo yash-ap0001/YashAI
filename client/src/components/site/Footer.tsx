@@ -1,24 +1,31 @@
 import { COMPANY, CONTACT } from '@/constants/contact';
-import { products } from '@/constants/products';
+import { modules, industries } from '@/constants/platform';
 import Logo from './Logo';
 
 const Footer = () => (
   <footer className="site-footer">
-    <div className="container-x grid gap-10 py-14 md:grid-cols-4">
-      <div className="md:col-span-2 max-w-sm">
-        <Logo className="h-10 w-auto mb-4" />
+    <div className="container-x grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="lg:col-span-2 max-w-sm">
+        <Logo className="h-11 w-auto mb-4" />
         <p className="text-soft text-sm leading-relaxed">
-          AI products for Indian businesses: in Indian languages, private by design, priced for small teams.
+          The enterprise AI platform for India: agents, voice, video and knowledge, deployed on your terms.
         </p>
       </div>
 
       <div>
-        <h2 className="footer-heading">Products</h2>
+        <h2 className="footer-heading">Platform</h2>
         <ul className="space-y-2">
-          {products.map((p) => (
-            <li key={p.id}>
-              <a href={p.href ?? `/#${p.id}`} className="footer-link">{p.name}</a>
-            </li>
+          {modules.map((m) => (
+            <li key={m.id}><a href={`/#${m.id}`} className="footer-link">{m.name}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h2 className="footer-heading">Industries</h2>
+        <ul className="space-y-2">
+          {industries.map((i) => (
+            <li key={i.name}><a href="/#industries" className="footer-link">{i.name}</a></li>
           ))}
         </ul>
       </div>
@@ -27,13 +34,10 @@ const Footer = () => (
         <h2 className="footer-heading">Company</h2>
         <ul className="space-y-2">
           <li><a href="/#company" className="footer-link">About</a></li>
+          <li><a href="/#security" className="footer-link">Security</a></li>
           <li><a href="/#faq" className="footer-link">FAQ</a></li>
+          <li><a href="https://jobs.yashaitech.com" className="footer-link">GetJobEasy</a></li>
           <li><a href={`mailto:${CONTACT.email}`} className="footer-link">{CONTACT.email}</a></li>
-          <li>
-            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="footer-link">
-              WhatsApp {CONTACT.phoneDisplay}
-            </a>
-          </li>
         </ul>
       </div>
     </div>

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { CONTACT } from '@/constants/contact';
+import { DEMO_URL } from '@/constants/contact';
 import Logo from './Logo';
 
 const links = [
-  { label: 'Products', href: '/#products' },
-  { label: 'Why YashAI', href: '/#why' },
+  { label: 'Platform', href: '/#platform' },
+  { label: 'Industries', href: '/#industries' },
+  { label: 'Security', href: '/#security' },
   { label: 'Company', href: '/#company' },
-  { label: 'FAQ', href: '/#faq' },
 ];
 
 const Header = () => {
@@ -41,8 +41,8 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:block">
-          <a href={`mailto:${CONTACT.email}?subject=Early%20access`} className="btn btn-primary btn-sm">
-            Get early access
+          <a href={DEMO_URL} className="btn btn-primary btn-sm">
+            Request a demo
           </a>
         </div>
 
@@ -65,8 +65,8 @@ const Header = () => {
               {l.label}
             </a>
           ))}
-          <a href={`mailto:${CONTACT.email}?subject=Early%20access`} className="btn btn-primary mt-3">
-            Get early access
+          <a href={DEMO_URL} className="btn btn-primary mt-3">
+            Request a demo
           </a>
         </div>
       </nav>
