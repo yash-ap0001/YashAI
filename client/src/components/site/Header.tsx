@@ -4,9 +4,10 @@ import { DEMO_URL } from '@/constants/contact';
 import Logo from './Logo';
 
 const links = [
+  { label: 'Agents', href: '/#agents' },
+  { label: 'How we deploy', href: '/#how' },
   { label: 'Platform', href: '/#platform' },
-  { label: 'Industries', href: '/#industries' },
-  { label: 'Security', href: '/#security' },
+  { label: 'Pricing', href: '/#pricing' },
   { label: 'Company', href: '/#company' },
 ];
 
@@ -44,7 +45,7 @@ const Header = ({ overDark = false }: HeaderProps) => {
 
         <div className="hidden md:block">
           <a href={DEMO_URL} className="btn btn-primary btn-sm">
-            Request a demo
+            Book a workshop
           </a>
         </div>
 
@@ -68,7 +69,7 @@ const Header = ({ overDark = false }: HeaderProps) => {
             </a>
           ))}
           <a href={DEMO_URL} className="btn btn-primary mt-3">
-            Request a demo
+            Book a workshop
           </a>
         </div>
       </nav>

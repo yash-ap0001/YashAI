@@ -2,214 +2,236 @@ import { useEffect } from 'react';
 import { ArrowRight, Check, Cloud, Building, ServerCog } from 'lucide-react';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
-import { CommandCenter, AgentMock, VoiceApiMock, KnowledgeMock } from '@/components/site/Mocks';
-import PromptDemo from '@/components/site/PromptDemo';
-import { modules, industries, trust, type ModuleStatus } from '@/constants/platform';
+import AgentRun from '@/components/site/AgentRun';
+import { Workforce } from '@/components/site/Mocks';
+import { agents, capabilities, steps, plans, comparison } from '@/constants/agents';
+import { trust } from '@/constants/platform';
 import { COMPANY, CONTACT, DEMO_URL } from '@/constants/contact';
 
-const statusClass: Record<ModuleStatus, string> = {
-  'In development': 'badge',
-  'Roadmap': 'badge badge-muted',
-};
+const tools = ['Salesforce', 'HubSpot', 'Zendesk', 'SAP', 'NetSuite', 'Slack', 'Microsoft 365', 'Google Workspace', 'Twilio', 'Jira', 'ServiceNow', 'Shopify'];
+
+const facts = [
+  {
+    stat: '40%',
+    text: 'of enterprise applications are expected to embed task-specific AI agents by the end of 2026, up from under 5% in 2025.',
+    source: 'Gartner, via AI Accelerator Institute',
+    href: 'https://www.aiacceleratorinstitute.com/30-startups-rebuilding-enterprise-software-with-ai-agents/',
+  },
+  {
+    stat: '60%',
+    text: 'of agentic AI founders say workflow integration is the biggest blocker to adoption. That is the part we do for you.',
+    source: 'MMC Ventures, State of Agentic AI',
+    href: 'https://mmc.vc/research/state-of-agentic-ai-founders-edition/',
+  },
+  {
+    stat: '62%',
+    text: 'of agentic AI startups are now paid from core line-of-business budgets, not experimental innovation funds.',
+    source: 'MMC Ventures, State of Agentic AI',
+    href: 'https://mmc.vc/research/state-of-agentic-ai-founders-edition/',
+  },
+];
 
 const deployments = [
   { icon: Cloud, title: 'YashAI Cloud', body: 'Fully managed, in the region you choose. The fastest way to start.' },
-  { icon: Building, title: 'Private cloud', body: 'Deployed in your own AWS, Azure or Google Cloud account, in your region.' },
-  { icon: ServerCog, title: 'On-premise', body: 'Air-gapped deployment on your own GPUs, for the most sensitive workloads.' },
-];
-
-const principles = [
-  { title: 'Honest about what works', body: "Our agents say 'I don't know' and hand off to a person instead of guessing. Every answer from your documents shows its source." },
-  { title: 'Your data stays yours', body: 'Data stays in the region you choose, never trains models for other customers, and can stay entirely on your premises.' },
-  { title: 'Every language, first class', body: 'We design for accents, dialects and customers who switch languages mid-conversation from the start, not as an afterthought to English.' },
-  { title: 'People stay in control', body: 'Every agent action is logged, reviewable and reversible. Sensitive decisions always go to a human.' },
-];
-
-const news = [
-  { tag: 'Company', date: 'Sep 2026', title: 'Now accepting design partners', body: 'We are inviting a small group of companies to shape Yash Agents, Voice and Knowledge before general release.', href: '#partner', art: 'art-a' },
-  { tag: 'Company', date: 'Aug 2026', title: 'GetJobEasy launches', body: 'Our career platform for full-stack and Gen AI training, with a placement fee due only after an offer.', href: 'https://jobs.yashaitech.com', art: 'art-b' },
-  { tag: 'Company', date: 'Apr 2025', title: 'YashAI Technologies is incorporated', body: 'YashAI Technologies Private Limited is registered in Hyderabad, India, to build enterprise AI.', href: '#company', art: 'art-c' },
+  { icon: Building, title: 'Your cloud', body: 'Deployed in your own AWS, Azure or Google Cloud account.' },
+  { icon: ServerCog, title: 'On-premise', body: 'Air-gapped, on open-weight models and your own GPUs.' },
 ];
 
 const faqs = [
   {
-    q: 'Which parts of the platform are available today?',
-    a: 'Yash Agents, Yash Voice and Yash Knowledge are in development, and Yash Sovereign is on our roadmap. Each module on this page shows its current status. We are now accepting design partners for early access.',
+    q: 'What is the difference between an AI agent and a chatbot?',
+    a: 'A chatbot answers questions. An agent completes work: it plans the steps, uses your systems (CRM, ERP, ticketing, email), checks your policies, and finishes the task, asking a person to approve anything above the limits you set.',
   },
   {
-    q: 'What is a design partner?',
-    a: 'A company that uses a module before general release, tells us what works and what doesn\'t, and gets founding pricing and direct access to our engineering team in return. We are looking for our first design partners now.',
+    q: 'What happens when an agent makes a mistake?',
+    a: 'Every agent runs with guardrails and approval limits, and every step is logged so it can be replayed and reviewed. New agents start in shadow mode, where people approve every action, and only act alone once they have met the agreed accuracy on real work.',
   },
   {
-    q: 'Where is data processed and stored?',
-    a: 'In the region you choose. For regulated workloads we deploy in your own cloud account or on your premises, so data never leaves your control. We never train models for other customers on your data.',
+    q: 'Which AI models do you use?',
+    a: 'We are model-agnostic. We choose between leading commercial models and open-weight models for each task, based on accuracy, cost and where your data must stay, and we evaluate them on your real cases before going live.',
   },
   {
-    q: 'Which models do you use?',
-    a: 'We build on leading open-weight language and speech models, adapted and evaluated for multilingual use. Because we control the models, we can run them wherever your data needs to stay.',
+    q: 'Do we own the agents and the data?',
+    a: 'Yes. Your data, prompts, evaluation sets and configurations belong to you. Your data is never used to train models for other customers.',
   },
   {
-    q: 'Do you have security certifications?',
-    a: 'We are an early-stage company and do not yet hold SOC 2 or ISO 27001 certification; both are on our roadmap. Today we design around GDPR and India\'s DPDP Act and offer on-premise deployment for sensitive data.',
+    q: 'How quickly can we see results?',
+    a: 'Our pilot is designed to run for four weeks: one week to map and build, a week of shadow mode, and a go-live against a KPI you agree to up front.',
   },
   {
-    q: 'Who is behind YashAI?',
-    a: `${COMPANY.legalName} (CIN ${COMPANY.cin}) was incorporated in April 2025 and is headquartered in Hyderabad, India. We build for customers worldwide.`,
+    q: 'Do you have case studies and certifications?',
+    a: `We are a young company (${COMPANY.legalName}, incorporated April 2025) and are recruiting our first pilot customers now, so we don't yet have public case studies, SOC 2 or ISO 27001. That's why our pilots are fixed-fee, with success criteria written down before we start.`,
   },
 ];
 
 const Home = () => {
   useEffect(() => {
-    document.title = 'YashAI | Enterprise AI in every language';
+    document.title = 'YashAI | AI agents that do the work';
   }, []);
 
   return (
     <div className="site">
       <a href="#main" className="skip-link">Skip to content</a>
-      <a href="#partner" className="announce">
-        Now accepting design partners for Yash Agents, Voice and Knowledge <ArrowRight size={14} aria-hidden="true" />
+      <a href="#pricing" className="announce">
+        Now booking 4-week agent pilots for Q4 2026 <ArrowRight size={14} aria-hidden="true" />
       </a>
       <Header overDark />
 
       <main id="main">
-        {/* Hero: dark, cosmic, with a live-feeling prompt */}
+        {/* Hero */}
         <section className="hero-dark">
           <div className="stars" aria-hidden="true" />
           <div className="glow" aria-hidden="true" />
           <div className="container-x relative text-center">
-            <p className="hero-pill">
-              <span className="eyebrow-dot" /> Now accepting design partners
-            </p>
+            <p className="hero-pill"><span className="eyebrow-dot" /> Agentic AI, deployed</p>
             <h1 className="display-xl">
-              Enterprise AI that speaks <span className="grad">every language.</span>
+              AI agents that <span className="grad">do&nbsp;the&nbsp;work.</span>
             </h1>
             <p className="hero-sub">
-              One platform for customer agents, real-time voice and private knowledge search. Built for
-              global teams, deployed in the region you choose, on your terms.
+              We design, build and run production AI agents for support, sales, finance, security and operations.
+              They are embedded in your tools, governed by your rules and measured against your KPIs.
             </p>
-            <PromptDemo />
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={DEMO_URL} className="btn btn-light">Request a demo <ArrowRight size={18} aria-hidden="true" /></a>
-              <a href="#platform" className="btn btn-outline-light">Explore the platform</a>
+              <a href={DEMO_URL} className="btn btn-light">Book a free workflow workshop <ArrowRight size={18} aria-hidden="true" /></a>
+              <a href="#agents" className="btn btn-outline-light">Meet the agents</a>
+            </div>
+            <AgentRun />
+          </div>
+        </section>
+
+        {/* Tools strip */}
+        <section className="strip" aria-label="Systems our agents work with">
+          <div className="container-x py-6">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.14em] text-soft mb-4">
+              Agents that work inside the systems you already use
+            </p>
+            <div className="tool-row">
+              {tools.map((t) => <span key={t}>{t}</span>)}
             </div>
           </div>
         </section>
 
-        {/* Designed-for strip */}
-        <section className="strip" aria-label="Platform principles">
-          <div className="container-x strip-row">
-            <span>Regional data residency</span>
-            <span>Privacy by design</span>
-            <span>Multilingual by default</span>
-            <span>Cloud, private cloud or on-premise</span>
-            <span>Open-weight models</span>
-          </div>
-        </section>
-
-        {/* Platform in action */}
-        <section className="section pb-0">
+        {/* Why now */}
+        <section className="section">
           <div className="container-x">
             <div className="section-head">
-              <p className="kicker">One control plane</p>
-              <h2 className="h2">Every agent, language and deployment in one view.</h2>
+              <p className="kicker">Why now</p>
+              <h2 className="h2">Agents have moved from experiments to the P&amp;L.</h2>
             </div>
-            <CommandCenter />
+            <div className="facts-grid">
+              {facts.map((f) => (
+                <div key={f.stat} className="fact">
+                  <p className="fact-stat">{f.stat}</p>
+                  <p className="mt-3 leading-relaxed">{f.text}</p>
+                  <a href={f.href} target="_blank" rel="noopener noreferrer" className="fact-src">Source: {f.source}</a>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Platform */}
-        <section id="platform" className="section">
+        {/* Agents */}
+        <section id="agents" className="section section-alt">
           <div className="container-x">
             <div className="section-head">
-              <p className="kicker">The platform</p>
-              <h2 className="h2">One platform. Four ways to put AI to work.</h2>
+              <p className="kicker">Meet the agents</p>
+              <h2 className="h2">A digital workforce, built around your workflows.</h2>
               <p className="lead">
-                Each module works on its own and gets stronger together: shared models, shared knowledge,
-                one place to govern it all.
+                Each agent owns a job, not just a prompt. We configure it on your systems, policies and data, then
+                prove it on one workflow before scaling it.
               </p>
             </div>
-            <div className="bento">
-              {modules.map((m) => {
-                const Icon = m.icon;
+            <div className="agent-grid">
+              {agents.map((a) => {
+                const Icon = a.icon;
                 return (
-                  <article key={m.id} id={m.id} className="module module-wide">
-                    <div className="flex items-start justify-between gap-4">
-                      <span className="icon-tile"><Icon size={22} aria-hidden="true" /></span>
-                      <span className={statusClass[m.status]}>{m.status}</span>
+                  <article key={a.id} id={a.id} className="agent">
+                    <div className="flex items-center gap-3">
+                      <span className="agent-avatar"><Icon size={20} aria-hidden="true" /></span>
+                      <div>
+                        <h3 className="font-semibold leading-tight">{a.name}</h3>
+                        <p className="text-soft text-sm">{a.role}</p>
+                      </div>
                     </div>
-                    <p className="module-cat">{m.category}</p>
-                    <h3 className="h3">{m.name}</h3>
-                    <p className="module-head">{m.headline}</p>
-                    <p className="text-soft mt-3 text-[15px] leading-relaxed">{m.description}</p>
-                    <ul className="mt-5 space-y-2">
-                      {m.capabilities.map((c) => (
-                        <li key={c} className="flex gap-2 text-[15px]">
-                          <Check size={18} className="text-brand shrink-0 mt-0.5" aria-hidden="true" />
-                          <span>{c}</span>
+                    <p className="agent-summary">{a.summary}</p>
+                    <ul className="space-y-1.5 text-[14px]">
+                      {a.tasks.map((t) => (
+                        <li key={t} className="flex gap-2">
+                          <Check size={16} className="text-brand shrink-0 mt-0.5" aria-hidden="true" />
+                          <span>{t}</span>
                         </li>
                       ))}
                     </ul>
+                    <div className="agent-tools">
+                      {a.tools.map((t) => <span key={t}>{t}</span>)}
+                    </div>
+                    <p className="agent-pilot"><span>First pilot:</span> {a.pilot}</p>
                   </article>
                 );
               })}
             </div>
+            <p className="text-soft mt-8 text-center">
+              Don't see your workflow? Most of our work is custom agents.{' '}
+              <a className="text-link" href={DEMO_URL}>Tell us the job <ArrowRight size={15} aria-hidden="true" /></a>
+            </p>
           </div>
         </section>
 
-        {/* Deep dives */}
-        <section className="section section-alt">
-          <div className="container-x space-y-28">
-            <div className="spotlight">
-              <div>
-                <p className="kicker">Yash Agents</p>
-                <h2 className="h2">Agents that take action, not just answer.</h2>
-                <p className="lead">
-                  Agents don't stop at answering. They look up the order, create the return, book the pickup and
-                  confirm by email or message, and hand off to a person with full context when judgement is needed.
-                </p>
-              </div>
-              <AgentMock />
-            </div>
-            <div className="spotlight spotlight-rev">
-              <div>
-                <p className="kicker">Yash Voice</p>
-                <h2 className="h2">Voice AI for the way people actually speak.</h2>
-                <p className="lead">
-                  Real callers have accents, background noise and switch languages mid-sentence. Yash Voice is being
-                  built for real-world speech from the start, as streaming APIs developers can build on.
-                </p>
-              </div>
-              <VoiceApiMock />
-            </div>
-            <div className="spotlight">
-              <div>
-                <p className="kicker">Yash Knowledge</p>
-                <h2 className="h2">Every answer, with its source.</h2>
-                <p className="lead">
-                  Connect drives, policies and tickets once. Staff and agents get answers grounded in your own
-                  documents, with citations, and only from files each person is allowed to see.
-                </p>
-              </div>
-              <KnowledgeMock />
-            </div>
-          </div>
-        </section>
-
-        {/* Industries */}
-        <section id="industries" className="section">
+        {/* Workforce view */}
+        <section className="section pb-0">
           <div className="container-x">
             <div className="section-head">
-              <p className="kicker">Industries</p>
-              <h2 className="h2">Built for industries that run on conversations.</h2>
+              <p className="kicker">One control plane</p>
+              <h2 className="h2">See every agent, every action, every approval.</h2>
+              <p className="lead">
+                A single view of your digital workforce: what each agent did today, what is waiting for a human, and
+                how every agent is performing against its KPI.
+              </p>
             </div>
-            <div className="industry-grid">
-              {industries.map(({ name, icon: Icon, uses }) => (
-                <div key={name} className="industry">
-                  <Icon size={22} className="text-brand" aria-hidden="true" />
-                  <h3 className="h3 mt-4">{name}</h3>
-                  <ul className="mt-3 space-y-1.5 text-[15px] text-soft">
-                    {uses.map((u) => <li key={u}>{u}</li>)}
-                  </ul>
+            <Workforce />
+          </div>
+        </section>
+
+        {/* How we deploy */}
+        <section id="how" className="section">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">How we deploy</p>
+              <h2 className="h2">From workshop to a live agent in four weeks.</h2>
+              <p className="lead">
+                Our forward-deployed engineers work inside your team. We start with one workflow, prove the result,
+                then expand.
+              </p>
+            </div>
+            <ol className="timeline">
+              {steps.map((s) => (
+                <li key={s.title} className="tl-step">
+                  <span className="tl-week">{s.week}</span>
+                  <h3 className="h3 mt-2">{s.title}</h3>
+                  <p className="text-soft mt-2 text-[15px] leading-relaxed">{s.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Platform */}
+        <section id="platform" className="section section-alt">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">The agent platform</p>
+              <h2 className="h2">Everything an agent needs to be trusted in production.</h2>
+              <p className="lead">
+                Model-agnostic by design. Every agent runs on the model that fits the task: leading commercial
+                models, or open-weight models in your own environment.
+              </p>
+            </div>
+            <div className="cap-grid">
+              {capabilities.map(({ title, body, icon: Icon }) => (
+                <div key={title} className="cap">
+                  <span className="icon-tile"><Icon size={20} aria-hidden="true" /></span>
+                  <h3 className="h3 mt-4">{title}</h3>
+                  <p className="text-soft mt-2 text-[15px] leading-relaxed">{body}</p>
                 </div>
               ))}
             </div>
@@ -220,10 +242,10 @@ const Home = () => {
         <section id="security" className="section section-dark">
           <div className="container-x">
             <div className="section-head">
-              <p className="kicker kicker-dark">Security & trust</p>
-              <h2 className="h2 text-white">Enterprise-grade control over your data.</h2>
+              <p className="kicker kicker-dark">Security &amp; governance</p>
+              <h2 className="h2 text-white">Autonomy, with you in control.</h2>
               <p className="lead lead-dark">
-                Designed for banks, hospitals and governments from day one, not bolted on later.
+                Agents act inside limits you define. Anything outside them goes to a person, and everything is on the record.
               </p>
             </div>
             <div className="trust-grid">
@@ -235,7 +257,6 @@ const Home = () => {
                 </div>
               ))}
             </div>
-
             <div className="deploy-grid">
               {deployments.map(({ icon: Icon, title, body }) => (
                 <div key={title} className="deploy">
@@ -250,20 +271,77 @@ const Home = () => {
           </div>
         </section>
 
+        {/* Comparison */}
+        <section className="section">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">Build, buy or partner</p>
+              <h2 className="h2">The speed of software, the fit of a custom build.</h2>
+            </div>
+            <div className="table-wrap">
+              <table className="compare">
+                <thead>
+                  <tr>
+                    <th scope="col"><span className="sr-only">Criteria</span></th>
+                    <th scope="col">Build in-house</th>
+                    <th scope="col">Large consultancy</th>
+                    <th scope="col">Off-the-shelf agent</th>
+                    <th scope="col" className="us">YashAI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparison.map((r) => (
+                    <tr key={r.label}>
+                      <th scope="row">{r.label}</th>
+                      <td>{r.diy}</td>
+                      <td>{r.si}</td>
+                      <td>{r.saas}</td>
+                      <td className="us">{r.us}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section id="pricing" className="section section-alt">
+          <div className="container-x">
+            <div className="section-head">
+              <p className="kicker">Engagement models</p>
+              <h2 className="h2">Start with a pilot. Scale what works.</h2>
+            </div>
+            <div className="plan-grid">
+              {plans.map((p) => (
+                <div key={p.name} className={`plan${p.featured ? ' plan-featured' : ''}`}>
+                  <p className="plan-name">{p.name}</p>
+                  <p className="h3 mt-1">{p.tagline}</p>
+                  <p className="plan-price">{p.price}</p>
+                  <ul className="mt-5 space-y-2.5 text-[15px]">
+                    {p.points.map((pt) => (
+                      <li key={pt} className="flex gap-2">
+                        <Check size={18} className="shrink-0 mt-0.5 plan-check" aria-hidden="true" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={DEMO_URL} className={`btn mt-7 w-full ${p.featured ? 'btn-light' : 'btn-primary'}`}>Talk to us</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Company */}
         <section id="company" className="section">
           <div className="container-x grid gap-12 md:grid-cols-2 items-start">
             <div>
               <p className="kicker">Company</p>
-              <h2 className="h2">Our mission: make world-class AI work for every business, in every language.</h2>
+              <h2 className="h2">Engineers who ship agents, not slide decks.</h2>
               <p className="lead">
-                Most enterprise AI is built for English-speaking customers and a single cloud. Real businesses serve
-                customers in many languages, under strict data rules. YashAI is building the platform that fits,
-                from Hyderabad, for the world.
-              </p>
-              <p className="text-soft mt-5">
-                Also from YashAI: <a className="text-link" href="https://jobs.yashaitech.com">GetJobEasy</a>, our
-                career-training platform for software engineers.
+                YashAI is an agentic AI company. We build production agents alongside our customers' teams and stay
+                accountable for the results. We are headquartered in Hyderabad, India, and work with companies worldwide.
               </p>
             </div>
             <dl className="facts">
@@ -276,55 +354,12 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Principles */}
-        <section id="principles" className="section">
-          <div className="container-x">
-            <div className="section-head">
-              <p className="kicker">Our principles</p>
-              <h2 className="h2">How we build AI we'd trust with our own customers.</h2>
-            </div>
-            <div className="principles">
-              {principles.map((p, i) => (
-                <div key={p.title} className="principle">
-                  <span className="principle-num">0{i + 1}</span>
-                  <h3 className="h3">{p.title}</h3>
-                  <p className="text-soft mt-2 leading-relaxed">{p.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Newsroom */}
-        <section id="news" className="section section-alt">
-          <div className="container-x">
-            <div className="section-head flex items-end justify-between gap-6 max-w-none">
-              <div>
-                <p className="kicker">Latest</p>
-                <h2 className="h2">News from YashAI</h2>
-              </div>
-            </div>
-            <div className="news-grid">
-              {news.map((n) => (
-                <a key={n.title} href={n.href} className="news-card">
-                  <div className={`news-art ${n.art}`} aria-hidden="true" />
-                  <div className="p-6">
-                    <p className="news-meta">{n.tag} · {n.date}</p>
-                    <h3 className="h3 mt-2">{n.title}</h3>
-                    <p className="text-soft mt-2 text-[15px] leading-relaxed">{n.body}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
         <section id="faq" className="section section-alt">
           <div className="container-x max-w-3xl">
             <div className="section-head">
               <p className="kicker">FAQ</p>
-              <h2 className="h2">Questions enterprises ask us.</h2>
+              <h2 className="h2">What buyers ask us.</h2>
             </div>
             <div className="faq">
               {faqs.map((f) => (
@@ -341,13 +376,13 @@ const Home = () => {
         <section id="partner" className="section">
           <div className="container-x">
             <div className="cta">
-              <h2 className="h2 text-white">Become a design partner.</h2>
+              <h2 className="h2 text-white">Which job should your first agent do?</h2>
               <p className="mt-4 text-white/75 max-w-xl mx-auto text-lg">
-                We're looking for a small group of companies to shape the platform with us. Partners get early
-                access, founding pricing and a direct line to our engineers.
+                Book a free 30-minute workflow workshop. We'll map your top three automatable workflows and tell you
+                honestly which one an agent should take first.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href={DEMO_URL} className="btn btn-light">Request a demo <ArrowRight size={18} aria-hidden="true" /></a>
+                <a href={DEMO_URL} className="btn btn-light">Book the workshop <ArrowRight size={18} aria-hidden="true" /></a>
                 <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline-light">
                   Message us on WhatsApp
                 </a>

@@ -1,5 +1,5 @@
 import { COMPANY, CONTACT } from '@/constants/contact';
-import { modules, industries } from '@/constants/platform';
+import { agents } from '@/constants/agents';
 import Logo from './Logo';
 
 const Footer = () => (
@@ -8,25 +8,27 @@ const Footer = () => (
       <div className="lg:col-span-2 max-w-sm">
         <Logo className="h-11 w-auto mb-4" />
         <p className="text-soft text-sm leading-relaxed">
-          Enterprise AI in every language: agents, voice and knowledge, deployed on your terms.
+          AI agents that do the work, designed, built and run by our engineers inside your systems.
         </p>
       </div>
 
       <div>
-        <h2 className="footer-heading">Platform</h2>
+        <h2 className="footer-heading">Agents</h2>
         <ul className="space-y-2">
-          {modules.map((m) => (
-            <li key={m.id}><a href={`/#${m.id}`} className="footer-link">{m.name}</a></li>
+          {agents.map((a) => (
+            <li key={a.id}><a href={`/#${a.id}`} className="footer-link">{a.name} · {a.role.replace(' Agent', '')}</a></li>
           ))}
         </ul>
       </div>
 
       <div>
-        <h2 className="footer-heading">Industries</h2>
+        <h2 className="footer-heading">Platform</h2>
         <ul className="space-y-2">
-          {industries.map((i) => (
-            <li key={i.name}><a href="/#industries" className="footer-link">{i.name}</a></li>
-          ))}
+          <li><a href="/#how" className="footer-link">How we deploy</a></li>
+          <li><a href="/#platform" className="footer-link">Agent platform</a></li>
+          <li><a href="/#security" className="footer-link">Security &amp; governance</a></li>
+          <li><a href="/#pricing" className="footer-link">Engagement models</a></li>
+          <li><a href="/#faq" className="footer-link">FAQ</a></li>
         </ul>
       </div>
 
@@ -34,10 +36,11 @@ const Footer = () => (
         <h2 className="footer-heading">Company</h2>
         <ul className="space-y-2">
           <li><a href="/#company" className="footer-link">About</a></li>
-          <li><a href="/#security" className="footer-link">Security</a></li>
-          <li><a href="/#faq" className="footer-link">FAQ</a></li>
           <li><a href="https://jobs.yashaitech.com" className="footer-link">GetJobEasy</a></li>
           <li><a href={`mailto:${CONTACT.email}`} className="footer-link">{CONTACT.email}</a></li>
+          <li>
+            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="footer-link">WhatsApp</a>
+          </li>
         </ul>
       </div>
     </div>
